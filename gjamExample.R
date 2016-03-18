@@ -17,6 +17,7 @@ traitTypes
 
 
 
+
 tmp    <- gjamCensorY(values = c(0,1), intervals = cbind( c(-Inf,0),c(1,Inf) ),
                       y = u, whichcol = c(13:14))
 censor <- append(censor,list('CA' = tmp$censor))
