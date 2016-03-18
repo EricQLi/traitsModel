@@ -22,6 +22,18 @@ tmp    <- gjamCensorY(values = c(0,1), intervals = cbind( c(-Inf,0),c(1,Inf) ),
 censor <- append(censor,list('CA' = tmp$censor))
 
 
+
+
+modelList <- list(ng =1000, burnin = 500, typeNames = tTypes,
+                  holdoutN = 20, xfactors='soil', censor=censor)
+output    <- gjamGibbs(~ temp + u1 + u2 + u3 + moisture*(deficit+soil),
+                       xdata = xdata, ydata = u, 
+                       modelList = modelList)
+plotPars  <- list(width = 3, height = 3, CLUSTERPLOTS = TRUE)           
+fit       <- gjamPlot(output, plotPars)
+
+
+
 specByTrait <- forestTraits$specByTrait
 
 
