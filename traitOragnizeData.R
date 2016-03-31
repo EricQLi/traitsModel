@@ -8,8 +8,11 @@ tw <- bm/rowSums(bm)
 ww <- read.csv('data/pre/wwAll.csv')$w
 
 
-plotByX <- cbind(ll, cl, so)[ww,]
+plotByX <- cbind(ll, cl)[ww,]
+plotByX$soil <- so[ww,]
+
 plotByW <- tw[ww,]
+plotByY <- bm[ww,]
 
 dem <- read.csv('data/pre/demAll.csv')
 
@@ -29,5 +32,6 @@ speciesByTraits <- cbind(speciesByTraits[,1:6],leaf )
 
 write.table(plotByX, 'data/post/plotByX.csv', sep = ',')
 write.table(plotByW, 'data/post/plotByW.csv', sep = ',')
+write.table(plotByY, 'data/post/plotByY.csv', sep = ',')
 write.table(speciesByTraits, 'data/post/speciesByTraits.csv', sep = ',')
 
