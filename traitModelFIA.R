@@ -1,6 +1,7 @@
 library(gjam)
 
 plotByX <- as.data.frame(read.csv('data/post/plotByX.csv'))
+plotByY <- as.matrix(read.csv('data/post/plotByY.csv'))
 plotByW <- as.matrix(read.csv('data/post/plotByW.csv'))
 speciesByTraits <- as.data.frame(read.csv('data/post/speciesByTraits.csv'))
 
@@ -16,8 +17,11 @@ traitList <- list(plotByTrait = tmp$plotByCWM,
 
 reductList <- list(r = 3, N = 20)
 
-modelList <- list(ng=10000, burnin=5000, typeNames = 'CC', 
+modelList <- list(ng=10000, 
+                  burnin=5000,
+                  typeNames = 'CON', 
                   holdoutN = 20,
+                  xfactors='soil',
                   traitList = traitList, 
                   reductList = reductList)
 
