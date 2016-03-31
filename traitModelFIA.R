@@ -16,15 +16,21 @@ traitList <- list(plotByTrait = tmp$plotByCWM,
 
 reductList <- list(r = 3, N = 20)
 
-modelList <- list(ng=2000, burnin=500, typeNames = 'CC', 
+modelList <- list(ng=10000, burnin=5000, typeNames = 'CC', 
                   holdoutN = 20,
                   traitList = traitList, 
                   reductList = reductList)
 
-output  <- gjamGibbs(~ temp + therm + deficit + moisture, 
+output  <- gjamGibbs(~ temp + therm + deficit + moisture + 
+                       deficit*moisture + therm*moisture +
+                       #deficit*temp + therm*temp +
+                       soil +
+                       #+ temp*soil
+                       moisture*soil + deficit*soil + therm*soil,
                      xdata = plotByX, 
                      ydata = plotByW, 
                      modelList = modelList)
+
 #save(output, file = 'output1.RData')
 
 plotPars  <- list(width=4, height=4, corLines=F,
@@ -39,3 +45,4 @@ output$modelSummary$sigmaTraitSe  # M by M covariance std errors
 
 output$modelSummary$tMu[1:5,]     # n by M predictive means
 output$modelSummary$tSd[1:5,]   # n by M predictive std errors
+
