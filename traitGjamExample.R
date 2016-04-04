@@ -3,9 +3,11 @@ data(forestTraits)
 xdata       <- forestTraits$xdata
 traitTypes  <- forestTraits$traitTypes
 plotByTrees <- gjamReZero(forestTraits$treesDeZero)  # re-zero data
+
 tmp         <- gjamSpec2Trait(pbys = plotByTrees, 
                               sbyt = forestTraits$specByTrait, 
                               tTypes = forestTraits$traitTypes)
+
 tTypes      <- tmp$traitTypes
 u           <- tmp$plotByCWM
 censor      <- tmp$censor

@@ -3,23 +3,26 @@ library(gjam)
 plotByX <- as.data.frame(read.csv('data/post/plotByX.csv'))
 plotByY <- as.matrix(read.csv('data/post/plotByY.csv'))
 plotByW <- as.matrix(read.csv('data/post/plotByW.csv'))
+
 speciesByTraits <- as.data.frame(read.csv('data/post/speciesByTraits.csv'))
 
-traitTypes <- c(rep('CON',6), 'CAT')
+#traitTypes <- c(rep('CON',6), rep('FC', 3))
+traitTypes <- c(rep('CON',6), rep('CAT', 1))
 
-tmp         <- gjamSpec2Trait(pbys = plotByW, 
+tmp         <- gjamSpec2Trait(pbys = plotByY, 
                               sbyt = speciesByTraits, 
                               tTypes = traitTypes)
 
 traitList <- list(plotByTrait = tmp$plotByCWM, 
-                  traitTypes = traitTypes, 
+                  traitTypes = tmp$traitTypes, 
                   specByTrait = tmp$specByTrait)
+
 
 reductList <- list(r = 3, N = 20)
 
-modelList <- list(ng=10000, 
-                  burnin=5000,
-                  typeNames = 'CON', 
+modelList <- list(ng=100, 
+                  burnin=50,
+                  typeNames = 'CA', 
                   holdoutN = 20,
                   xfactors='soil',
                   traitList = traitList, 
@@ -27,16 +30,15 @@ modelList <- list(ng=10000,
 
 output  <- gjamGibbs(~ temp + therm + deficit + moisture + 
                        deficit*moisture + therm*moisture +
-                       #deficit*temp + therm*temp +
+                       #deficit*temp + therm*temp + temp*soil+
                        soil +
-                       #+ temp*soil
                        moisture*soil + deficit*soil + therm*soil,
                      xdata = plotByX, 
                      ydata = plotByW, 
                      modelList = modelList)
 
 #save(output, file = 'output1.RData')
-
+load('output2000-W-soil.RData')
 plotPars  <- list(width=4, height=4, corLines=F,
                   SMALLPLOTS=F, CLUSTERPLOTS=T)                  
 
