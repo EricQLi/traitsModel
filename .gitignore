@@ -1,14 +1,11 @@
 .Rproj.user
 .Rhistory
 .RData
-<<<<<<< HEAD
 gjam_2.0.tar
 gjam_2.0.tar.gz
-=======
 gjam_2.0-2.tar
 output10000.RData
 output2-soil.RData
->>>>>>> 03496c6e2b687f7d54118d496edcd649cb44d4ff
 output2000-W-soil.RData
 output2000-W.RData
 output6000-Y.RData

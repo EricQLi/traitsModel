@@ -3,10 +3,8 @@ library(gjam)
 plotByX <- as.data.frame(read.csv('data/post/plotByX.csv'))
 plotByY <- as.matrix(read.csv('data/post/plotByY.csv'))
 plotByW <- as.matrix(read.csv('data/post/plotByW.csv'))
-
 speciesByTraits <- as.data.frame(read.csv('data/post/speciesByTraits.csv'))
 
-#traitTypes <- c(rep('CON',6), rep('FC', 3))
 traitTypes <- c(rep('CON',6), rep('CAT', 1))
 
 tmp         <- gjamSpec2Trait(pbys = plotByY, 
@@ -37,8 +35,9 @@ output  <- gjamGibbs(~ temp + therm + deficit + moisture +
                      ydata = plotByW, 
                      modelList = modelList)
 
-#save(output, file = 'output1.RData')
-load('output2000-W-soil.RData')
+#save(output, file = 'output-6-3.RData')
+# load('output2000-W-soil.RData')
+
 plotPars  <- list(width=4, height=4, corLines=F,
                   SMALLPLOTS=F, CLUSTERPLOTS=T)                  
 
