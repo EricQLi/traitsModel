@@ -18,21 +18,24 @@ traitList <- list(plotByTrait = tmp$plotByCWM,
 
 reductList <- list(r = 3, N = 20)
 
-modelList <- list(ng=6000, 
-                  burnin=3000,
+modelList <- list(ng=2000, 
+                  burnin=1000,
                   typeNames = 'CA', 
                   holdoutN = 20,
                   #xfactors='soil',
                   traitList = traitList, 
                   reductList = reductList)
+xdata <- plotByX[,c(3:8)]
+# str(xdata)
+# xdata [,-6] <- scale(xdata[,-6])
 
 output  <- gjamGibbs(~ temp + therm + deficit + moisture + 
                        deficit*moisture + therm*moisture +
                        #deficit*temp + therm*temp + temp*soil+
                        soil +
                        moisture*soil + deficit*soil + therm*soil,
-                     xdata = plotByX, 
-                     ydata = plotByW, 
+                     xdata = xdata, 
+                     ydata = plotByY, 
                      modelList = modelList)
 
 
