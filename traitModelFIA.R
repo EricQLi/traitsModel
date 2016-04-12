@@ -31,17 +31,17 @@ xdata <- plotByX
 # str(xdata)
 # xdata [,-6] <- scale(xdata[,-6])
 
-output  <- gjamGibbs(~ temp + therm + deficit + moisture + 
+output  <- gjamGibbs(~ temp  + deficit + moisture + soil +
                        deficit*moisture + therm*moisture +
                        #deficit*temp + therm*temp + temp*soil+
-                       soil +
-                       moisture*soil + deficit*soil + therm*soil,
+                      # soil +
+                       #moisture*soil + deficit*soil + therm*soil,
                      xdata = plotByX, 
                      ydata = plotByY, 
                      modelList = modelList)
 
 
-save(output, file = 'output-12-6-dr.RData')
+save(output, file = 'output-15-8-dr-l.RData')
 
 #load('output-6-3.RData')
 
