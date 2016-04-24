@@ -26,8 +26,8 @@ modelList <- list(ng=15000,
                   traitList = traitList)
 
 
-attr(xdata$soil,'reference') <- 'Others'   # reference class
-attr(xdata$soil,'intType')   <- 'ref'
+attr(plotByX$soil,'reference') <- 'Others'   # reference class
+attr(plotByX$soil,'intType')   <- 'ref'
 
 output  <- gjamGibbs(~ temp  + deficit + moisture + soil +
                        deficit*moisture + therm*moisture +
