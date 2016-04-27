@@ -57,6 +57,9 @@ table(ecoRegion)
 
 plotByX$ecoRegion <- ecoRegion
 plotByX$physioRegion <- physioRegion
+exposure <- slopeAspectToExposure(plotByX$slope, plotByX$aspect, degree = T)
+
+plotByX <- cbind(plotByX, exposure)
 
 write.table(plotByX, 'data/post/plotByX.csv', sep = ',')
 write.table(plotByW, 'data/post/plotByW.csv', sep = ',')
