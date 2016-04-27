@@ -38,7 +38,7 @@ output  <- gjamGibbs(~ temp  + deficit + moisture + soil +
 
 
 save(output, file = 'output-15-10-dr3.30.RData')
-
+load('~/Google Drive/Shared/output-15-10-dr5.40.RData')
 
 plotPars  <- list(width=4, height=4, corLines=F,
                   SMALLPLOTS=F, CLUSTERPLOTS=T)                  

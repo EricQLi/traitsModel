@@ -30,8 +30,37 @@ speciesByTraits <- cbind(speciesByTraits[,1:6],leaf )
 # cwt.m <- read.csv('data/pre/traitMuAll.csv')
 # cwt.v <- read.csv('data/pre/traitSdAll.csv')
 
+
+
+source('~/Projects/procVisData/geoSpatial.R')
+library(raster)
+library(data.table)
+library(tools)
+
+### readin slope aspect
+allPlotDEM <- read.csv('data/pre/allPlotDEMdata.csv')
+plotNames <- matrix(unlist(strsplit(rownames(plotByX), split = '_ereg_')), ncol = 2, byrow = T)[,1]
+allPlotDEM$X <- as.character(allPlotDEM$X)
+w <-match(plotNames, allPlotDEM$X)
+plotByX <- cbind(plotByX, allPlotDEM[w,4:6])
+plotByX <- as.data.table(plotByX)
+
+physioShape <- shapefile('data/maps/physioProvinceLatLon/physioProvinceLatLon.shp')
+wPoly <- whichPolygon(plotByX[,.(plotLon, plotLat)], physioShape)
+physioRegion <- as.factor(toTitleCase(tolower(physioShape@data$PROVINCE[wPoly])))
+table(physioRegion)
+
+ecoShape <- shapefile('data/maps/ecoregions/eco_us_latlon.shp')
+wEco <- whichPolygon(plotByX[,.(plotLon, plotLat)], ecoShape)
+ecoRegion <- as.factor(toTitleCase(tolower(ecoShape@data$PROVINCE[wEco])))
+table(ecoRegion)
+
+plotByX$ecoRegion <- ecoRegion
+plotByX$physioRegion <- physioRegion
+
 write.table(plotByX, 'data/post/plotByX.csv', sep = ',')
 write.table(plotByW, 'data/post/plotByW.csv', sep = ',')
 write.table(plotByY, 'data/post/plotByY.csv', sep = ',')
 write.table(speciesByTraits, 'data/post/speciesByTraits.csv', sep = ',')
+
 
