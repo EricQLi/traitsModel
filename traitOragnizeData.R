@@ -39,6 +39,9 @@ library(tools)
 
 ### readin slope aspect
 allPlotDEM <- read.csv('data/pre/allPlotDEMdata.csv')
+
+allPlotDEM[which(is.na(allPlotDEM$slope)), c("slope","aspect")] <- 0
+
 plotNames <- matrix(unlist(strsplit(rownames(plotByX), split = '_ereg_')), ncol = 2, byrow = T)[,1]
 allPlotDEM$X <- as.character(allPlotDEM$X)
 w <-match(plotNames, allPlotDEM$X)
