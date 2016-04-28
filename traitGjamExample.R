@@ -27,7 +27,7 @@ traitList <- list(plotByTrait = u, traitTypes = tTypes,
 
 reductList <- list(r = 3, N = 20)
 
-modelList <- list(ng=2000, burnin=500, typeNames = 'CC', holdoutN = 20,
+modelList <- list(ng=100, burnin=50, typeNames = 'CC', holdoutN = 20,
                   traitList = traitList, reductList = reductList)
 
 output  <- gjamGibbs(~ temp + stdage + deficit*soil, xdata = xdata, 

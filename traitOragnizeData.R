@@ -32,9 +32,9 @@ speciesByTraits <- as.data.frame(t(traitBySpecies))
 leaf <- colnames(speciesByTraits)[7:9][rowSums(speciesByTraits[,7:9]*matrix(1:3, nrow = 65, ncol = 3, byrow = T))]
 speciesByTraits <- cbind(speciesByTraits[,1:6],leaf )
 
-# cwt.m <- read.csv('data/pre/traitMuAll.csv')
-# cwt.v <- read.csv('data/pre/traitSdAll.csv')
-
+# traitMuAll <- read.csv('data/pre/traitMuAll.csv')
+# traitSdAll <- read.csv('data/pre/traitSdAll.csv')
+# 
 
 #denormalizing the speciesByTraits matrix
 for(i in 1:6) 
