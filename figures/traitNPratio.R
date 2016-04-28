@@ -1,6 +1,7 @@
 #####################################
 plotNP <- CWT$perMass[,'N']/CWT$perMass[,'P']
-png('figures/ßNP-ratio.png', units='in',res=300, height  = 8, width=8)
+
+png('figures/NP-ratio.png', units='in',res=300, height  = 8, width=8)
 layout(matrix(c(3,1,1,3,1,1,4,2,2),3,3))
 par(mar=c(0,0,0,0), oma=c(5,5,5,5), cex.axis=1.7)
 #plot(NA, xlim=range(lonLatAll[,1]), ylim=range(lonLatAll[,2]), xlab='', ylab='')

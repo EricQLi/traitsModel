@@ -35,7 +35,15 @@ for(j in 4:6){
 }
 dev.off()
 
-#####################################
+##########################################################################
+##########################################################################
+
+##########################################################################
+##########################################################################
+
+##########################################################################
+##########################################################################
+
 CWT <- getCWT.Mass.Area(speciesByTraits, plotByW)
 
 png('figures/N-P-Area.png', units='in',res=300, height  = 5, width=10)
@@ -46,7 +54,7 @@ for(j in 4:5){
   par(xaxt='n', yaxt='n')
   mapColorData(x = plotByX$plotLon, y = plotByX$plotLat, data = ssj,
                valRange = quantile(ssj, probs = seq(0.05,.95, by = .1), na.rm = T), 
-               cex.all = 1, colList = rev(colList.SurfAndTurf), symSize=1 )
+               cex.all = 1, colList = rev(colList.SurfAndTurf), symSize=.45 )
 
     # mapSiteData(scaleSym = scaleSym, lonLatAll[,1], lonLatAll[,2], ssj,cex.all = 1,
     #           colList = rev(colList.SurfAndTurf), 
