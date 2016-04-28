@@ -2,6 +2,10 @@ cl <- read.csv('data/pre/climate.csv')
 so <- read.csv('data/pre/soilAll.csv', header = F)
 ll <- read.csv('data/pre/lonLatAll.csv')
 
+traitMeans <- as.matrix(c(-1.2073003,   0.6065312, 24.0440945,   1.8845038,   0.1534890, 141.4800000))
+traitSds <- as.matrix(c( 1.28865714,  0.12721717,  7.62135557,  0.51061987,  0.05969728, 68.83460771))
+rownames(traitMeans) <- rownames(traitSds) <- c('gmPerSeed','gmPerCm', 'maxHt', 'leafN', 'leafP', 'SLA')
+
 bm <- read.csv('data/pre/traitWt.csv')
 tw <- bm/rowSums(bm)
   
@@ -19,17 +23,25 @@ dem <- read.csv('data/pre/demAll.csv')
 elev <- dem$elevation
 plotByX <- cbind(plotByX, elev)
 
-tt <- read.csv('data/pre/traitSp.csv')
-traitBySpecies <- tt
+traitBySpecies <- read.csv('data/pre/traitSp.csv')
 rownames(traitBySpecies) <- c('SM','WD','MH','N','P','SLA','Deciduous','BLEver','NLEver')
 
-speciesByTraits <- t(traitBySpecies)
+speciesByTraits <- as.data.frame(t(traitBySpecies))
+
 
 leaf <- colnames(speciesByTraits)[7:9][rowSums(speciesByTraits[,7:9]*matrix(1:3, nrow = 65, ncol = 3, byrow = T))]
 speciesByTraits <- cbind(speciesByTraits[,1:6],leaf )
+
 # cwt.m <- read.csv('data/pre/traitMuAll.csv')
 # cwt.v <- read.csv('data/pre/traitSdAll.csv')
 
+
+#denormalizing the speciesByTraits matrix
+for(i in 1:6) 
+  speciesByTraits[,i] <- speciesByTraits[,i]*traitSds[i] + traitMeans[i]  
+
+speciesByTraits$N <- speciesByTraits$N*10 #unit conversion
+speciesByTraits$P <- speciesByTraits$P*10 #unit conversion
 
 
 source('~/Projects/procVisData/geoSpatial.R')
