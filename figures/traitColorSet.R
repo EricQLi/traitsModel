@@ -40,11 +40,7 @@ scaleSym <- .3
 soilColTable <- cbind(soilType, colListSoil)
 
 
-mapOutlines <- function(lwd1 =2, lwd2=6, col1='grey',col2='white'){
-  lines(glacialLine[-nrow(glacialLine),1], glacialLine[-nrow(glacialLine),2], lwd=lwd2, col=col2)
-  lines(glacialLine[-nrow(glacialLine),1], glacialLine[-nrow(glacialLine),2], lwd=lwd1, col=col1)
-  plot(mapRegion, add=T)
-}
+
 
 colRegion <- rep(NA, 52)
 # wc <- c(1,17, 21,22,23,25,26,30,31,35,36,37,41,42,46)

@@ -7,13 +7,13 @@ speciesByTraits <- as.data.frame(read.csv('data/post/speciesByTraits.csv'))
 
 traitTypes <- c(rep('CON',6), rep('CAT', 1))
 
-tmp         <- gjamSpec2Trait(pbys = plotByY, 
+traitData         <- gjamSpec2Trait(pbys = plotByY, 
                               sbyt = speciesByTraits, 
                               tTypes = traitTypes)
 
-traitList <- list(plotByTrait = tmp$plotByCWM, 
-                  traitTypes = tmp$traitTypes, 
-                  specByTrait = tmp$specByTrait)
+traitList <- list(plotByTrait = traitData$plotByCWM, 
+                  traitTypes = traitData$traitTypes, 
+                  specByTrait = traitData$specByTrait)
 
 
 reductList <- list(r = 3, N = 30)
