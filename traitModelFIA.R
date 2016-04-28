@@ -4,6 +4,25 @@ str(plotByX)
 str(plotByY)
 str(plotByW)
 
+traitList <- list(plotByTrait = traitData$plotByCWM, 
+                  traitTypes = traitData$traitTypes, 
+                  specByTrait = traitData$specByTrait)
+
+
+reductList <- list(r = 3, N = 30)
+
+modelList <- list(ng=20000, 
+                  burnin=10000,
+                  typeNames = 'CA', 
+                  holdoutN = 20,
+                  reductList = reductList,
+                  traitList = traitList)
+
+
+attr(plotByX$soil,'reference') <- 'Others'   # reference class
+attr(plotByX$soil,'intType')   <- 'ref'
+
+
 output  <- gjamGibbs(~ temp  + deficit + moisture + soil + u1 + u2 + u3 + 
                        deficit*moisture + temp*moisture +
                        moisture*soil + deficit*soil + temp*soil,
@@ -12,7 +31,7 @@ output  <- gjamGibbs(~ temp  + deficit + moisture + soil + u1 + u2 + u3 +
                      modelList = modelList)
 
 
-save(output, file = 'output-15-10-dr3.30.RData')
+save(output, file = 'output-20-10-dr3.30.RData')
 load('~/Google Drive/Shared/output-15-10-dr5.40.RData')
 
 plotPars  <- list(width=4, height=4, corLines=F,
