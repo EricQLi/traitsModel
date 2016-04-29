@@ -1,4 +1,6 @@
 library(gjam)
+
+
 data(forestTraits)
 xdata       <- forestTraits$xdata
 traitTypes  <- forestTraits$traitTypes
@@ -32,6 +34,8 @@ modelList <- list(ng=100, burnin=50, typeNames = 'CC', holdoutN = 20,
 
 output  <- gjamGibbs(~ temp + stdage + deficit*soil, xdata = xdata, 
                      ydata = plotByTrees, modelList = modelList)
+
+summary(output$modelSummary$tMu)
 
 S <- ncol(plotByTrees)
 boxBorder <- rep('black',S)

@@ -1,8 +1,8 @@
 library(gjam)
 
 plotByX <- as.data.frame(read.csv('data/post/plotByX.csv'))
-plotByX <- plotByX[,-c('ecoRegion')]
-plotByX <- plotByX[,-"physioRegion"]
+# plotByX <- plotByX[,-c('ecoRegion')]
+# plotByX <- plotByX[,-"physioRegion"]
 
 plotByY <- as.matrix(read.csv('data/post/plotByY.csv'))
 plotByW <- as.matrix(read.csv('data/post/plotByW.csv'))
