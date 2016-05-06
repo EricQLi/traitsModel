@@ -1,3 +1,6 @@
+library(Rcpp)
+library(RcppArmadillo)
+
 source('~/Projects/traitsModel/gjam/R/gjamCensorY.r')
 source('~/Projects/traitsModel/gjam/R/gjamDeZero.r')
 source('~/Projects/traitsModel/gjam/R/gjamGibbs.r')
@@ -11,9 +14,6 @@ source('~/Projects/traitsModel/gjam/R/gjamSimData.r')
 source('~/Projects/traitsModel/gjam/R/gjamSpec2Trait.r')
 source('~/Projects/traitsModel/gjam/R/gjamTrimY.r')
 source('~/Projects/traitsModel/gjam/R/RcppExports.R')
-library(Rcpp)
-library(RcppArmadillo)
-
 sourceCpp('~/Projects/traitsModel/gjam/src/cppFns.cpp')
 sourceCpp('~/Projects/traitsModel/gjam/src/RcppExports.cpp')
 
