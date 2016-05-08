@@ -11,8 +11,8 @@ traitList <- list(plotByTrait = traitData$plotByCWM,
 
 reductList <- list(r = 3, N = 30)
 
-modelList <- list(ng=4000, 
-                  burnin=2000,
+modelList <- list(ng=1000, 
+                  burnin=500,
                   typeNames = 'CA', 
                   holdoutN = 20,
                   reductList = reductList,
@@ -23,16 +23,18 @@ attr(plotByX$soil,'reference') <- 'Others'   # reference class
 attr(plotByX$soil,'intType')   <- 'ref'
 
 
-output  <- gjamGibbs(~ temp  + deficit + moisture + soil + u1 + u2 + u3 + 
+output  <- gjamGibbs(~ temp  + deficit + moisture + soil +# u1 + u2 + u3 + 
                        deficit*moisture + temp*moisture +
                        moisture*soil + deficit*soil + temp*soil,
                      xdata = plotByX, 
                      ydata = plotByY, 
                      modelList = modelList)
 
+summary(output$modelSummary$tMu)
 
 #save(output, file = 'output-20-10-dr3.30.RData')
-load('output-4-2-dr3.30.RData')
+# save(output, file = 'output-6-3-dr3.30.RData')
+# load('output-4-2-dr3.30.RData')
 
 plotPars  <- list(width=4, height=4, corLines=F,
                   SMALLPLOTS=F, CLUSTERPLOTS=T)                  
