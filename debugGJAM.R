@@ -19,3 +19,5 @@ sourceCpp('~/Projects/traitsModel/gjam/src/RcppExports.cpp')
 
 load('~/Projects/traitsModel/gjam/data/forestTraits.RData')
 
+source('gjamLoop.R')
+
