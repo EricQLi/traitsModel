@@ -1,4 +1,5 @@
-library(gjam)
+source('debugGJAM.R')
+#library(gjam)
 
 plotByX <- as.data.frame(read.csv('data/post/plotByX.csv'))
 # plotByX <- plotByX[,-c('ecoRegion')]
@@ -16,9 +17,6 @@ traitSdAll <- read.csv('data/pre/traitSdAll.csv')
 
 traitTypes <- c(rep('CON',6), rep('CAT', 1))
 
-traitData         <- gjamSpec2Trait(pbys = plotByY, 
-                                    sbyt = speciesByTraits, 
-                                    tTypes = traitTypes)
 
 
 

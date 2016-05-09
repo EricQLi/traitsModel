@@ -4,6 +4,12 @@ str(plotByX)
 str(plotByY)
 str(plotByW)
 
+
+traitData         <- gjamSpec2Trait(pbys = plotByY, 
+                                    sbyt = speciesByTraits, 
+                                    tTypes = traitTypes)
+
+
 traitList <- list(plotByTrait = traitData$plotByCWM, 
                   traitTypes = traitData$traitTypes, 
                   specByTrait = traitData$specByTrait)
@@ -11,8 +17,8 @@ traitList <- list(plotByTrait = traitData$plotByCWM,
 
 reductList <- list(r = 3, N = 30)
 
-modelList <- list(ng=1000, 
-                  burnin=500,
+modelList <- list(ng=10, 
+                  burnin=1,
                   typeNames = 'CA', 
                   holdoutN = 20,
                   reductList = reductList,
@@ -23,7 +29,7 @@ attr(plotByX$soil,'reference') <- 'Others'   # reference class
 attr(plotByX$soil,'intType')   <- 'ref'
 
 
-output  <- gjamGibbs(~ temp  + deficit + moisture + soil +# u1 + u2 + u3 + 
+output  <- gjamGibbs(~ temp  + deficit + moisture + soil + # u1 + u2 + u3 + 
                        deficit*moisture + temp*moisture +
                        moisture*soil + deficit*soil + temp*soil,
                      xdata = plotByX, 
