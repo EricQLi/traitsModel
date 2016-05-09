@@ -1,14 +1,23 @@
+source('debugGJAM.R')
+#library(gjam)
+
 source('traitPreModel.R')
+
+
+plotByY <- plotByY[,-rareSpecies]
+plotByW <- plotByW[,-rareSpecies]
+speciesByTraits <- speciesByTraits[-rareSpecies,]
+
+
 
 str(plotByX)
 str(plotByY)
 str(plotByW)
 
 
-traitData         <- gjamSpec2Trait(pbys = plotByY, 
-                                    sbyt = speciesByTraits, 
-                                    tTypes = traitTypes)
-
+traitData  <- gjamSpec2Trait(pbys = plotByY, 
+                             sbyt = speciesByTraits, 
+                             tTypes = traitTypes)
 
 traitList <- list(plotByTrait = traitData$plotByCWM, 
                   traitTypes = traitData$traitTypes, 

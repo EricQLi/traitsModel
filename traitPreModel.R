@@ -1,5 +1,3 @@
-source('debugGJAM.R')
-#library(gjam)
 
 plotByX <- as.data.frame(read.csv('data/post/plotByX.csv'))
 # plotByX <- plotByX[,-c('ecoRegion')]
@@ -19,4 +17,5 @@ traitTypes <- c(rep('CON',6), rep('CAT', 1))
 
 
 
-
+rareSpecies <- which(colSums(plotByY>0)/nrow(plotByY)<.02)
+rareSpecies
