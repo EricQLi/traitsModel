@@ -1,5 +1,5 @@
-source('debugGJAM.R')
-#library(gjam)
+library(gjam)
+source('gjamLoop.R')
 
 source('traitPreModel.R')
 
@@ -26,8 +26,8 @@ traitList <- list(plotByTrait = traitData$plotByCWM,
 
 reductList <- list(r = 3, N = 30)
 
-modelList <- list(ng=10, 
-                  burnin=1,
+modelList <- list(ng=10000, 
+                  burnin=6000,
                   typeNames = 'CA', 
                   holdoutN = 20,
                   reductList = reductList,
@@ -47,7 +47,7 @@ output  <- gjamGibbs(~ temp  + deficit + moisture + soil + # u1 + u2 + u3 +
 
 summary(output$modelSummary$tMu)
 
-#save(output, file = 'output-20-10-dr3.30.RData')
+#save(output, file = 'output-10-6-dr3.30.RData')
 # save(output, file = 'output-6-3-dr3.30.RData')
 # load('output-4-2-dr3.30.RData')
 
