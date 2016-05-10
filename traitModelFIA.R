@@ -1,5 +1,5 @@
 library(gjam)
-source('gjamLoop.R')
+#source('gjamLoop.R')
 
 source('traitPreModel.R')
 
