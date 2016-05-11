@@ -1,19 +1,14 @@
 library(gjam)
-#source('gjamLoop.R')
 
 source('traitPreModel.R')
-
 
 plotByY <- plotByY[,-rareSpecies]
 plotByW <- plotByW[,-rareSpecies]
 speciesByTraits <- speciesByTraits[-rareSpecies,]
 
-
-
 str(plotByX)
 str(plotByY)
 str(plotByW)
-
 
 traitData  <- gjamSpec2Trait(pbys = plotByY, 
                              sbyt = speciesByTraits, 
@@ -45,14 +40,15 @@ output  <- gjamGibbs(~ temp  + deficit + moisture + soil + # u1 + u2 + u3 +
                      ydata = plotByY, 
                      modelList = modelList)
 
-summary(output$modelSummary$tMu)
-
 #save(output, file = 'output-10-6-dr3.30.RData')
 # save(output, file = 'output-6-3-dr3.30.RData')
-# load('output-4-2-dr3.30.RData')
+# load('~/Google Drive/Shared/output-10-6-dr3.30-with zero.RData')
 
-plotPars  <- list(width=4, height=4, corLines=F,
-                  SMALLPLOTS=F, CLUSTERPLOTS=T)                  
+summary(output$modelSummary$tMu)
+
+
+plotPars  <- list(width=5, height=4, corLines=T,
+                  SMALLPLOTS=T, CLUSTERPLOTS=T)                  
 
 fit       <- gjamPlot(output = output, plotPars)
 
