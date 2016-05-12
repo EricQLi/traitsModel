@@ -40,9 +40,7 @@ output  <- gjamGibbs(~ temp  + deficit + moisture + soil + # u1 + u2 + u3 +
                      ydata = plotByY, 
                      modelList = modelList)
 
-#save(output, file = 'output-10-6-dr3.30.RData')
-# save(output, file = 'output-6-3-dr3.30.RData')
-# load('~/Google Drive/Shared/output-10-6-dr3.30-with zero.RData')
+# save(output, file =paste('output', modelList$ng, modelList$burnin, 'dr', reductList$r, reductList$N,data(),'.RData', sep = '-'))
 
 summary(output$modelSummary$tMu)
 
