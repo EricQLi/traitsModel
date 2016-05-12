@@ -11,9 +11,9 @@ source('figures/traitColorSet.R')
 plotNP <- CWT$perMass[,'N']/CWT$perMass[,'P']
 g <- data.frame(lat=plotByX$plotLat, lon =plotByX$plotLon, NP=plotNP, elev =plotByX$elev)
 
-png('figures/NP-ratio.png', units='in',res=300, height  = 8, width=8)
+png('figures/traitFig.N-P.Ratio.png', units='in',res=300, height  = 8, width=8)
 layout(matrix(c(3,1,1,3,1,1,4,2,2),3,3))
-par(mar=c(0,0,0,0), oma=c(5,5,5,5), cex.axis=1.7)
+par(mar=c(0,0,0,0), oma=c(6,6,5,5), cex.axis=1.7)
 #plot(NA, xlim=range(lonLatAll[,1]), ylim=range(lonLatAll[,2]), xlab='', ylab='')
 #mapColorData(valRange = quantile(plotNP, probs=c(.1,.9)), x = lonLatAll[,1], y = lonLatAll[,2], data = plotNP, colList = colList.purpleOrange, ADD=T, cex.all = 2)
 
@@ -22,16 +22,16 @@ mapColorData(valRange = quantile(plotNP, probs=c(.1,.9)),
              colList = colList.purpleOrange, cex.all = 2)
 mapOutlines(glacialLine, ecoRegion, lwd2 = 10)
 
-mtext(text = 'Leaf N:P', side = 3, line = -3, cex=1.5)
-mtext(text = 'Longitude (°)', side = 1, line = 3, cex=1.5)
-mtext(text = 'Latitude (°)', side = 2, line = 3, cex=1.5)
+mtext(text = 'Leaf N:P', side = 3, line = -2.5, cex=1.5)
+mtext(text = expression(Longitude~(degree)), side = 1, line = 4, cex=1.5)
+mtext(text = expression(Latitude~(degree)), side = 2, line = 3.5, cex=1.5)
 mtext('(a)', 3, at = -68, line = -2.5, cex=2)
 
 par(xaxt='s', yaxt='n',bty='n')
 tmp = myBinPlot(g$lat, g$NP, xbreaks = seq(25,50, 3), noPlot = T)
 boxplot(tmp$bins, horizontal = T, varwidth = T, outline = F)
 lines(tmp$q[,3], 1:nrow(tmp$q), lwd=10, col='#80808080')
-mtext(text = expression(bar('N:P')), side = 1, line = 3, cex=1.5)
+mtext(text = expression(bar('N:P')), side = 1, line = 3.5, cex=1.5)
 mtext('(b)', 3, at = 17.3, line = -2.5, cex=2)
 
 par(xaxt='n',yaxt='s')

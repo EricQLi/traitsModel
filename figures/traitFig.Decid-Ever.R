@@ -8,7 +8,7 @@ source('traitFunctions.R')
 source('figures/traitColorSet.R')
 
 
-png('figures/Decid-Ever.png', units='in',res=300, height  = 10, width=15)
+png('figures/traitFig.Decid-Ever.png', units='in',res=300, height  = 10, width=15)
 par(mfrow=c(2,3),oma = c(3,7,5,5),mar = c(0,0,0,0))
 
 for(i in 1:2){
@@ -18,8 +18,8 @@ for(i in 1:2){
     ssj.pred <- output$modelSummary$tMu[,j] #predicted traits
     
     ssj <- switch(i, ssj.obs, ssj.pred)
-    ssj <-  (ssj>switch(j-6, 0.9999, .01, .1))*1
-    ssj[ssj==0] <- NA
+    # ssj <-  (ssj>switch(j-6, 0.9999, .01, .1))*1
+    # ssj[ssj==0] <- NA
     par(xaxt='n', yaxt='n')
     mapColorData(plotByX$plotLon, plotByX$plotLat, ssj, 
                  xlim = range(plotByX$plotLon), ylim = range(plotByX$plotLat),
