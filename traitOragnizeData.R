@@ -76,6 +76,18 @@ exposure <- slopeAspectToExposure(plotByX$slope, plotByX$aspect, degree = T)
 
 plotByX <- cbind(plotByX, exposure)
 
+traitMuAll <- read.csv('data/pre/traitMuAll.csv')
+traitSdAll <- read.csv('data/pre/traitSdAll.csv')
+plotNames2 <- matrix(unlist(strsplit(rownames(traitMuAll), split = '_ereg_')), ncol = 2, byrow = T)[,1]
+
+w <-match(plotNames, plotNames2)
+traitMuAll <- traitMuAll[w,]
+traitSdAll <- traitSdAll[w,]
+
+write.table(traitMuAll, 'data/post/traitMuAll.csv', sep = ',')
+write.table(traitSdAll, 'data/post/traitSdAll.csv', sep = ',')
+
+
 write.table(plotByX, 'data/post/plotByX.csv', sep = ',')
 write.table(plotByW, 'data/post/plotByW.csv', sep = ',')
 write.table(plotByY, 'data/post/plotByY.csv', sep = ',')

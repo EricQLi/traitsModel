@@ -8,8 +8,8 @@ plotByW <- as.matrix(read.csv('data/post/plotByW.csv'))
 speciesByTraits <- as.data.frame(read.csv('data/post/speciesByTraits.csv'))
 
 
-traitMuAll <- read.csv('data/pre/traitMuAll.csv')
-traitSdAll <- read.csv('data/pre/traitSdAll.csv')
+traitMuAll <- read.csv('data/post/traitMuAll.csv')
+traitSdAll <- read.csv('data/post/traitSdAll.csv')
 
 
 
