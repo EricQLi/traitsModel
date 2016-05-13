@@ -33,7 +33,7 @@ attr(plotByX$soil,'reference') <- 'Others'   # reference class
 attr(plotByX$soil,'intType')   <- 'ref'
 
 
-output  <- gjamGibbs(~ temp  + deficit + surplus + moisture + soil + # u1 + u2 + u3 + 
+output  <- gjamGibbs(~ temp  + deficit + therm + moisture + soil + # u1 + u2 + u3 + 
                        deficit*moisture + temp*moisture +
                        moisture*soil + deficit*soil + temp*soil,
                      xdata = plotByX, 
