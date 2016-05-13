@@ -1,3 +1,26 @@
+source('~/Projects/procVisData/bayesianFunctions.R')
+
+getCWT.CondOnLeaf <- function(){
+  tMu <- output$modelSummary$tMu
+  deciTrait <- everTrait <- tMu
+  
+  deciTrait[,7:9] <- everTrait[,7:9] <- 0
+  everTrait[,'leafNLEver'] <- 1
+  everTrait[,'leafother'] <- 1
+  deciTrait[,'leafDeciduous'] <- 1
+  
+  oMu <- output$modelSummary$sigmaTraitMu
+  condDecid <- conditionalMVNVec(deciTrait,tMu,oMu,cdex=c(1:6))
+  condEver <- conditionalMVNVec(everTrait,tMu,oMu,cdex=c(1:6))
+  
+  # sgibbs <- out1$chains$sgibbs
+  # sMu <- matrix( colMeans(sgibbs),S,S )
+  # colnames(condDecid$mu) <- colnames(sMu)[1:6]
+  # colnames(condEver$mu) <- colnames(sMu)[1:6]
+  
+  list(condDecid=condDecid, condEver=condEver)
+}
+
 getCWT.Mass.Area <- function(speciesByTraits, plotByW){
   CWT.Mass <- (plotByW)%*%as.matrix(speciesByTraits[,c("N","P","SLA")])
   speciesByTraits.Area <- speciesByTraits[,c("N","P")]/speciesByTraits[,"SLA"]
