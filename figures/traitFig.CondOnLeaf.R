@@ -1,28 +1,25 @@
 CWT$pred <- output$modelSummary$tMu[,4:6]
+CWT$cond <- getCWT.CondOnLeaf()
 
-
-png(paste0(resultDir,paste0('figures/traitFig.CondOnLeaf.png')), units='in',res=300, height  = 15, width=15)
+png('figures/traitFig.CondOnLeaf.png', units='in',res=300, height  = 15, width=15)
 par(mfrow=c(3,3),oma = c(5,6,5,2), mar=c(2,2,1,1))
 for(i in 1:3){
   for(j in 4:6){
     ssj.obs <- CWT$perMass
     ssj.pred <- CWT$pred
-    ssj.dec <- condDecid.mu[,j]*traitSds[j] + traitMeans[j]       #conditional
-    ssj.ever <- condEver.mu[,j]*traitSds[j] + traitMeans[j]       #conditional
-    if(j==4|j==5){
-      ssj.obs <- ssj.obs*10
-      ssj.pred <- ssj.pred*10
-      ssj.dec <- ssj.dec*10
-      ssj.ever <- ssj.ever*10
-    }    
+    ssj.dec <- CWT$cond$condDecid[,j]
+    ssj.ever <- CWT$cond$condEver[,j]
+    
     ssj <- switch(i, ssj.pred, ssj.dec, ssj.ever)
     
     par(xaxt='n', yaxt='n')
-    mapColorData(valRange = quantile(switch(i, c(ssj.pred,ssj.dec) ,c(ssj.pred,ssj.dec) , ssj.ever), probs=seq(0.05,.95, length.out = 100 )),
-                 x = lonLatAll[,1], y = lonLatAll[,2], data = ssj, #xlab = '',ylab =  '',
+    
+    mapColorData(plotByX$plotLon, plotByX$plotLat, ssj, 
+                 valRange = quantile(switch(i, c(ssj.pred,ssj.dec) ,c(ssj.pred,ssj.dec) , ssj.ever), probs=seq(0.05,.95, length.out = 100 )),
+                 xlim = range(plotByX$plotLon), ylim = range(plotByX$plotLat),
                  colList = paste0(colList.purpleOrange, '10'), symSize =1 , symPch = 16,
                  cex.all = 2)
-    mapOutlines()
+    mapOutlines(glacialLine, mapRegion)
     if(i==1) mtext(text =  switch(j-3, 
                                   bquote(.(tNames[j-3])~ (mg/g)),
                                   bquote(.(tNames[j-3])~ (mg/g)),

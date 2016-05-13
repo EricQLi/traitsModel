@@ -10,15 +10,19 @@ getCWT.CondOnLeaf <- function(){
   deciTrait[,'leafDeciduous'] <- 1
   
   oMu <- output$modelSummary$sigmaTraitMu
-  condDecid <- conditionalMVNVec(deciTrait,tMu,oMu,cdex=c(1:6))
-  condEver <- conditionalMVNVec(everTrait,tMu,oMu,cdex=c(1:6))
+  
+  condDecid <- conditionalMVNVec(deciTrait[,-7],tMu[,-7],oMu[-7,-7],cdex=c(1:6))
+  condEver <- conditionalMVNVec(everTrait[,-7],tMu[,-7],oMu[-7,-7],cdex=c(1:6))
+  
+  # condDecid <- conditionalMVNVec(deciTrait,tMu,oMu,cdex=c(1:6))
+  # condEver <- conditionalMVNVec(everTrait,tMu,oMu,cdex=c(1:6))
   
   # sgibbs <- out1$chains$sgibbs
   # sMu <- matrix( colMeans(sgibbs),S,S )
   # colnames(condDecid$mu) <- colnames(sMu)[1:6]
   # colnames(condEver$mu) <- colnames(sMu)[1:6]
   
-  list(condDecid=condDecid, condEver=condEver)
+  list(condDecid=condDecid$mu, condEver=condEver$mu)
 }
 
 getCWT.Mass.Area <- function(speciesByTraits, plotByW){
