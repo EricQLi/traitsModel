@@ -32,17 +32,20 @@ modelList <- list(ng=10000,
 attr(plotByX$soil,'reference') <- 'Others'   # reference class
 attr(plotByX$soil,'intType')   <- 'ref'
 
+plotByX[,c('temp', 'deficit', 'moisture')] <- plotByX[,c('temp', 'deficit', 'moisture')]
 
-output  <- gjamGibbs(~ temp  + deficit + therm + moisture + soil + # u1 + u2 + u3 + 
+output  <- gjamGibbs(~ temp  + deficit + moisture + soil + # u1 + u2 + u3 + 
                        deficit*moisture + temp*moisture +
                        moisture*soil + deficit*soil + temp*soil,
                      xdata = plotByX, 
                      ydata = plotByY, 
                      modelList = modelList)
 
- save(output, file =paste('output', modelList$ng, modelList$burnin, 'dr', reductList$r, reductList$N,data(),'.RData', sep = '-'))
+# save(output, file =paste('output', modelList$ng, modelList$burnin, 'dr', reductList$r, reductList$N,data(),'.RData', sep = '-'))
 
 summary(output$modelSummary$tMu)
+summary(output$modelSummary$sigmaTraitMu)
+
 
 
 plotPars  <- list(width=5, height=4, corLines=T,
