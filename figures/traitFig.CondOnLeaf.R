@@ -1,13 +1,14 @@
 CWT$pred <- output$modelSummary$tMu[,1:6]
-CWT$cond <- getCWT.CondOnLeaf()
+CWT$condEver <- getCWT.CondOnLeaf()$condDecid
+CWT$condDecid <- getCWT.CondOnLeaf()$condEver
 
 png('figures/traitFig.CondOnLeaf.png', units='in',res=300, height  = 15, width=15)
 par(mfrow=c(3,3),oma = c(5,6,5,2), mar=c(2,2,1,1))
 for(i in 1:3){
   for(j in 4:6){
     ssj.pred <- CWT$pred[,j]
-    ssj.dec <- CWT$cond$condDecid[,j]
-    ssj.ever <- CWT$cond$condEver[,j]
+    ssj.dec <- CWT$condDecid[,j]
+    ssj.ever <- CWT$condEver[,j]
     
     ssj <- switch(i, ssj.pred, ssj.dec, ssj.ever)
     
