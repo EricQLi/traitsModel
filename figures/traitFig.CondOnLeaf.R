@@ -1,14 +1,13 @@
 CWT$pred <- output$modelSummary$tMu[,1:6]
-CWT$condEver <- getCWT.CondOnLeaf()$condDecid
-CWT$condDecid <- getCWT.CondOnLeaf()$condEver
+CWT$cond <- getCWT.CondOnLeaf()
 
 png('figures/traitFig.CondOnLeaf.png', units='in',res=300, height  = 15, width=15)
 par(mfrow=c(3,3),oma = c(5,6,5,2), mar=c(2,2,1,1))
 for(i in 1:3){
   for(j in 4:6){
     ssj.pred <- CWT$pred[,j]
-    ssj.dec <- CWT$condDecid[,j]
-    ssj.ever <- CWT$condEver[,j]
+    ssj.dec <- CWT$cond$condDecid[,j]
+    ssj.ever <- CWT$cond$condEver[,j]
     
     ssj <- switch(i, ssj.pred, ssj.dec, ssj.ever)
     
@@ -20,12 +19,15 @@ for(i in 1:3){
                  xlim = range(plotByX$plotLon), ylim = range(plotByX$plotLat),
                  colList = paste0(colList.purpleOrange, '10'), symSize =1 , symPch = 16,
                  cex.all = 2)
+    
     #mapOutlines(glacialLine, mapRegion)
+    
     if(i==1) mtext(text =  switch(j-3, 
                                   bquote(.(tNames[j-3])~ (mg/g)),
                                   bquote(.(tNames[j-3])~ (mg/g)),
                                   bquote(.(tNames[j-3])~ (cm^2/g))),
                    side = 3, line = 1, cex=2)
+    
     if(i==1) mtext(text =  switch(j-3, '(a)','(b)','(c)'), side = 3, line = -2.5, at = -68, cex=2)
     if(i==2) mtext(text =  switch(j-3, '(d)','(e)','(f)'), side = 3, line = -2.5, at = -68, cex=2)
     if(i==3) mtext(text =  switch(j-3, '(g)','(h)','(i)'), side = 3, line = -2.5, at = -68, cex=2)
