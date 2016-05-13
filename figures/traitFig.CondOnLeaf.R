@@ -1,12 +1,11 @@
-CWT$pred <- output$modelSummary$tMu[,4:6]
+CWT$pred <- output$modelSummary$tMu[,1:6]
 CWT$cond <- getCWT.CondOnLeaf()
 
 png('figures/traitFig.CondOnLeaf.png', units='in',res=300, height  = 15, width=15)
 par(mfrow=c(3,3),oma = c(5,6,5,2), mar=c(2,2,1,1))
 for(i in 1:3){
   for(j in 4:6){
-    ssj.obs <- CWT$perMass
-    ssj.pred <- CWT$pred
+    ssj.pred <- CWT$pred[,j]
     ssj.dec <- CWT$cond$condDecid[,j]
     ssj.ever <- CWT$cond$condEver[,j]
     
@@ -16,10 +15,11 @@ for(i in 1:3){
     
     mapColorData(plotByX$plotLon, plotByX$plotLat, ssj, 
                  valRange = quantile(switch(i, c(ssj.pred,ssj.dec) ,c(ssj.pred,ssj.dec) , ssj.ever), probs=seq(0.05,.95, length.out = 100 )),
+                 # valRange = quantile( ssj, probs=seq(0.05,.95, length.out = 100 )),
                  xlim = range(plotByX$plotLon), ylim = range(plotByX$plotLat),
                  colList = paste0(colList.purpleOrange, '10'), symSize =1 , symPch = 16,
                  cex.all = 2)
-    mapOutlines(glacialLine, mapRegion)
+    #mapOutlines(glacialLine, mapRegion)
     if(i==1) mtext(text =  switch(j-3, 
                                   bquote(.(tNames[j-3])~ (mg/g)),
                                   bquote(.(tNames[j-3])~ (mg/g)),
