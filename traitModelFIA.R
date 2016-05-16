@@ -1,6 +1,6 @@
 library(gjam)
 
-browseVignettes('gjam')
+#browseVignettes('gjam')
 source('traitPreModel.R')
 
 traitData  <- gjamSpec2Trait(pbys = plotByW, 
@@ -30,7 +30,9 @@ output  <- gjamGibbs(~ temp  +  deficit + moisture + soil ,
                      ydata = plotByW, 
                      modelList = modelList)
 
-# save(output, file =paste('output', modelList$ng, modelList$burnin, 'dr', reductList$r, reductList$N,data(),'.RData', sep = '-'))
+save(output, file =paste('output', modelList$ng, modelList$burnin,
+                         'dr', reductList$r, reductList$N,
+                         make.names(date()), '.RData', sep = '-'))
 
 head(output$modelSummary$sigmaTraitMu)
 head(output$modelSummary$betaTraitMu)
