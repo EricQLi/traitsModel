@@ -14,25 +14,26 @@ for(i in 1:3){
     par(xaxt='n', yaxt='n')
     
     mapColorData(plotByX$plotLon, plotByX$plotLat, ssj, 
-                 valRange = quantile(switch(i, c(ssj.pred,ssj.dec) ,c(ssj.pred,ssj.dec) , ssj.ever), probs=seq(0.05,.95, length.out = 100 )),
+                 valRange = quantile(switch(i, c(ssj.pred,ssj.dec) ,c(ssj.pred,ssj.dec) , ssj.ever), probs=seq(0.1,.9, length.out = 100 )),
+                 # valRange = quantile( c(ssj.pred,ssj.dec, ssj.ever), probs=seq(0.05,.95, length.out = 100 )),
                  # valRange = quantile( ssj, probs=seq(0.05,.95, length.out = 100 )),
                  xlim = range(plotByX$plotLon), ylim = range(plotByX$plotLat),
                  colList = paste0(colList.purpleOrange, '10'), symSize =1 , symPch = 16,
-                 cex.all = 2)
+                 cex.all = 3)
     
     #mapOutlines(glacialLine, mapRegion)
+    title.txt <-  switch(j-3, 
+                         bquote(.(tNames[j-3])~ (mg/g)),
+                         bquote(.(tNames[j-3])~ (mg/g)),
+                         bquote(.(tNames[j-3])~ (cm^2/g)))
     
-    if(i==1) mtext(text =  switch(j-3, 
-                                  bquote(.(tNames[j-3])~ (mg/g)),
-                                  bquote(.(tNames[j-3])~ (mg/g)),
-                                  bquote(.(tNames[j-3])~ (cm^2/g))),
-                   side = 3, line = 1, cex=2)
+    if(i==1) mtext(text = title.txt, side = 3, line = 1, cex=2.5, font = 2)
     
-    if(i==1) mtext(text =  switch(j-3, '(a)','(b)','(c)'), side = 3, line = -2.5, at = -68, cex=2)
-    if(i==2) mtext(text =  switch(j-3, '(d)','(e)','(f)'), side = 3, line = -2.5, at = -68, cex=2)
-    if(i==3) mtext(text =  switch(j-3, '(g)','(h)','(i)'), side = 3, line = -2.5, at = -68, cex=2)
+    if(i==1) mtext(text =  switch(j-3, '(a)','(b)','(c)'), side = 3, line = -2.5, at = -68, cex=2, font = 2)
+    if(i==2) mtext(text =  switch(j-3, '(d)','(e)','(f)'), side = 3, line = -2.5, at = -68, cex=2, font = 2)
+    if(i==3) mtext(text =  switch(j-3, '(g)','(h)','(i)'), side = 3, line = -2.5, at = -68, cex=2, font = 2)
     
-    if(j==4) mtext(text =  switch(i, 'Community','Deciduous','Evergreen'), side = 2, line = 4, cex=2)
+    if(j==4) mtext(text =  switch(i, 'Community','Deciduous','Evergreen'), side = 2, line = 4, cex=2, font = 2)
     
     
     par(xaxt='s', yaxt='s')

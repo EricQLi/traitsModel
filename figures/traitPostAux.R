@@ -7,7 +7,18 @@ require(data.table)
 # predictorsToPlot <- NULL
 # onlySignificant <- T
 
-postGibbsChains <- function(betachains, burnin=1, withInteractions=F, traitsToPlot=NULL, predictorsToPlot=NULL, onlySignificant=T){
+postGibbsChains <- function(betachains,
+                            burnin=1, 
+                            withInteractions=F, 
+                            traitsToPlot=NULL,
+                            predictorsToPlot=NULL, 
+                            onlySignificant=T,
+                            normalized = T ){
+  wFactors <- which(apply(output$x, 2, function(x)all(x%in%c(0,1))))
+  sdCols <- apply(output$x, 2, sd)
+  sdCols[wFactors] <- 1
+  
+  
   chains <- betachains[-(1:burnin),]
   
   ng <- nrow(chains)
@@ -31,7 +42,11 @@ postGibbsChains <- function(betachains, burnin=1, withInteractions=F, traitsToPl
   }
   nameMatrix$pred1 <- t(sapply(nameMatrix$pred, tmp))[,1]
   nameMatrix$pred2 <- t(sapply(nameMatrix$pred, tmp))[,2]
-  nameMatrix
+  
+  
+  sdCols <- sdCols[match(nameMatrix$predictor, names(sdCols))]
+  if(normalized) chains <- t(t(chains)*sdCols)
+  
   summChains <- t(apply(chains, 2, quantile, probs=c(.5,.025,.975)))
   colnames(summChains) <- c('median','low','high')
   nameMatrix <- cbind(nameMatrix, summChains)
