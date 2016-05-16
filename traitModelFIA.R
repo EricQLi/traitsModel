@@ -13,8 +13,8 @@ traitList <- list(plotByTrait = traitData$plotByCWM,
 
 reductList <- list(r = 3, N = 30)
 
-modelList <- list(ng=10000, 
-                  burnin=6000,
+modelList <- list(ng=1000, 
+                  burnin=600,
                   typeNames = 'FC', 
                   holdoutN = 20,
                   reductList = reductList,
@@ -23,9 +23,10 @@ modelList <- list(ng=10000,
 attr(plotByX$soil,'reference') <- 'Others'   # reference class
 attr(plotByX$soil,'intType')   <- 'ref'
 
-output  <- gjamGibbs(~ temp  +  deficit + moisture + soil +
-                       deficit*moisture + temp*moisture +		                         deficit*moisture + temp*moisture +
-                       moisture*soil + deficit*soil + temp*soil,                     xdata = plotByX, 
+output  <- gjamGibbs(~ temp  +  deficit + moisture + therm + soil +
+                       deficit*moisture + temp*moisture +		      
+                       moisture*soil + deficit*soil + temp*soil,   
+                     xdata = plotByX, 
                      ydata = plotByW, 
                      modelList = modelList)
 
