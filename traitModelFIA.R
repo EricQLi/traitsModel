@@ -30,7 +30,7 @@ output  <- gjamGibbs(~ temp  +  deficit + moisture + soil ,
                      ydata = plotByW, 
                      modelList = modelList)
 
-save(output, file =paste('output', modelList$ng, modelList$burnin,
+save.image(paste('output', modelList$ng, modelList$burnin,
                          'dr', reductList$r, reductList$N,
                          make.names(date()), '.RData', sep = '-'))
 
