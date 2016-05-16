@@ -1,16 +1,9 @@
 library(gjam)
 
+browseVignettes('gjam')
 source('traitPreModel.R')
 
-plotByY <- plotByY[,-rareSpecies]
-plotByW <- plotByW[,-rareSpecies]
-speciesByTraits <- speciesByTraits[-rareSpecies,]
-
-str(plotByX)
-str(plotByY)
-str(plotByW)
-
-traitData  <- gjamSpec2Trait(pbys = plotByY, 
+traitData  <- gjamSpec2Trait(pbys = plotByW, 
                              sbyt = speciesByTraits, 
                              tTypes = traitTypes)
 
@@ -23,7 +16,7 @@ reductList <- list(r = 3, N = 30)
 
 modelList <- list(ng=10000, 
                   burnin=6000,
-                  typeNames = 'CA', 
+                  typeNames = 'FC', 
                   holdoutN = 20,
                   reductList = reductList,
                   traitList = traitList)
@@ -32,32 +25,19 @@ modelList <- list(ng=10000,
 attr(plotByX$soil,'reference') <- 'Others'   # reference class
 attr(plotByX$soil,'intType')   <- 'ref'
 
-plotByX[,c('temp', 'deficit', 'moisture')] <- plotByX[,c('temp', 'deficit', 'moisture')]
-
-output  <- gjamGibbs(~ temp  + deficit + moisture + soil + # u1 + u2 + u3 + 
-                       deficit*moisture + temp*moisture +
-                       moisture*soil + deficit*soil + temp*soil,
+output  <- gjamGibbs(~ temp  +  deficit + moisture + soil ,
                      xdata = plotByX, 
-                     ydata = plotByY, 
+                     ydata = plotByW, 
                      modelList = modelList)
 
 # save(output, file =paste('output', modelList$ng, modelList$burnin, 'dr', reductList$r, reductList$N,data(),'.RData', sep = '-'))
 
-summary(output$modelSummary$tMu)
-summary(output$modelSummary$sigmaTraitMu)
+head(output$modelSummary$sigmaTraitMu)
+head(output$modelSummary$betaTraitMu)
 
-
-
-plotPars  <- list(width=5, height=4, corLines=T,
+plotPars  <- list(width=5, height=4, corLines=T, 
                   SMALLPLOTS=T, CLUSTERPLOTS=T)                  
 
 fit       <- gjamPlot(output = output, plotPars)
 
-output$modelSummary$betaTraitMu   # Q by M coefficient matrix alpha
-output$modelSummary$betaTraitSe   # Q by M coefficient std errors
-output$modelSummary$sigmaTraitMu  # M by M covariance matrix omega
-output$modelSummary$sigmaTraitSe  # M by M covariance std errors
-
-output$modelSummary$tMu[1:5,]     # n by M predictive means
-output$modelSummary$tSd[1:5,]   # n by M predictive std errors
 
