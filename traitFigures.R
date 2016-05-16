@@ -1,4 +1,5 @@
 library(raster)
+source('traitFunctions.R')
 
 source('figures/traitColorSet.R')
 
