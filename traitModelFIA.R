@@ -25,8 +25,7 @@ attr(plotByX$soil,'intType')   <- 'ref'
 
 output  <- gjamGibbs(~ temp  +  deficit + moisture + therm + soil +
                        deficit*moisture + temp*moisture +		      
-                       #moisture*soil + deficit*soil +
-                       temp*soil,   
+                       moisture*soil + deficit*soil + temp*soil,   
                      xdata = plotByX, 
                      ydata = plotByW, 
                      modelList = modelList)
