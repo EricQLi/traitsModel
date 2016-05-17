@@ -11,13 +11,14 @@ traitList <- list(plotByTrait = traitData$plotByCWM,
                   traitTypes = traitData$traitTypes, 
                   specByTrait = traitData$specByTrait)
 
-reductList <- list(r = 3, N = 30)
+#reductList <- list(r = 3, N = 30)
+reductList <- NULL
 
 modelList <- list(ng=10000, 
                   burnin=6000,
                   typeNames = 'FC', 
                   holdoutN = 20,
-                  reductList = reductList,
+                  #reductList = reductList,
                   traitList = traitList)
 
 attr(plotByX$soil,'reference') <- 'Others'   # reference class
@@ -30,9 +31,12 @@ output  <- gjamGibbs(~ temp  +  deficit + moisture + therm + soil +
                      ydata = plotByW, 
                      modelList = modelList)
 
-save.image(paste('output', modelList$ng, modelList$burnin,
+if(!is.null(modelList$reductList))save.image(paste('output', modelList$ng, modelList$burnin,
                  'dr', reductList$r, reductList$N,
                  make.names(date()), '.RData', sep = '-'))
+
+if(is.null(modelList$reductList))save.image(paste('output', modelList$ng, modelList$burnin,
+                 'ndr',make.names(date()), '.RData', sep = '-'))
 
 head(output$modelSummary$sigmaTraitMu)
 head(output$modelSummary$betaTraitMu)
