@@ -32,7 +32,8 @@ reductList <- list(r = 3, N = 20)
 modelList <- list(ng=100, burnin=50, typeNames = 'CC', holdoutN = 20,
                   traitList = traitList, reductList = reductList)
 
-output  <- gjamGibbs(~ temp + stdage + deficit*soil, xdata = xdata, 
+output  <- gjamGibbs(~ temp + deficit + moisture + u1 + u2 + u3, 
+                     xdata = xdata, 
                      ydata = plotByTrees, modelList = modelList)
 
 summary(output$modelSummary$tMu)
