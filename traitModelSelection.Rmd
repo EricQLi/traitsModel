@@ -19,6 +19,6 @@ The proposed models may consist of climatological variables (including mean wint
  #|Predictors|DIC|xScore|yScore
 -|-|-|-|- 
 1 | temp   + moisture  + soil | -5.3e+33 | 139447.2 | -0.3812
-2|-|-|-|- 
+2| temp   + deficit  + soil |-|-|- 
 3|-|-|-|- 
 4|-|-|-|- 
