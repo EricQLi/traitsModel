@@ -1,0 +1,22 @@
+---
+title: "Trait Model Selection"
+author: "Bijan Seyednasrollah"
+date: "May 17, 2016"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+### Model Selection for Trait Model using GJAM
+
+The most appropriate model is selected using a model selection approach and based on the Deviance Information Criterion ([DIC](https://en.wikipedia.org/wiki/Deviance_information_criterion)) and a Bayesian score. The model with the highest score or the lowest DIC value is selected. 
+
+### Predictors
+The proposed models may consist of climatological variables (including mean winter temperature, soil moisture, hydrothermal deficit and hydrothermal surplus), soil data, topographical data (slope and aspect) and their interactions. The table below shows how different models explain the response variables throughout the dataset.
+
+Predictors|DIC|Score
+-|-|- 
+temp   + moisture  + soil |-|-
+ - | - | - 

@@ -9,11 +9,12 @@ require(data.table)
 
 postGibbsChains <- function(betachains,
                             burnin=1, 
-                            withInteractions=F, 
+                            withInteractions=T, 
                             traitsToPlot=NULL,
                             predictorsToPlot=NULL, 
                             onlySignificant=T,
-                            normalized = T ){
+                            normalized = T,
+                            excludeIntercept = T){
   wFactors <- which(apply(output$x, 2, function(x)all(x%in%c(0,1))))
   sdCols <- apply(output$x, 2, sd)
   sdCols[wFactors] <- 1
@@ -54,9 +55,13 @@ postGibbsChains <- function(betachains,
   nameMatrix
   if(is.null(traitsToPlot)) traitsToPlot <- unique(nameMatrix$trait)
   if(is.null(predictorsToPlot)) predictorsToPlot <- unique(nameMatrix$predictor)
-
-    if(onlySignificant) nameMatrix <- nameMatrix[interaction==withInteractions&trait%in%traitsToPlot&predictor%in%predictorsToPlot&signifcant, ]
-  if(!onlySignificant) nameMatrix <- nameMatrix[interaction==withInteractions&trait%in%traitsToPlot&predictor%in%predictorsToPlot, ]
+  
+  nameMatrix <- nameMatrix[
+    interaction==withInteractions&
+      trait%in%traitsToPlot&predictor%in%predictorsToPlot&
+      (signifcant|!onlySignificant)&
+      ((predictor!='intercept')|!excludeIntercept)
+      , ]
   
   list(    chains = chains[, nameMatrix$id],
            nameMatrix= nameMatrix)

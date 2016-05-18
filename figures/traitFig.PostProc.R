@@ -4,10 +4,10 @@ source('~/Projects/procVisData/dataViz.R')
 
 post <- postGibbsChains(betachains = output$chains$agibbs, 
                         burnin = output$burnin,
-                        withInteractions = F,
                         traitsToPlot = c('N','P','SLA') ,
-                       predictorsToPlot = c('temp', 'moisture','deficit', 'therm'), 
-                        onlySignificant = F, normalized = T )
+                       #predictorsToPlot = c('temp', 'moisture','deficit', 'therm'), 
+                        onlySignificant = F, normalized = T, 
+                       excludeIntercept = T)
 
 png('figures/traitFig.PostProc.png', width = 8, height = 6, res =150, units='in')
 par(mfrow=c(3,2), bty='n', xaxt='s', yaxt='n', mar=c(1,1,1,1), oma=c(1,1,1,1))
