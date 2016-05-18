@@ -18,7 +18,12 @@ The proposed models may consist of climatological variables (including mean wint
 
  #|Predictors|DIC|xScore|yScore
 -|-|-|-|- 
-1 | temp   + moisture  + soil | -5.30e+33 | 139447.2 | -0.3812
-2| temp   + deficit  + soil | -5.72e+33 | 140171.2 | -0.1324
-3| temp   + surplus  + soil | -4.93e+33 | 139208.7 | -0.3965
-4|-|-|-|- 
+1| temp + moisture + soil | -5.30e+33 | 139447.2 | -0.3812
+2| temp + deficit  + soil | -5.72e+33 | 140171.2 | -0.1324
+3| temp + surplus  + soil | -4.93e+33 | 139208.7 | -0.3965
+4| temp + moisture + deficit  + soil | -7.08e+33| 140574.2 | -0.6544 
+0|   |  |  |  
+0|   |  |  |  
+0|   |  |  |  
+0|   |  |  |  
+0|   |  |  |  
