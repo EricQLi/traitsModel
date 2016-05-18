@@ -23,7 +23,8 @@ modelList <- list(ng=2000,
 attr(plotByX$soil,'reference') <- 'Others'   # reference class
 attr(plotByX$soil,'intType')   <- 'ref'
 
-output  <- gjamGibbs(~ 
+modelNo <- 1
+output  <- gjamGibbs(~ temp   + moisture  + soil 
                      #temp  +  deficit + moisture + therm + soil 
                      #u1 + u2 + u3 + 
                      #u1*temp + u2*temp + u3*temp
@@ -36,7 +37,19 @@ output  <- gjamGibbs(~
                      ydata = plotByW, 
                      modelList = modelList)
 
-output$modelSummary$DIC
-output$modelSummary$score
+save.image(paste('modelSelection/output', modelList$ng/1000, modelList$burnin/1000,
+                 substring(make.names(Sys.time()),2), '.RData', sep = '-'))
+
+modelSelectSumm.Cur <- data.frame(modelNo=modelNo,
+                                  time =as.character(Sys.time()),
+                                  DIC=output$modelSummary$DIC,
+                                  yScore=mean(output$modelSummary$yscore),
+                                  xScore=mean(output$modelSummary$xscore, na.rm = T))
+
+modelSelectSumm <- read.csv('modelSelection/modelSelectSumm.csv')
+
+modelSelectSumm <- rbind(modelSelectSumm, modelSelectSumm.Cur)
+
+write.csv(modelSelectSumm, file = 'modelSelection/modelSelectSumm.csv', row.names = F)
 
 

@@ -16,7 +16,9 @@ The most appropriate model is selected using a model selection approach and base
 ### Predictors
 The proposed models may consist of climatological variables (including mean winter temperature, soil moisture, hydrothermal deficit and hydrothermal surplus), soil data, topographical data (slope and aspect) and their interactions. The table below shows how different models explain the response variables throughout the dataset.
 
-Predictors|DIC|Score
--|-|- 
-temp   + moisture  + soil |-|-
- - | - | - 
+ #|Predictors|DIC|xScore|yScore
+-|-|-|-|- 
+1 | temp   + moisture  + soil | -5.3e+33 | 139447.2 | -0.3812
+2|-|-|-|- 
+3|-|-|-|- 
+4|-|-|-|- 
