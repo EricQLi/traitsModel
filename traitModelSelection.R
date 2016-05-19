@@ -25,7 +25,7 @@ attr(plotByX$soil,'intType')   <- 'ref'
 
 models <- readLines('traitModel.Models.txt')
 
-for(modelNo in 13:length(models)){
+for(modelNo in 14:length(models)){
   set.seed(2016)
   
   output  <- gjamGibbs(as.formula(models[modelNo]),

@@ -1,0 +1,25 @@
+~ temp + moisture + soil
+~ temp + deficit  + soil
+~ temp + surplus  + soil
+~ temp + moisture + deficit  + soil
+~ temp + moisture + therm + soil
+~ temp + moisture + deficit + therm + soil
+~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3
+~ temp + moisture + deficit + soil +u1 + u2 + u3
+~ temp + moisture + therm + soil +u1 + u2 + u3
+~ temp + deficit + therm + soil +u1 + u2 + u3
+~ temp + deficit + therm +u1 + u2 + u3
+~ temp + moisture + therm +u1 + u2 + u3
+~ temp + deficit + moisture +u1 + u2 + u3
+~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 + moisture*therm
+~ temp + moisture + deficit + soil +u1 + u2 + u3+ moisture*therm
+~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 + moisture*deficit
+~ temp + moisture + deficit + soil +u1 + u2 + u3+ moisture*deficit
+~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 + moisture*temp
+~ temp + moisture + deficit + soil +u1 + u2 + u3+ moisture*temp
+~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 + moisture*soil
+~ temp + moisture + deficit + soil +u1 + u2 + u3+ moisture*soil
+~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 + temp*soil
+~ temp + moisture + deficit + soil +u1 + u2 + u3+ temp*soil
+~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 + deficit*soil
+~ temp + moisture + deficit + soil +u1 + u2 + u3+ deficit*soil
