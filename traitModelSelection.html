@@ -75,30 +75,83 @@ img {
 <div id="predictors" class="section level3">
 <h3>Predictors</h3>
 <p>The proposed models may consist of climatological variables (including mean winter temperature, soil moisture, hydrothermal deficit and hydrothermal surplus), soil data, topographical data (slope and aspect) and their interactions. The table below shows how different models explain the response variables throughout the dataset.</p>
-<table>
+<table style="width:14%;">
+<colgroup>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+</colgroup>
 <thead>
 <tr class="header">
-<th align="left">#</th>
-<th align="left">Predictors</th>
-<th align="left">DIC</th>
-<th align="left">xScore</th>
-<th align="left">yScore</th>
+<th align="left"><strong>#</strong></th>
+<th align="left"><strong>Predictors</strong></th>
+<th align="left"><strong>DIC</strong></th>
+<th align="left"><strong>xScore</strong></th>
+<th align="left"><strong>yScore</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">1</td>
 <td align="left">temp + moisture + soil</td>
-<td align="left">-5.3e+33</td>
+<td align="left">-5.30e+33</td>
 <td align="left">139447.2</td>
 <td align="left">-0.3812</td>
 </tr>
 <tr class="even">
-<td align="left">-</td>
-<td align="left">-</td>
-<td align="left">-</td>
-<td align="left">-</td>
-<td align="left">-</td>
+<td align="left">2</td>
+<td align="left">temp + deficit + soil</td>
+<td align="left">-5.72e+33</td>
+<td align="left">140171.2</td>
+<td align="left">-0.1324</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="left">temp + surplus + soil</td>
+<td align="left">-4.93e+33</td>
+<td align="left">139208.7</td>
+<td align="left">-0.3965</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="left">temp + moisture + deficit + soil</td>
+<td align="left">-7.08e+33</td>
+<td align="left">140574.2</td>
+<td align="left">-0.6544</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="left">temp + moisture + therm + soil</td>
+<td align="left">-6.36e+33</td>
+<td align="left">140539.3</td>
+<td align="left">-0.8248</td>
+</tr>
+<tr class="even">
+<td align="left">6</td>
+<td align="left">temp + moisture + deficit + therm + soil</td>
+<td align="left">-8.51e+33</td>
+<td align="left">142482.9</td>
+<td align="left">-1.360</td>
+</tr>
+<tr class="odd">
+<td align="left">0</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">0</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">0</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>

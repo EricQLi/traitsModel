@@ -2,7 +2,8 @@
 title: "Trait Model Selection"
 author: "Bijan Seyednasrollah"
 date: "May 17, 2016"
-output: pdf_document
+output: html_document
+size: 8x12
 ---
 
 ```{r setup, include=FALSE}
@@ -22,8 +23,8 @@ The proposed models may consist of climatological variables (including mean wint
 2| temp + deficit  + soil | -5.72e+33 | 140171.2 | -0.1324
 3| temp + surplus  + soil | -4.93e+33 | 139208.7 | -0.3965
 4| temp + moisture + deficit  + soil | -7.08e+33| 140574.2 | -0.6544 
-5| temp + moisture + therm + soil  |  |  |  
-0|   |  |  |  
+5| temp + moisture + therm + soil  | -6.36e+33 | 140539.3 | -0.8248
+6| temp + moisture + deficit + therm + soil  | -8.51e+33 | 142482.9 | -1.360
 0|   |  |  |  
 0|   |  |  |  
 0|   |  |  |  
