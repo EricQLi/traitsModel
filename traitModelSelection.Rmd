@@ -26,5 +26,9 @@ The proposed models may consist of climatological variables (including mean wint
 5| temp + moisture + therm + soil  | -6.36e+33 | 140539.3 | -0.8248
 6| temp + moisture + deficit + therm + soil  | -8.51e+33 | 142482.9 | -1.360
 7| temp + moisture + deficit + therm  + soil +u1 + u2 + u3 | -1.22e+34 |  143378.1|  -2.24
+8|temp + moisture + deficit + soil +u1 + u2 + u3  | -1.07+34 | 142153.5 | -2.07  
 0|   |  |  |  
 0|   |  |  |  
+0|   |  |  |  
+0|   |  |  |  
+

@@ -23,8 +23,8 @@ modelList <- list(ng=2000,
 attr(plotByX$soil,'reference') <- 'Others'   # reference class
 attr(plotByX$soil,'intType')   <- 'ref'
 
-modelNo <- 7
-output  <- gjamGibbs(~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 
+modelNo <- 8
+output  <- gjamGibbs(~ temp + moisture + deficit + soil +u1 + u2 + u3 
                      #temp  +  deficit + moisture + therm + soil 
                      #u1 + u2 + u3 + 
                      #u1*temp + u2*temp + u3*temp
