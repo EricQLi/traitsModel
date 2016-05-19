@@ -2,7 +2,7 @@
 title: "Trait Model Selection"
 author: "Bijan Seyednasrollah"
 date: "May 17, 2016"
-output: pdf_document
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -18,17 +18,16 @@ The proposed models may consist of climatological variables (including mean wint
 
 
 ```{r echo=FALSE}
-modSumm <- read.csv('modelSelectSumm.csv')
 library(knitr)
 library(pander)
-
-modSumm$DIC <- signif(modSumm$DIC,3)
-modSumm$xScore <- signif(modSumm$xScore,6)
-modSumm$yScore <- signif(modSumm$yScore,3)
-modSumm$Time <- NULL
+modSumm <- read.csv('modelSelectSumm.csv')
 w <- order(modSumm$DIC)
 modSumm <- modSumm[w,]
 modSumm$DIC <- modSumm$DIC- modSumm$DIC[1]
+modSumm$DIC <- signif(modSumm$DIC,3)
+modSumm$xScore <- signif(modSumm$xScore,3)
+modSumm$yScore <- signif(modSumm$yScore,6)
+modSumm$Time <- NULL
 rownames(modSumm) <- NULL
 #kable(modSumm, format = "markdown")
 ```

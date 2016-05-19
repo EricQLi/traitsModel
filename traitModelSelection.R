@@ -11,10 +11,10 @@ traitList <- list(plotByTrait = traitData$plotByCWM,
                   traitTypes = traitData$traitTypes, 
                   specByTrait = traitData$specByTrait)
 
-reductList <- list(r = 3, N = 30)
+reductList <- list(r = 3, N = 20)
 
-modelList <- list(ng=2000, 
-                  burnin=1000,
+modelList <- list(ng=1000, 
+                  burnin=500,
                   typeNames = 'FC', 
                   holdoutN = 20,
                   reductList = reductList,
@@ -23,9 +23,9 @@ modelList <- list(ng=2000,
 attr(plotByX$soil,'reference') <- 'Others'   # reference class
 attr(plotByX$soil,'intType')   <- 'ref'
 
-models <- readLines('traitModel.Models.txt')
+models <- readLines('modelSelection/traitModel.Models.txt')
 
-for(modelNo in 14:length(models)){
+for(modelNo in 1:length(models)){
   set.seed(2016)
   
   output  <- gjamGibbs(as.formula(models[modelNo]),
