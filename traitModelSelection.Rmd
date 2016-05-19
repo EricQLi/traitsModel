@@ -16,25 +16,23 @@ The most appropriate model is selected using a model selection approach and base
 ### Predictors
 The proposed models may consist of climatological variables (including mean winter temperature, soil moisture, hydrothermal deficit and hydrothermal surplus), soil data, topographical data (slope and aspect) and their interactions. The table below shows how different models explain the response variables throughout the dataset.
 
- __#__|__Predictors__|__DIC__|__xScore__|__yScore__
--|-|-|-|- 
-1| temp + moisture + soil | -5.30e+33 | 139447.2 | -0.3812
-2| temp + deficit  + soil | -5.72e+33 | 140171.2 | -0.1324
-3| temp + surplus  + soil | -4.93e+33 | 139208.7 | -0.3965
-4| temp + moisture + deficit  + soil | -7.08e+33| 140574.2 | -0.6544 
-5| temp + moisture + therm + soil  | -6.36e+33 | 140539.3 | -0.8248
-6| temp + moisture + deficit + therm + soil  | -8.51e+33 | 142482.9 | -1.360
-7| temp + moisture + deficit + therm  + soil +u1 + u2 + u3 | -1.22e+34 |  143378.1|  -2.24
-8|temp + moisture + deficit + soil +u1 + u2 + u3  | -1.07+34 | 142153.5 | -2.07  
-9|temp + moisture + therm + soil +u1 + u2 + u3  | -9.22e+33 | 141521.9 | -2.11  
-10| temp + deficit + therm + soil +u1 + u2 + u3 | -1.02e+34 |141448.8 | -2.25
-11| temp + deficit + therm +u1 + u2 + u3 |  |  |  
-12| temp + moisture + therm +u1 + u2 + u3| | |  
-13| temp + deficit + moisture +u1 + u2 + u3| | |  
-14| | | |  
-15| | | |  
-16| | | |  
-17| | | |  
-18| | | |  
-19| | | |  
+```{r echo=FALSE}
+modSumm <- read.csv('modelSelection/modelSelectSumm.csv')
+library(knitr)
+library(pander)
 
+modSumm$DIC <- signif(modSumm$DIC,3)
+modSumm$xScore <- signif(modSumm$xScore,3)
+modSumm$yScore <- signif(modSumm$yScore,6)
+modSumm$Time <- NULL
+w <- order(modSumm$DIC)
+modSumm <- modSumm[w,]
+modSumm$DIC <- modSumm$DIC- modSumm$DIC[1]
+rownames(modSumm) <- NULL
+#kable(modSumm, format = "markdown")
+```
+ 
+```{r, comment=NA, echo=FALSE}
+pander(modSumm, type = 'grid')
+```
+ 

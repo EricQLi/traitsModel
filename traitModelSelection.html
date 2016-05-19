@@ -75,147 +75,107 @@ img {
 <div id="predictors" class="section level3">
 <h3>Predictors</h3>
 <p>The proposed models may consist of climatological variables (including mean winter temperature, soil moisture, hydrothermal deficit and hydrothermal surplus), soil data, topographical data (slope and aspect) and their interactions. The table below shows how different models explain the response variables throughout the dataset.</p>
-<table style="width:14%;">
+<table style="width:96%;">
 <colgroup>
-<col width="2%"></col>
-<col width="2%"></col>
-<col width="2%"></col>
-<col width="2%"></col>
-<col width="2%"></col>
+<col width="15%"></col>
+<col width="43%"></col>
+<col width="12%"></col>
+<col width="12%"></col>
+<col width="12%"></col>
 </colgroup>
 <thead>
 <tr class="header">
-<th align="left"><strong>#</strong></th>
-<th align="left"><strong>Predictors</strong></th>
-<th align="left"><strong>DIC</strong></th>
-<th align="left"><strong>xScore</strong></th>
-<th align="left"><strong>yScore</strong></th>
+<th align="center">Model.No</th>
+<th align="center">Predictors</th>
+<th align="center">DIC</th>
+<th align="center">yScore</th>
+<th align="center">xScore</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">1</td>
-<td align="left">temp + moisture + soil</td>
-<td align="left">-5.30e+33</td>
-<td align="left">139447.2</td>
-<td align="left">-0.3812</td>
+<td align="center">7</td>
+<td align="center">~ temp + moisture + deficit + therm + soil +u1 + u2 + u3</td>
+<td align="center">0</td>
+<td align="center">143378</td>
+<td align="center">-2.25</td>
 </tr>
 <tr class="even">
-<td align="left">2</td>
-<td align="left">temp + deficit + soil</td>
-<td align="left">-5.72e+33</td>
-<td align="left">140171.2</td>
-<td align="left">-0.1324</td>
+<td align="center">8</td>
+<td align="center">~ temp + moisture + deficit + soil +u1 + u2 + u3</td>
+<td align="center">1.4e+33</td>
+<td align="center">142154</td>
+<td align="center">-2.07</td>
 </tr>
 <tr class="odd">
-<td align="left">3</td>
-<td align="left">temp + surplus + soil</td>
-<td align="left">-4.93e+33</td>
-<td align="left">139208.7</td>
-<td align="left">-0.3965</td>
+<td align="center">10</td>
+<td align="center">~ temp + deficit + therm + soil +u1 + u2 + u3</td>
+<td align="center">2e+33</td>
+<td align="center">141449</td>
+<td align="center">-2.25</td>
 </tr>
 <tr class="even">
-<td align="left">4</td>
-<td align="left">temp + moisture + deficit + soil</td>
-<td align="left">-7.08e+33</td>
-<td align="left">140574.2</td>
-<td align="left">-0.6544</td>
+<td align="center">9</td>
+<td align="center">~ temp + moisture + therm + soil +u1 + u2 + u3</td>
+<td align="center">2.97e+33</td>
+<td align="center">141522</td>
+<td align="center">-2.12</td>
 </tr>
 <tr class="odd">
-<td align="left">5</td>
-<td align="left">temp + moisture + therm + soil</td>
-<td align="left">-6.36e+33</td>
-<td align="left">140539.3</td>
-<td align="left">-0.8248</td>
+<td align="center">6</td>
+<td align="center">~ temp + moisture + deficit + therm + soil</td>
+<td align="center">3.69e+33</td>
+<td align="center">142483</td>
+<td align="center">-1.36</td>
 </tr>
 <tr class="even">
-<td align="left">6</td>
-<td align="left">temp + moisture + deficit + therm + soil</td>
-<td align="left">-8.51e+33</td>
-<td align="left">142482.9</td>
-<td align="left">-1.360</td>
+<td align="center">4</td>
+<td align="center">~ temp + moisture + deficit + soil</td>
+<td align="center">5.12e+33</td>
+<td align="center">140574</td>
+<td align="center">-0.654</td>
 </tr>
 <tr class="odd">
-<td align="left">7</td>
-<td align="left">temp + moisture + deficit + therm + soil +u1 + u2 + u3</td>
-<td align="left">-1.22e+34</td>
-<td align="left">143378.1</td>
-<td align="left">-2.24</td>
+<td align="center">5</td>
+<td align="center">~ temp + moisture + therm + soil</td>
+<td align="center">5.84e+33</td>
+<td align="center">140539</td>
+<td align="center">-0.825</td>
 </tr>
 <tr class="even">
-<td align="left">8</td>
-<td align="left">temp + moisture + deficit + soil +u1 + u2 + u3</td>
-<td align="left">-1.07+34</td>
-<td align="left">142153.5</td>
-<td align="left">-2.07</td>
+<td align="center">2</td>
+<td align="center">~ temp + deficit + soil</td>
+<td align="center">6.48e+33</td>
+<td align="center">140171</td>
+<td align="center">-0.132</td>
 </tr>
 <tr class="odd">
-<td align="left">9</td>
-<td align="left">temp + moisture + therm + soil +u1 + u2 + u3</td>
-<td align="left">-9.22e+33</td>
-<td align="left">141521.9</td>
-<td align="left">-2.11</td>
+<td align="center">11</td>
+<td align="center">~ temp + deficit + therm +u1 + u2 + u3</td>
+<td align="center">6.74e+33</td>
+<td align="center">137263</td>
+<td align="center">-2.21</td>
 </tr>
 <tr class="even">
-<td align="left">10</td>
-<td align="left">temp + deficit + therm + soil +u1 + u2 + u3</td>
-<td align="left">-1.02e+34</td>
-<td align="left">141448.8</td>
-<td align="left">-2.25</td>
+<td align="center">1</td>
+<td align="center">~ temp + moisture + soil</td>
+<td align="center">6.9e+33</td>
+<td align="center">139447</td>
+<td align="center">-0.381</td>
 </tr>
 <tr class="odd">
-<td align="left">11</td>
-<td align="left">temp + deficit + therm +u1 + u2 + u3</td>
-<td align="left"></td>
-<td align="left"></td>
+<td align="center">12</td>
+<td align="center">~ temp + moisture + therm +u1 + u2 + u3</td>
+<td align="center">7.04e+33</td>
+<td align="center">136872</td>
+<td align="center">-2.05</td>
 </tr>
 <tr class="even">
-<td align="left">12</td>
-<td align="left">temp + moisture + therm +u1 + u2 + u3</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">13</td>
-<td align="left">temp + deficit + moisture +u1 + u2 + u3</td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">14</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">15</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">16</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">17</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="even">
-<td align="left">18</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-</tr>
-<tr class="odd">
-<td align="left">19</td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<td align="center">3</td>
+<td align="center">~ temp + surplus + soil</td>
+<td align="center">7.27e+33</td>
+<td align="center">139209</td>
+<td align="center">-0.397</td>
 </tr>
 </tbody>
 </table>

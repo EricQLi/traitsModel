@@ -25,25 +25,26 @@ attr(plotByX$soil,'intType')   <- 'ref'
 
 models <- readLines('traitModel.Models.txt')
 
-for(modelNo in 11:length(models)){
+for(modelNo in 13:length(models)){
   set.seed(2016)
   
   output  <- gjamGibbs(as.formula(models[modelNo]),
                        xdata = plotByX, ydata = plotByW, 
                        modelList = modelList)  
-  
-  strTime <- substring(make.names(Sys.time()),2)
+  sysTime <- Sys.time()
+  strTime <- substring(make.names(sysTime),2)
   
   save.image(paste('modelSelection/output', modelNo,
                    modelList$ng/1000, modelList$burnin/1000,
                    strTime, '.RData', sep = '-'))
   
-  modelSelectSumm.Cur <- data.frame(modelNo=modelNo,
-                                    time =strTime,
+  modelSelectSumm.Cur <- data.frame(Model.No=modelNo,
+                                    Predictors = models[modelNo],
+                                    Time =as.character(sysTime),
                                     DIC=output$modelSummary$DIC,
-                                    yScore=mean(output$modelSummary$yscore),
-                                    xScore=mean(output$modelSummary$xscore, na.rm = T))
-  
+                                    xScore=mean(output$modelSummary$xscore, na.rm = T),
+                                    yScore=mean(output$modelSummary$yscore)
+                                    )
   modelSelectSumm <- read.csv('modelSelection/modelSelectSumm.csv')
   modelSelectSumm <- rbind(modelSelectSumm, modelSelectSumm.Cur)
   write.csv(modelSelectSumm, file = 'modelSelection/modelSelectSumm.csv', row.names = F)
