@@ -2,7 +2,7 @@
 title: "Trait Model Selection"
 author: "Bijan Seyednasrollah"
 date: "May 17, 2016"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}

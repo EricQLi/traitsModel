@@ -29,3 +29,5 @@
 28,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 + moisture*surplus + moisture*soil","2016-05-20 08:54:14",-1.26649061616565e+34,-7.47461389486618,NA
 29,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + temp*soil","2016-05-20 09:33:58",-1.05073216881026e+34,-9.41990863298387,NA
 30,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + deficit*soil","2016-05-20 10:14:14",-1.37388751830179e+34,-9.8332710482863,NA
+31,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*temp","2016-05-20 10:58:19",-1.2062145429908e+34,-8.16902064057754,NA
+32,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*soil","2016-05-20 11:38:20",-1.21735921562048e+34,-7.35521827910799,NA
