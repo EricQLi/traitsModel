@@ -1,16 +1,31 @@
 "Model.No","Predictors","Time","DIC","xScore","yScore"
-1,"~ temp + moisture + soil","2016-05-18 13:48:37",-5.29851960985239e+33,-0.381286278182792,139447.224393662
-2,"~ temp + deficit  + soil","2016-05-18 15:07:49",-5.71926588344557e+33,-0.132414755410133,140171.256024324
-3,"~ temp + surplus  + soil","2016-05-18 16:28:48",-4.93436706324473e+33,-0.396536471728004,139208.756550361
-4,"~ temp + moisture + deficit  + soil","2016-05-18 18:17:27",-7.08141500319044e+33,-0.654426446385326,140574.236589984
-5,"~ temp + moisture + therm + soil","2016-05-18 19:31:01",-6.36108112771357e+33,-0.824884597600861,140539.335820894
-6,"~ temp + moisture + deficit + therm + soil","2016-05-18 20:44:33",-8.51449212777723e+33,-1.36064415760387,142482.906918912
-7,"~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3","2016-05-18 22:27:50",-1.22212465539183e+34,-2.24593794920761,143378.072258108
-8,"~ temp + moisture + deficit + soil +u1 + u2 + u3","2016-05-18 23:47:34",-1.07660744999448e+34,-2.07043530406147,142153.500870044
-9,"~ temp + moisture + therm + soil +u1 + u2 + u3","2016-05-19 04:59:11",-9.22510794872926e+33,-2.11652525548654,141521.975861448
-10,"~ temp + deficit + therm + soil +u1 + u2 + u3","2016-05-19 07:20:28",-1.01576415482923e+34,-2.25171426121635,141448.797649569
-11,"~ temp + deficit + therm +u1 + u2 + u3","2016.05.19.08.53.32",-5.45906865480155e+33,-2.20799546908006,137263.403489316
-12,"~ temp + moisture + therm +u1 + u2 + u3","2016.05.19.10.00.28",-5.1582612197929e+33,-2.04769935814048,136871.525707024
-13,"~ temp + deficit + moisture +u1 + u2 + u3","2016-05-19 11:15:19",-5.81361746294982e+33,-1.99305923875385,138380.318432677
-14,"~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 + moisture*therm","2016-05-19 13:37:17",-1.28630651968156e+34,-5.28235401606898,144293.284702633
-15,"~ temp + moisture + deficit + soil +u1 + u2 + u3+ moisture*therm","2016-05-19 15:13:17",-1.29007897800075e+34,-5.19589732223406,143855.234599911
+1,"~ temp + moisture + soil","2016-05-19 16:55:13",-4.86376476153712e+33,-0.408582566195997,NA
+2,"~ temp + deficit  + soil","2016-05-19 17:24:38",-4.95808496589031e+33,-0.102930974820679,NA
+3,"~ temp + surplus  + soil","2016-05-19 18:19:54",-4.63523986276486e+33,-0.371159440535759,NA
+4,"~ temp + moisture + deficit  + soil","2016-05-19 18:49:54",-6.19469885158105e+33,-0.645305653270967,NA
+5,"~ temp + moisture + surplus + soil","2016-05-19 19:19:45",-5.1865989506274e+33,-0.817282191050849,NA
+6,"~ temp + moisture + deficit + surplus + soil","2016-05-19 19:50:18",-7.07558659442084e+33,-1.34627794085288,NA
+7,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3","2016-05-19 20:22:29",-1.08411246018537e+34,-2.24277631310143,NA
+8,"~ temp + moisture + deficit + soil +u1 + u2 + u3","2016-05-19 20:53:57",-7.35473995769609e+33,-2.08813246007815,NA
+9,"~ temp + moisture + surplus + soil +u1 + u2 + u3","2016-05-19 21:26:13",-9.31462633093187e+33,-2.10869324127035,NA
+10,"~ temp + deficit + surplus + soil +u1 + u2 + u3","2016-05-19 21:58:14",-6.8290352641324e+33,-2.27048206150995,NA
+11,"~ temp + deficit + surplus +u1 + u2 + u3","2016-05-19 22:27:54",-5.09390126755596e+33,-2.1876768307013,NA
+12,"~ temp + moisture + surplus +u1 + u2 + u3","2016-05-19 22:57:05",-4.68823391072812e+33,-2.03869833752019,NA
+13,"~ temp + deficit + moisture +u1 + u2 + u3","2016-05-19 23:26:21",-5.37513513656685e+33,-1.97107024344728,NA
+14,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 + moisture*surplus","2016-05-20 00:03:12",-1.18495613975585e+34,-6.96826248265347,NA
+15,"~ temp + moisture + deficit + soil +u1 + u2 + u3+ moisture*surplus","2016-05-20 00:40:10",-1.18960486177176e+34,-7.06586821584661,NA
+16,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 + moisture*deficit","2016-05-20 01:16:51",-9.29996098035856e+33,-7.4281655428696,NA
+17,"~ temp + moisture + deficit + soil +u1 + u2 + u3+ moisture*deficit","2016-05-20 01:53:00",-9.720054671694e+33,-7.17352729181502,NA
+18,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 + moisture*temp","2016-05-20 02:29:33",-1.1927949752366e+34,-4.68448154197869,NA
+19,"~ temp + moisture + deficit + soil +u1 + u2 + u3+ moisture*temp","2016-05-20 03:05:44",-1.05194546617689e+34,-4.7965723299257,NA
+20,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 + moisture*soil","2016-05-20 03:45:08",-1.18716880063521e+34,-5.24966936287827,NA
+21,"~ temp + moisture + deficit + soil +u1 + u2 + u3+ moisture*soil","2016-05-20 04:23:55",-1.12759279395275e+34,-5.8693756989914,NA
+22,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 + temp*soil","2016-05-20 05:03:08",-1.03015133099161e+34,-2.88525971877904,NA
+23,"~ temp + moisture + deficit + soil +u1 + u2 + u3+ temp*soil","2016-05-20 05:42:01",-1.12993698544997e+34,-2.85674853093073,NA
+24,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 + deficit*soil","2016-05-20 06:21:04",-9.16299434609578e+33,-4.05429171854449,NA
+25,"~ temp + moisture + deficit + soil +u1 + u2 + u3+ deficit*soil","2016-05-20 06:59:34",-1.15135524142778e+34,-5.74608856028343,NA
+26,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 + moisture*surplus + moisture*deficit","2016-05-20 07:36:51",-1.13262009675784e+34,-9.20580327675062,NA
+27,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 + moisture*surplus + moisture*temp","2016-05-20 08:14:10",-1.16057088222827e+34,-7.79114480300937,NA
+28,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 + moisture*surplus + moisture*soil","2016-05-20 08:54:14",-1.26649061616565e+34,-7.47461389486618,NA
+29,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + temp*soil","2016-05-20 09:33:58",-1.05073216881026e+34,-9.41990863298387,NA
+30,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + deficit*soil","2016-05-20 10:14:14",-1.37388751830179e+34,-9.8332710482863,NA

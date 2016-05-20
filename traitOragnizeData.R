@@ -87,6 +87,7 @@ traitSdAll <- traitSdAll[w,]
 write.table(traitMuAll, 'data/post/traitMuAll.csv', sep = ',')
 write.table(traitSdAll, 'data/post/traitSdAll.csv', sep = ',')
 
+colnames(plotByX)[which(colnames(plotByX)=='therm')] <- 'surplus'
 
 write.table(plotByX, 'data/post/plotByX.csv', sep = ',')
 write.table(plotByW, 'data/post/plotByW.csv', sep = ',')

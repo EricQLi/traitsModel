@@ -2,77 +2,77 @@
 ~ temp + deficit  + soil
 ~ temp + surplus  + soil
 ~ temp + moisture + deficit  + soil
-~ temp + moisture + therm + soil
-~ temp + moisture + deficit + therm + soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3
+~ temp + moisture + surplus + soil
+~ temp + moisture + deficit + surplus + soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3
 ~ temp + moisture + deficit + soil +u1 + u2 + u3
-~ temp + moisture + therm + soil +u1 + u2 + u3
-~ temp + deficit + therm + soil +u1 + u2 + u3
-~ temp + deficit + therm +u1 + u2 + u3
-~ temp + moisture + therm +u1 + u2 + u3
+~ temp + moisture + surplus + soil +u1 + u2 + u3
+~ temp + deficit + surplus + soil +u1 + u2 + u3
+~ temp + deficit + surplus +u1 + u2 + u3
+~ temp + moisture + surplus +u1 + u2 + u3
 ~ temp + deficit + moisture +u1 + u2 + u3
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 + moisture*therm
-~ temp + moisture + deficit + soil +u1 + u2 + u3+ moisture*therm
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 + moisture*deficit
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 + moisture*surplus
+~ temp + moisture + deficit + soil +u1 + u2 + u3+ moisture*surplus
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 + moisture*deficit
 ~ temp + moisture + deficit + soil +u1 + u2 + u3+ moisture*deficit
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 + moisture*temp
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 + moisture*temp
 ~ temp + moisture + deficit + soil +u1 + u2 + u3+ moisture*temp
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 + moisture*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 + moisture*soil
 ~ temp + moisture + deficit + soil +u1 + u2 + u3+ moisture*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 + temp*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 + temp*soil
 ~ temp + moisture + deficit + soil +u1 + u2 + u3+ temp*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 + deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 + deficit*soil
 ~ temp + moisture + deficit + soil +u1 + u2 + u3+ deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 + moisture*therm + moisture*deficit
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 + moisture*therm + moisture*temp
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 + moisture*therm + moisture*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + temp*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*temp
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*deficit + temp*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*deficit + deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*temp + moisture*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*temp + temp*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*temp + deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*soil + temp*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*soil + deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	temp*soil + deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*deficit + moisture*temp
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*deficit + moisture*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*deficit + temp*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*deficit + deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*temp + moisture*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*temp + temp*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*temp + deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*soil + temp*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*soil +  deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*temp + moisture*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*temp + temp*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*temp + deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*soil + temp*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*soil +  deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*temp + moisture*soil + temp*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*temp + moisture*soil +  deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*soil + temp*soil +  deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*deficit + moisture*temp + moisture*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*deficit + moisture*temp + temp*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*deficit + moisture*temp + deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*deficit + moisture*soil + temp*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*deficit + moisture*soil + deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*deficit + temp*soil + deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*temp + moisture*soil + temp*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*temp + moisture*soil + deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*temp + temp*soil + deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*temp + moisture*soil + temp*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*temp + moisture*soil + deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*temp + temp*soil + deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*soil  + temp*soil + deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*temp + moisture*soil  + temp*soil + deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*temp + moisture*soil + temp*soil +deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*temp + moisture*soil + temp*soil +deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*deficit + moisture*soil + temp*soil +deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*deficit + moisture*temp + temp*soil +deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*deficit + moisture*temp + moisture*soil +deficit*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*deficit + moisture*temp + moisture*soil + temp*soil
-~ temp + moisture + deficit + therm  + soil +u1 + u2 + u3 +	moisture*therm + moisture*deficit + moisture*temp + moisture*soil + temp*soil +deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 + moisture*surplus + moisture*deficit
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 + moisture*surplus + moisture*temp
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 + moisture*surplus + moisture*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + temp*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*temp
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*deficit + temp*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*deficit + deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*temp + moisture*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*temp + temp*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*temp + deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*soil + temp*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*soil + deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	temp*soil + deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*deficit + moisture*temp
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*deficit + moisture*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*deficit + temp*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*deficit + deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*temp + moisture*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*temp + temp*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*temp + deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*soil + temp*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*soil +  deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*temp + moisture*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*temp + temp*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*temp + deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*soil + temp*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*soil +  deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*temp + moisture*soil + temp*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*temp + moisture*soil +  deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*soil + temp*soil +  deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*deficit + moisture*temp + moisture*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*deficit + moisture*temp + temp*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*deficit + moisture*temp + deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*deficit + moisture*soil + temp*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*deficit + moisture*soil + deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*deficit + temp*soil + deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*temp + moisture*soil + temp*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*temp + moisture*soil + deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*temp + temp*soil + deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*temp + moisture*soil + temp*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*temp + moisture*soil + deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*temp + temp*soil + deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*soil  + temp*soil + deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*temp + moisture*soil  + temp*soil + deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*deficit + moisture*temp + moisture*soil + temp*soil +deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*temp + moisture*soil + temp*soil +deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*deficit + moisture*soil + temp*soil +deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*deficit + moisture*temp + temp*soil +deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*deficit + moisture*temp + moisture*soil +deficit*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*deficit + moisture*temp + moisture*soil + temp*soil
+~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*deficit + moisture*temp + moisture*soil + temp*soil +deficit*soil

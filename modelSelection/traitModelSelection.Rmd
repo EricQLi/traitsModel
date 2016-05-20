@@ -2,7 +2,7 @@
 title: "Trait Model Selection"
 author: "Bijan Seyednasrollah"
 date: "May 17, 2016"
-output: html_document
+output: pdf_document
 ---
 
 ```{r setup, include=FALSE}
@@ -17,7 +17,7 @@ The most appropriate model is selected using a model selection approach and base
 The proposed models may consist of climatological variables (including mean winter temperature, soil moisture, hydrothermal deficit and hydrothermal surplus), soil data, topographical data (slope and aspect) and their interactions. The table below shows how different models explain the response variables throughout the dataset.
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, warning=FALSE}
 library(knitr)
 library(pander)
 modSumm <- read.csv('modelSelectSumm.csv')
@@ -28,6 +28,7 @@ modSumm$DIC <- signif(modSumm$DIC,3)
 modSumm$xScore <- signif(modSumm$xScore,3)
 modSumm$yScore <- signif(modSumm$yScore,6)
 modSumm$Time <- NULL
+modSumm$Predictors <- gsub('\\*', ':',modSumm$Predictors)
 rownames(modSumm) <- NULL
 #kable(modSumm, format = "markdown")
 ```
