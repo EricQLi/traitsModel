@@ -39,3 +39,8 @@
 38,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*soil + temp*soil","2016-05-21 10:04:47",-1.46027870146918e+34,-5.24830503544153,142480.459774233
 39,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*soil + deficit*soil","2016-05-21 10:46:15",-1.48322041892585e+34,-6.39609582339519,143728.475593425
 40,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	temp*soil + deficit*soil","2016-05-21 11:27:36",-1.46003438463767e+34,-4.97152839103042,144097.250967947
+41,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*deficit + moisture*temp","2016-05-21 12:15:04",-8.33379532014094e+33,-11.2194206046156,140702.590937123
+42,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*deficit + moisture*soil","2016-05-21 12:55:17",-1.21677905913181e+34,-10.0761477848078,141286.220378355
+43,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*deficit + temp*soil","2016-05-21 13:35:22",-1.3989140893773e+34,-13.3133212240494,141487.73525805
+44,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*deficit + deficit*soil","2016-05-21 14:15:59",-9.98412398443986e+33,-10.7351277593522,141867.839391066
+45,"~ temp + moisture + deficit + surplus  + soil +u1 + u2 + u3 +	moisture*surplus + moisture*temp + moisture*soil","2016-05-21 14:56:03",-1.26064594694298e+34,-8.09580819286639,142228.188632822
