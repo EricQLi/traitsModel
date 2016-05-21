@@ -48,6 +48,6 @@ for(modelNo in 1:length(models)){
   modelSelectSumm <- read.csv('modelSelection/modelSelectSumm.csv')
   modelSelectSumm <- rbind(modelSelectSumm, modelSelectSumm.Cur)
   write.csv(modelSelectSumm, file = 'modelSelection/modelSelectSumm.csv', row.names = F)
-  
+  rmarkdown::render('modelSelection/traitModelSelection.Rmd',c("html_document", "pdf_document"))
 }
 
