@@ -1,5 +1,8 @@
 
 plotByX <- as.data.frame(read.csv('data/post/plotByX.csv'))
+plotByX$soil5 <- plotByX$soil
+plotByX$soil4 <- plotByX$soil
+plotByX$soil4[plotByX$soil=='AlfInc'] <- 'Others' 
 # plotByX <- plotByX[,-c('ecoRegion')]
 # plotByX <- plotByX[,-"physioRegion"]
 
