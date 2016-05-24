@@ -20,12 +20,16 @@ modelList <- list(ng=300,
                   reductList = reductList,
                   traitList = traitList)
 
-attr(plotByX$soil,'reference') <- 'Others'   # reference class
-attr(plotByX$soil,'intType')   <- 'ref'
+# attr(plotByX$soil,'reference') <- 'Others'   # reference class
+# attr(plotByX$soil,'intType')   <- 'ref'
+# 
+# attr(plotByX$soil4,'reference') <- 'Others'   # reference class
+# attr(plotByX$soil4,'intType')   <- 'ref'
+
 
 models <- readLines('modelSelection/traitModel.Models.txt')
 
-for(modelNo in 1:length(models)){
+for(modelNo in length(models):151){
   set.seed(2016)
   
   output  <- gjamGibbs(as.formula(models[modelNo]),
@@ -34,7 +38,7 @@ for(modelNo in 1:length(models)){
   sysTime <- Sys.time()
   strTime <- substring(make.names(sysTime),2)
   
-  save.image(paste('modelSelection/output', modelNo,
+  save.image(paste('modelSelection/models/output', modelNo,
                    modelList$ng/1000, modelList$burnin/1000,
                    strTime, '.RData', sep = '-'))
   
