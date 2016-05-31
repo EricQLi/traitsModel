@@ -13,8 +13,8 @@ traitList <- list(plotByTrait = traitData$plotByCWM,
 
 reductList <- list(r = 3, N = 20)
 
-modelList <- list(ng=2000, 
-                  burnin=1000,
+modelList <- list(ng=4000, 
+                  burnin=2000,
                   typeNames = 'FC', 
                   holdoutN = 20,
                   reductList = reductList,
@@ -31,10 +31,11 @@ models <- readLines('modelSelection/traitModel.Models.txt')
 library(data.table)
 
 #modSumm <- as.data.table(read.csv('modelSelection/modelSelectSumm-300.csv'))
-modSumm <- as.data.table(read.csv('modelSelection/modelSelectSumm-55.csv'))
+#modSumm <- as.data.table(read.csv('modelSelection/modelSelectSumm-55.csv'))
+modSumm <- as.data.table(read.csv('modelSelection/modelSelectSumm-15.csv'))
 
 
-modNoList <- modSumm[DIC< -1.63e+34, Model.No]
+modNoList <- modSumm[DIC< -1.85e+34, Model.No]
 
 for(modelNo in modNoList){
   set.seed(2016)

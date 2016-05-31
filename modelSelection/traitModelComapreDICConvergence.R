@@ -1,6 +1,6 @@
 mod55 <- read.csv('modelSelection/modelSelectSumm-55.csv')
 mod300 <- read.csv('modelSelection/modelSelectSumm-300.csv')
-mod15 <- read.csv('modelSelection/modelSelectSumm.csv')
+mod15 <- read.csv('modelSelection/modelSelectSumm-15.csv')
 
 colnames(mod55)[4] <- 'DIC.55'
 colnames(mod300)[4] <- 'DIC.300'
