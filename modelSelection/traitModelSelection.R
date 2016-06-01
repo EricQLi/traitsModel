@@ -11,10 +11,10 @@ traitList <- list(plotByTrait = traitData$plotByCWM,
                   traitTypes = traitData$traitTypes, 
                   specByTrait = traitData$specByTrait)
 
-reductList <- list(r = 3, N = 20)
+reductList <- list(r = 3, N = 30)
 
-modelList <- list(ng=4000, 
-                  burnin=2000,
+modelList <- list(ng=10000, 
+                  burnin=6000,
                   typeNames = 'FC', 
                   holdoutN = 20,
                   reductList = reductList,
@@ -30,14 +30,7 @@ modelList <- list(ng=4000,
 models <- readLines('modelSelection/traitModel.Models.txt')
 library(data.table)
 
-#modSumm <- as.data.table(read.csv('modelSelection/modelSelectSumm-300.csv'))
-#modSumm <- as.data.table(read.csv('modelSelection/modelSelectSumm-55.csv'))
-modSumm <- as.data.table(read.csv('modelSelection/modelSelectSumm-15.csv'))
-
-
-modNoList <- modSumm[DIC< -1.85e+34, Model.No]
-
-for(modelNo in modNoList){
+for(modelNo in 149){
   set.seed(2016)
   
   output  <- gjamGibbs(as.formula(models[modelNo]),
