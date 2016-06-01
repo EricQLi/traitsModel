@@ -21,9 +21,6 @@ modelList <- list(ng=10000,
                   reductList = reductList,
                   traitList = traitList)
 
-attr(plotByX$soil,'reference') <- 'Others'   # reference class
-attr(plotByX$soil,'intType')   <- 'ref'
-
 set.seed(2016)
 
 output  <- gjamGibbs(~ temp + moisture + deficit + surplus + soil5 +u1 + u2 + u3 +
