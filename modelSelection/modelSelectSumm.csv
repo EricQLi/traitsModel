@@ -1,1 +1,2 @@
 "Model.No","Predictors","Time","DIC","xScore","yScore"
+149,"~ temp + moisture + deficit + surplus + soil5 +u1 + u2 + u3 + moisture*temp + moisture*soil5 + temp*soil5 + deficit*soil5 + deficit*temp","2016-06-01 05:07:51",-2.0132232664313e+34,-3.86396481893729,146618.247832607

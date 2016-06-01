@@ -20,21 +20,22 @@ modelList <- list(ng=10000,
                   reductList = reductList,
                   traitList = traitList)
 
-# attr(plotByX$soil,'reference') <- 'Others'   # reference class
-# attr(plotByX$soil,'intType')   <- 'ref'
-# 
-# attr(plotByX$soil4,'reference') <- 'Others'   # reference class
-# attr(plotByX$soil4,'intType')   <- 'ref'
+attr(plotByX$soil,'reference') <- 'Others'   # reference class
+attr(plotByX$soil,'intType')   <- 'ref'
+
+attr(plotByX$soil4,'reference') <- 'Others'   # reference class
+attr(plotByX$soil4,'intType')   <- 'ref'
 
 
 models <- readLines('modelSelection/traitModel.Models.txt')
 library(data.table)
 
-for(modelNo in 149){
+for(modelNo in 1:length(models)){
   set.seed(2016)
   
   output  <- gjamGibbs(as.formula(models[modelNo]),
-                       xdata = plotByX, ydata = plotByW, 
+                       xdata = plotByX, 
+                       ydata = plotByW, 
                        modelList = modelList)  
   sysTime <- Sys.time()
   strTime <- substring(make.names(sysTime),2)

@@ -1,6 +1,7 @@
 library(gjam)
+library(data.table)
 
-#browseVignettes('gjam')
+set.seed(2016)
 source('traitPreModel.R')
 
 traitData  <- gjamSpec2Trait(pbys = plotByW, 
@@ -13,8 +14,8 @@ traitList <- list(plotByTrait = traitData$plotByCWM,
 
 reductList <- list(r = 3, N = 30)
 
-modelList <- list(ng=2000, 
-                  burnin=1000,
+modelList <- list(ng=10000, 
+                  burnin=6000,
                   typeNames = 'FC', 
                   holdoutN = 20,
                   reductList = reductList,
@@ -23,20 +24,20 @@ modelList <- list(ng=2000,
 attr(plotByX$soil,'reference') <- 'Others'   # reference class
 attr(plotByX$soil,'intType')   <- 'ref'
 
-output  <- gjamGibbs(~ temp  +  deficit + moisture + therm +
-                       soil + u1 + u2 + u3 + 
-                       deficit*moisture + temp*moisture +		      
-                       moisture*soil + deficit*soil + temp*soil,   
+set.seed(2016)
+
+output  <- gjamGibbs(~ temp + moisture + deficit + surplus + soil5 +u1 + u2 + u3 +
+                       moisture*temp + moisture*soil5 + temp*soil5 + deficit*soil5 + deficit*temp,   
                      xdata = plotByX, 
                      ydata = plotByW, 
                      modelList = modelList)
 
-if(!is.null(modelList$reductList))save.image(paste('output', modelList$ng, modelList$burnin,
-                 'dr', reductList$r, reductList$N,
-                 make.names(date()), '.RData', sep = '-'))
 
-if(is.null(modelList$reductList))save.image(paste('output', modelList$ng, modelList$burnin,
-                 'ndr',make.names(date()), '.RData', sep = '-'))
+save.image(paste('output-mainModel', 
+                 modelList$ng/1000, modelList$burnin/1000,
+                 substring(make.names(Sys.time()),2), 
+                 '.RData', sep = '-'))
+
 
 head(output$modelSummary$sigmaTraitMu)
 head(output$modelSummary$betaTraitMu)
