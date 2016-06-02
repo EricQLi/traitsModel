@@ -11,7 +11,7 @@ for(fig in 1:6){
   legend.txt <- switch(fig, c('Cold','Hot'), c('Dry','Moist'), c('Low','High'), c('Low','High'), soilType)
   # if (fig<5) legend.txt <- NULL
   title <- switch(fig, 'Winter Temperature', 'Soil Moisture', 'Hydrothermal Surplus', 'Hydrothermal Deficit', 'Soil Taxonomy Order', 'Ecoregions')
-  zz <- switch(fig, plotByX[,'temp'],plotByX[,'moisture'] ,plotByX[,'therm'] ,plotByX[,'deficit'], as.character(plotByX$soil))
+  zz <- switch(fig, plotByX[,'temp'],plotByX[,'moisture'] ,plotByX[,'surplus'] ,plotByX[,'deficit'], as.character(plotByX$soil))
   colList <- switch(fig, colList.purpleOrange, colList.orangePurple, colList.purpleOrange, colList.purpleOrange, NULL)
   wSoil <- match(plotByX$soil, soilColTable[,1])
   wSoil[is.na(wSoil)] <- 3
