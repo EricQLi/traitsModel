@@ -61,8 +61,8 @@ postGibbsChains <- function(betachains,
   nameMatrix <- nameMatrix[
     interaction==withInteractions&
       trait%in%traitsToPlot&
-      #predictor%in%predictorsToPlot&
-      predictorFilter&
+      (predictor%in%predictorsToPlot|pred1%in%predictorsToPlot|pred2%in%predictorsToPlot)&
+      #predictorFilter&
       (signifcant|!onlySignificant)&
       ((predictor!='intercept')|!excludeIntercept)
       , ]
