@@ -16,10 +16,8 @@ source('figures/traitFig.CondOnLeaf.R')
 
 source('figures/traitFig.PostProc.Climate.R')
 source('figures/traitFig.PostProc.Soil.R')
-source('figures/traitFig.PostProc.Interactions.R')
 
 source('figures/traitFig.PostProc.Interactions.Moisture.R')
-source('figures/traitFig.PostProc.Interactions.Surplus.R')
 source('figures/traitFig.PostProc.Interactions.Deficit.R')
 source('figures/traitFig.PostProc.Interactions.Temperature.R')
 
