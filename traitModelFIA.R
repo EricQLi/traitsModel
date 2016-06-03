@@ -45,3 +45,20 @@ plotPars  <- list(width=5, height=4, corLines=T,
 fit       <- gjamPlot(output = output, plotPars)
 
 
+tnames    <- colnames(traitData$plotByCWM)
+M <- ncol(traitData$plotByCWM)
+boxBorder <- rep('black', M)                           # highlight types
+boxCol    <- rep('grey',M)
+wo <- which(tnames %in% c("N","P","SLA") )     # foliar traits
+wf <- grep("leaf",tnames)                              # leaf habit
+wc <- which(tnames %in% c("WD","MH","SM") ) # wood anatomy
+
+boxBorder[wc] <- 'brown';     boxCol[wc] <- 'tan'
+boxBorder[wf] <- 'darkblue';  boxCol[wf] <- 'lightblue'
+boxBorder[wo] <- 'darkgreen'; boxCol[wo] <- 'lightgreen'
+
+pl  <- list(width = 3, height = 3, GRIDPLOTS = TRUE, plotAllY = T,
+            boxBorder = boxBorder, boxCol = boxCol, 
+            SMALLPLOTS = F, SAVEPLOTS=T, sigOnly=F, 
+            sdScaleX = T, sdScaleY = T)
+fit <- gjamPlot(output = output, plotPars = pl)
