@@ -12,13 +12,13 @@ source('figures/traitPostAux.R')
 traitNames <- colnames(traitList$plotByTrait)
 traitSd <- apply(traitData$plotByCWM, 2, sd)
 
-moistSensList <- list()
+deficitSensList <- list()
 
 for(j in 4:6){
   postMoist <- postGibbsChains(betachains = output$chains$agibbs, 
                                burnin = output$burnin,
                                traitsToPlot = traitNames[j] ,
-                               predictorsToPlot = c('moisture'), 
+                               predictorsToPlot = c('deficit'), 
                                onlySignificant = F, 
                                normalized = F, 
                                includeInteractions = T, 
@@ -26,21 +26,21 @@ for(j in 4:6){
   
   colnames(postMoist$chains)
   
-  sensVectors <- cbind(1, output$x[,c("deficit","soilAlfInc","soilEntVert","soilMol","soilSpodHist","soilUltKan")])
+  sensVectors <- cbind(1, output$x[,c("moisture","soilAlfInc","soilEntVert","soilMol","soilSpodHist","soilUltKan","temp")])
   
-  moistSens <- sensVectors%*%t(postMoist$chains)
-  moistSensList[[length(moistSensList)+1]] <- rowMeans(moistSens)/traitSd[j]
+  deficitSens <- sensVectors%*%t(postMoist$chains)
+  deficitSensList[[length(deficitSensList)+1]] <- rowMeans(deficitSens)/traitSd[j]
 }
-names(moistSensList) <- traitNames[4:6]
+names(deficitSensList) <- traitNames[4:6]
 
 
 valRange <- c()
 
-png('figures/traitFig.SensMoisture.png', units='in',res=300, height  = 5, width=15)
+png('figures/traitFig.SensDeficit.png', units='in',res=300, height  = 5, width=15)
 par(mfrow=c(1,3), oma=c(0.0,0,2,0))
 for(j in 4:6){
   
-  ssj <- moistSensList[[j-3]]
+  ssj <- deficitSensList[[j-3]]
   
   par(xaxt='n', yaxt='n')
   mapColorData(x = plotByX$plotLon, y = plotByX$plotLat, data = ssj,
@@ -63,5 +63,5 @@ for(j in 4:6){
   axis(1, cex.axis=1.7)
   axis(2, cex.axis=1.7)
 }
-mtext(outer = T, side = 3, text = 'Sensitivity to moisture (dimensionless)', cex = 1.6)
+mtext(outer = T, side = 3, text = 'Sensitivity to deficit (dimensionless)', cex = 1.6)
 dev.off()

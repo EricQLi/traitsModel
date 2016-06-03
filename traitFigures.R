@@ -22,4 +22,7 @@ source('figures/traitFig.PostProc.Interactions.Deficit.R')
 source('figures/traitFig.PostProc.Interactions.Temperature.R')
 
 
+source('figures/traitFig.SensMoisture.R')
+source('figures/traitFig.SensDeficit.R')
+source('figures/traitFig.SensTemp.R')
 
