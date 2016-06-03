@@ -35,7 +35,7 @@ set.seed(2016)
 #                  substring(make.names(Sys.time()),2), 
 #                  '.RData', sep = '-'))
 
-load('output-mainModel-10-6-2016.06.02.08.10.51-.RData')
+load('output-mainModel-10-6-2016.06.02.20.27.03-.RData')
 
 head(output$modelSummary$sigmaTraitMu)
 head(output$modelSummary$betaTraitMu)
