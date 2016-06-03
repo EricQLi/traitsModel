@@ -23,18 +23,18 @@ modelList <- list(ng=10000,
 
 set.seed(2016)
 
-output  <- gjamGibbs(~ temp + moisture + deficit + surplus + soil +u1 + u2 + u3 +
-                       moisture*deficit + moisture*soil + temp*soil + deficit*soil + deficit*temp,   
-                     xdata = plotByX, 
-                     ydata = plotByW, 
-                     modelList = modelList)
 
-save.image(paste('output-mainModel', 
-                 modelList$ng/1000, modelList$burnin/1000,
-                 substring(make.names(Sys.time()),2), 
-                 '.RData', sep = '-'))
+# output  <- gjamGibbs(~ temp + moisture + deficit + surplus + soil +u1 + u2 + u3 +
+#                        moisture*deficit + moisture*soil + temp*soil + deficit*soil + deficit*temp,   
+#                      xdata = plotByX, 
+#                      ydata = plotByW, 
+#                      modelList = modelList)
+# save.image(paste('output-mainModel', 
+#                  modelList$ng/1000, modelList$burnin/1000,
+#                  substring(make.names(Sys.time()),2), 
+#                  '.RData', sep = '-'))
 
-# load('output-mainModel-10-6-2016.06.02.08.10.51-.RData')
+load('output-mainModel-10-6-2016.06.02.20.27.03-.RData')
 
 head(output$modelSummary$sigmaTraitMu)
 head(output$modelSummary$betaTraitMu)
