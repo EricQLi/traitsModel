@@ -2,19 +2,21 @@ require(data.table)
 
 # betachains <- output$chains$agibbs
 # burnin <- floor(nrow(betachains)/2)
-# withInteractions <- F
+# includeInteractions <- F
 # traitsToPlot <- c('N','P','SLA') 
 # predictorsToPlot <- NULL
 # onlySignificant <- T
 
 postGibbsChains <- function(betachains,
                             burnin=1, 
-                            withInteractions=T, 
                             traitsToPlot=NULL,
                             predictorsToPlot=NULL, 
-                            onlySignificant=T,
                             normalized = T,
-                            excludeIntercept = T){
+                            includeInteractions=T,
+                            includeMainEffects =T,
+                            excludeIntercept = T,
+                            onlySignificant=T){
+  
   wFactors <- which(apply(output$x, 2, function(x)all(x%in%c(0,1))))
   sdCols <- apply(output$x, 2, sd)
   sdCols[wFactors] <- 1
@@ -24,16 +26,16 @@ postGibbsChains <- function(betachains,
   
   ng <- nrow(chains)
   nbeta <- ncol(chains)
-  nameMatrix <- matrix(unlist(
+  fullMatrix <- matrix(unlist(
     strsplit(colnames(chains), split = '_')), 
     ncol=2, byrow = T)
-  colnames(nameMatrix) <- c('trait', 'predictor')
-  nameMatrix <- as.data.table(nameMatrix)
+  colnames(fullMatrix) <- c('trait', 'predictor')
+  fullMatrix <- as.data.table(fullMatrix)
   id <- 1:nbeta
-  nameMatrix <- cbind(id, nameMatrix)
-  nameMatrix$interaction <- grepl(':',nameMatrix$predictor)
-  nameMatrix
-  nameMatrix[, pred:=strsplit(predictor,':')]
+  fullMatrix <- cbind(id, fullMatrix)
+  fullMatrix$interaction <- grepl(':',fullMatrix$predictor)
+  fullMatrix
+  fullMatrix[, pred:=strsplit(predictor,':')]
   tmp <- function(x){
     if(length(x)!=1) {
       return(unlist(x))
@@ -41,32 +43,39 @@ postGibbsChains <- function(betachains,
       return(c(unlist(x),NA))
     }
   }
-  nameMatrix$pred1 <- t(sapply(nameMatrix$pred, tmp))[,1]
-  nameMatrix$pred2 <- t(sapply(nameMatrix$pred, tmp))[,2]
+  fullMatrix$pred1 <- t(sapply(fullMatrix$pred, tmp))[,1]
+  fullMatrix$pred2 <- t(sapply(fullMatrix$pred, tmp))[,2]
   
   
-  sdCols <- sdCols[match(nameMatrix$predictor, names(sdCols))]
+  sdCols <- sdCols[match(fullMatrix$predictor, names(sdCols))]
   if(normalized) chains <- t(t(chains)*sdCols)
   
   summChains <- t(apply(chains, 2, quantile, probs=c(.5,.025,.975)))
   colnames(summChains) <- c('median','low','high')
-  nameMatrix <- cbind(nameMatrix, summChains)
-  nameMatrix[, signifcant:=sign(high*low)==1]
-  nameMatrix
-  if(is.null(traitsToPlot)) traitsToPlot <- unique(nameMatrix$trait)
-  if(is.null(predictorsToPlot)) predictorsToPlot <- unique(nameMatrix$predictor)
+  fullMatrix <- cbind(fullMatrix, summChains)
+  fullMatrix[, signifcant:=sign(high*low)==1]
+  fullMatrix
+  if(is.null(traitsToPlot)) traitsToPlot <- unique(fullMatrix$trait)
+  if(is.null(predictorsToPlot)) predictorsToPlot <- unique(fullMatrix$predictor)
   
-  predictorFilter = 1:nrow(nameMatrix)%in%unique(unlist(apply(as.matrix(predictorsToPlot), 1, grep, nameMatrix$predictor)))
-  
-  nameMatrix <- nameMatrix[
-    interaction==withInteractions&
-      trait%in%traitsToPlot&
-      (predictor%in%predictorsToPlot|pred1%in%predictorsToPlot|pred2%in%predictorsToPlot)&
+   predictorFilter = 1:nrow(fullMatrix)%in%unique(unlist(apply(as.matrix(predictorsToPlot), 1, grep, fullMatrix$predictor)))
+   interactionFilter<- c(includeInteractions, !includeMainEffects)
+   if(!(includeInteractions|includeMainEffects)) interactionFilter <- c()
+   
+  nameMatrix <- fullMatrix[
+    trait%in%traitsToPlot&
+      (predictor%in%predictorsToPlot|
+         pred1%in%predictorsToPlot|
+         pred2%in%predictorsToPlot)&
       #predictorFilter&
       (signifcant|!onlySignificant)&
+      interaction%in%interactionFilter&
       ((predictor!='intercept')|!excludeIntercept)
-      , ]
+    , ]
   
   list(    chains = chains[, nameMatrix$id],
-           nameMatrix= nameMatrix)
+           nameMatrix = nameMatrix,
+           fullchain =chains,
+           fullMatrix = fullMatrix
+  )
 }
