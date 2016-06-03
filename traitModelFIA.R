@@ -38,11 +38,11 @@ load('output-mainModel-10-6-2016.06.02.20.27.03-.RData')
 
 head(output$modelSummary$sigmaTraitMu)
 head(output$modelSummary$betaTraitMu)
-
-plotPars  <- list(width=5, height=4, corLines=T, 
-                  SMALLPLOTS=T, CLUSTERPLOTS=T)                  
-
-fit       <- gjamPlot(output = output, plotPars)
+# 
+# plotPars  <- list(width=5, height=4, corLines=T, 
+#                   SMALLPLOTS=T, CLUSTERPLOTS=T)                  
+# 
+# fit       <- gjamPlot(output = output, plotPars)
 
 
 tnames    <- colnames(traitData$plotByCWM)
