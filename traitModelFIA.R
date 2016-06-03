@@ -23,13 +23,12 @@ modelList <- list(ng=10000,
 
 set.seed(2016)
 
+
 # output  <- gjamGibbs(~ temp + moisture + deficit + surplus + soil +u1 + u2 + u3 +
-#                        moisture*temp + moisture*soil + temp*soil + deficit*soil + deficit*temp,   
+#                        moisture*deficit + moisture*soil + temp*soil + deficit*soil + deficit*temp,   
 #                      xdata = plotByX, 
 #                      ydata = plotByW, 
 #                      modelList = modelList)
-
-
 # save.image(paste('output-mainModel', 
 #                  modelList$ng/1000, modelList$burnin/1000,
 #                  substring(make.names(Sys.time()),2), 
