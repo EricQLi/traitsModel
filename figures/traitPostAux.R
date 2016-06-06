@@ -7,7 +7,7 @@ require(data.table)
 # predictorsToPlot <- NULL
 # onlySignificant <- T
 
-plotSensitivity <- function(pngName, txtTitle, paramSensList, colList=rev(colList.SurfAndTurf)){
+plotSensitivity <- function(pngName, txtTitle, paramSensList, traitNames, colList=rev(colList.SurfAndTurf)){
   
   png(pngName, units='in',res=300, height  = 5, width=15)
   par(mfrow=c(1,3), oma=c(0.0,0,2,0))
@@ -31,7 +31,7 @@ plotSensitivity <- function(pngName, txtTitle, paramSensList, colList=rev(colLis
   dev.off()
   
 }
-plotSensitivitySign <- function(pngName, txtTitle, paramSensList, colList=c( "#5e3c99", "#f7f7f7", "#e66101")){
+plotSensitivitySign <- function(pngName, txtTitle, paramSensList, traitNames, colList=c( "#5e3c99", "#f7f7f7", "#e66101")){
   
   png(pngName, units='in',res=300, height  = 5, width=15)
   par(mfrow=c(1,3), oma=c(0.0,0,2,0))

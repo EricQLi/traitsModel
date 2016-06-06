@@ -11,6 +11,7 @@ source('figures/traitFig.N-P.Ratio.R')
 
 source('figures/traitFig.Decid-Ever.R')
 source('figures/traitFig.CondOnLeaf.R')
+source('figures/traitFig.FilterOnLeaf.R')
 
 source('figures/traitFig.PostProc.Climate.R')
 source('figures/traitFig.PostProc.Soil.R')
@@ -23,5 +24,4 @@ source('figures/traitFig.SensMoisture.R')
 source('figures/traitFig.SensDeficit.R')
 source('figures/traitFig.SensTemp.R')
 
-source('figures/traitFig.FilterOnLeaf.R')
 

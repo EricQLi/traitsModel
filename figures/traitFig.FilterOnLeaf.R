@@ -1,7 +1,7 @@
 source('traitFunctions.R')
 
 CWT$pred <- output$modelSummary$tMu[,1:6]
-CWT$cond <- getCWT.CondOnLeaf()
+CWT$cond <- getCWT.CondOnLeaf(output)
 CWT$filter <- getCWT.FilterOnLeaf(output, speciesByTraits, plotByW)
 
 png('figures/traitFig.FilterOnLeaf.png', units='in',res=300, height  = 15, width=15)

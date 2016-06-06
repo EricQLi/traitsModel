@@ -1,9 +1,8 @@
 library(data.table)
 source('~/Projects/procVisData/bayesianFunctions.R')
 
-getSensitivity <- function(param, output, interactionsList, traitList, traitData) {
+getSensitivity <- function(param, output, interactionsList, traitNames, traitData) {
   
-  traitNames <- colnames(traitList$plotByTrait)
   traitSd <- apply(traitData$plotByCWM, 2, sd)
   
   paramSensList <- list()

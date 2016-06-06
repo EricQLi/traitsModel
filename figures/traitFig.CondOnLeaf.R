@@ -1,5 +1,5 @@
 CWT$pred <- output$modelSummary$tMu[,1:6]
-CWT$cond <- getCWT.CondOnLeaf()
+CWT$cond <- getCWT.CondOnLeaf(output)
 
 png('figures/traitFig.CondOnLeaf.png', units='in',res=300, height  = 15, width=15)
 par(mfrow=c(3,3),oma = c(5,6,5,2), mar=c(2,2,1,1))
