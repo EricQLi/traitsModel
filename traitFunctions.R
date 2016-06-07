@@ -1,6 +1,78 @@
+library(data.table)
 source('~/Projects/procVisData/bayesianFunctions.R')
 
-getCWT.CondOnLeaf <- function(){
+getSensitivity <- function(param, output, interactionsList, traitList, traitData) {
+  
+  traitNames <- colnames(traitList$plotByTrait)
+  traitSd <- apply(traitData$plotByCWM, 2, sd)
+  
+  paramSensList <- list()
+  
+  for(j in 4:6){
+    postParam <- postGibbsChains(betachains = output$chains$agibbs, 
+                                 burnin = output$burnin,
+                                 traitsToPlot = traitNames[j] ,
+                                 predictorsToPlot = param, 
+                                 onlySignificant = F, 
+                                 normalized = F, 
+                                 includeInteractions = T, 
+                                 includeMainEffects = T)
+    
+    
+    sensVectors <- cbind(1, output$x[,interactionsList])
+    
+    paramSens <- sensVectors%*%t(postParam$chains)/traitSd[j]
+    paramSens.Summ <- as.data.frame(t(apply(paramSens, 1, quantile, probs=c(.5,.025,.975))))
+    paramSens.Summ$mean <- rowMeans(paramSens)
+    paramSens.Summ$signif <- (sign(paramSens.Summ[,"2.5%"]*paramSens.Summ[,"97.5%"])>0)
+    paramSens.Summ$sign <- paramSens.Summ$signif*sign(paramSens.Summ[,"2.5%"])
+    
+    paramSensList[[length(paramSensList)+1]] <- paramSens.Summ
+    
+  }
+  names(paramSensList) <- traitNames[4:6]
+  
+  paramSensList
+}
+
+getCWT.FilterOnLeaf <- function(output, speciesByTraits, plotByW){
+  species <- rownames(speciesByTraits)
+  sp <- 1:length(species)
+  speciesByTraitsDT <- as.data.table(cbind(sp,species, speciesByTraits))
+  
+  evergreenLeaf <- speciesByTraitsDT[leaf=='NLEver', .(sp, species)]
+  deciduousLeaf <- speciesByTraitsDT[leaf=='Deciduous', .(sp, species)]
+  
+  CWT.evergreen <- (plotByW[,evergreenLeaf$species])%*%as.matrix(
+    speciesByTraits[evergreenLeaf$species,c("N","P","SLA")])
+  
+  CWT.deciduous <- (plotByW[,deciduousLeaf$species])%*%as.matrix(
+    speciesByTraits[deciduousLeaf$species,c("N","P","SLA")])
+  
+  betaTraitMu.Ever <- output$modelSummary$betaMu[,evergreenLeaf$sp]%*%
+    as.matrix(traitData$specByTrait[evergreenLeaf$sp,])
+  
+  betaTraitMu.Decid <- output$modelSummary$betaMu[,deciduousLeaf$sp]%*%
+    as.matrix(traitData$specByTrait[deciduousLeaf$sp,])
+  
+  
+  
+  spCols <- matrix(unlist(strsplit(colnames(output$chains$bgibbs),split = '_')), ncol=2, byrow=T)[,1]
+  
+  decidCols <- spCols%in%deciduousLeaf$species
+  everCols <- spCols%in%evergreenLeaf$species
+  
+  dim(output$chains$bgibbs[,decidCols])
+  colnames(output$chains$bgibbs[,everCols])
+  
+  list(evergreen = CWT.evergreen, 
+       deciduous = CWT.deciduous,
+       betaTraitMu.Ever=betaTraitMu.Ever[,c("N","P","SLA")],
+       betaTraitMu.Decid=betaTraitMu.Decid[,c("N","P","SLA")]
+  )
+}
+
+getCWT.CondOnLeaf <- function(output){
   tMu <- output$modelSummary$tMu
   deciTrait <- everTrait <- tMu
   

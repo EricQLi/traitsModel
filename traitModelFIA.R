@@ -34,7 +34,7 @@ set.seed(2016)
 #                  substring(make.names(Sys.time()),2), 
 #                  '.RData', sep = '-'))
 
-load('output-mainModel-10-6-2016.06.02.20.27.03-.RData')
+load('output-mainModel-10-6-2016.06.02.20.27.03- (moist-deficit).RData')
 
 head(output$modelSummary$sigmaTraitMu)
 head(output$modelSummary$betaTraitMu)
@@ -61,4 +61,6 @@ pl  <- list(width = 3, height = 3, GRIDPLOTS = TRUE, plotAllY = T,
             boxBorder = boxBorder, boxCol = boxCol, 
             SMALLPLOTS = F, SAVEPLOTS=T, sigOnly=F, 
             sdScaleX = T, sdScaleY = T)
+
 fit <- gjamPlot(output = output, plotPars = pl)
+

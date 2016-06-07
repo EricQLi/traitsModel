@@ -7,6 +7,55 @@ require(data.table)
 # predictorsToPlot <- NULL
 # onlySignificant <- T
 
+plotSensitivity <- function(pngName, txtTitle, paramSensList, colList=rev(colList.SurfAndTurf)){
+  
+  png(pngName, units='in',res=300, height  = 5, width=15)
+  par(mfrow=c(1,3), oma=c(0.0,0,2,0))
+  for(j in 4:6){
+    
+    ssj <- paramSensList[[j-3]]$mean
+    
+    par(xaxt='n', yaxt='n')
+    mapColorData(x = plotByX$plotLon, y = plotByX$plotLat, data = ssj,
+                 valRange = quantile(ssj, probs = seq(0.05,.95, by = .1), na.rm = T), 
+                 cex.all = 2, colList = colList, symSize=.7 )
+    
+    mtext(text = traitNames[j], side = 3, line = .7, cex=2)
+    mtext(text =  switch(j-3, '(a)','(b)','(c)'), side = 3, line = 1.5,at = -100, cex=2)
+    
+    par(xaxt='s', yaxt='s')
+    axis(1, cex.axis=1.7)
+    axis(2, cex.axis=1.7)
+  }
+  mtext(outer = T, side = 3, text = txtTitle, cex = 1.6)
+  dev.off()
+  
+}
+plotSensitivitySign <- function(pngName, txtTitle, paramSensList, colList=c( "#5e3c99", "#f7f7f7", "#e66101")){
+  
+  png(pngName, units='in',res=300, height  = 5, width=15)
+  par(mfrow=c(1,3), oma=c(0.0,0,2,0))
+  for(j in 4:6){
+    
+    ssj <- paramSensList[[j-3]]$sign
+    ww <- ssj!=0
+    par(xaxt='n', yaxt='n')
+    mapColorData(x = plotByX$plotLon[ww], y = plotByX$plotLat[ww], data = ssj[ww],
+                 #valRange = quantile(ssj, probs = seq(0.05,.95, by = .1), na.rm = T), 
+                 valRange = c(-1,0,1),
+                 cex.all = 2, colList = colList, symSize=.7)
+    
+    mtext(text = traitNames[j], side = 3, line = .7, cex=2)
+    mtext(text =  switch(j-3, '(a)','(b)','(c)'), side = 3, line = 1.5,at = -100, cex=2)
+    
+    par(xaxt='s', yaxt='s')
+    axis(1, cex.axis=1.7)
+    axis(2, cex.axis=1.7)
+  }
+  mtext(outer = T, side = 3, text = txtTitle, cex = 1.6)
+  dev.off()
+  
+}
 postGibbsChains <- function(betachains,
                             burnin=1, 
                             traitsToPlot=NULL,
