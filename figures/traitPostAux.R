@@ -15,8 +15,10 @@ plotSensitivity <- function(pngName, txtTitle, paramSensList, traitNames, colLis
     
     ssj <- paramSensList[[j-3]]$mean
     
+    ww <- paramSensList[[j-3]]$sign
+    
     par(xaxt='n', yaxt='n')
-    mapColorData(x = plotByX$plotLon, y = plotByX$plotLat, data = ssj,
+    mapColorData(x = plotByX$plotLon[ww], y = plotByX$plotLat[ww], data = ssj[ww],
                  valRange = quantile(ssj, probs = seq(0.05,.95, by = .1), na.rm = T), 
                  cex.all = 2, colList = colList, symSize=.7 )
     
