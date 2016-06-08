@@ -1,11 +1,17 @@
 library(data.table)
 source('~/Projects/procVisData/bayesianFunctions.R')
 
-getSensitivity <- function(param, output, interactionsList, traitNames, traitData) {
+getSensitivity <- function(param, output, interactionsList, traitNames, traitData, normalized = T) {
   
   traitSd <- apply(traitData$plotByCWM, 2, sd)
   
   paramSensList <- list()
+  
+  wFactors <- which(apply(output$x, 2, function(x)all(x%in%c(0,1))))
+  sdCols <- apply(output$x, 2, sd)
+  sdCols[wFactors] <- 1
+  sdParam <- sdCols[match(param, names(sdCols))]
+  if(!normalized) sdParam <- 1
   
   for(j in 4:6){
     postParam <- postGibbsChains(betachains = output$chains$agibbs, 
@@ -19,7 +25,8 @@ getSensitivity <- function(param, output, interactionsList, traitNames, traitDat
 
     sensVectors <- cbind(1, output$x[,interactionsList])
     
-    paramSens <- sensVectors%*%t(postParam$chains)/traitSd[j]
+    paramSens <- sensVectors%*%t(postParam$chains)/traitSd[j]*sdParam
+    
     paramSens.Summ <- as.data.frame(t(apply(paramSens, 1, quantile, probs=c(.5,.025,.975))))
     paramSens.Summ$mean <- rowMeans(paramSens)
     paramSens.Summ$signif <- (sign(paramSens.Summ[,"2.5%"]*paramSens.Summ[,"97.5%"])>0)
