@@ -18,4 +18,5 @@ source('figures/traitFig.SensMoisture.R')
 source('figures/traitFig.SensDeficit.R')
 source('figures/traitFig.SensTemp.R')
 
+source('figures/traitFig.AspectEffect.R')
 

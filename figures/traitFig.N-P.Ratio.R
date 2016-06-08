@@ -2,6 +2,7 @@ library(raster)
 
 source('~/Projects/procVisData/geoSpatial.R')
 source('~/Projects/procVisData/colorProc.R')
+source('~/Projects/procVisData/dataViz.R')
 
 source('traitFunctions.R')
 source('figures/traitColorSet.R')
