@@ -1,3 +1,4 @@
+source('traitFunctions.R')
 source('figures/traitColorSet.R')
 source('~/Projects/procVisData/geoSpatial.R')
 source('~/Projects/procVisData/colorProc.R')

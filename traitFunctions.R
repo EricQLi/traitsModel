@@ -102,13 +102,16 @@ getCWT.CondOnLeaf <- function(output){
   list(condDecid=condDecid$mu, condEver=condEver$mu)
 }
 
-getCWT.Mass.Area <- function(speciesByTraits, plotByW){
+getCWT.Mass.Area <- function(output, speciesByTraits, plotByW){
   CWT.Mass <- (plotByW)%*%as.matrix(speciesByTraits[,c("N","P","SLA")])
   speciesByTraits.Area <- speciesByTraits[,c("N","P")]/speciesByTraits[,"SLA"]
   speciesByTraits.Area['other',] <- 0
   CWT.Area <- (plotByW)%*%as.matrix(speciesByTraits.Area[,c("N","P")])
   
-  list(perMass = CWT.Mass, perArea = CWT.Area)
+  CWT.pred <- output$modelSummary$tMu[,1:6]
+  CWT.cond <- getCWT.CondOnLeaf(output)
+  
+  list(perMass = CWT.Mass, perArea = CWT.Area, pred = CWT.pred, cond = CWT.cond)
 }
 
 mapOutlines <- function(glacialLine, mapRegion, lwd1 =2, lwd2=6, col1='grey',col2='white'){

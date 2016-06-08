@@ -1,8 +1,3 @@
-library(raster)
-source('traitFunctions.R')
-
-source('figures/traitColorSet.R')
-
 source('figures/traitFig.Env-Soil-Eco.R')
 
 source('figures/traitFig.N-P-SLA.Mass.R')

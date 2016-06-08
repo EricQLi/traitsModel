@@ -1,14 +1,14 @@
-source('~/Projects/procVisData/dataViz.R')
+library(raster)
 
 source('~/Projects/procVisData/geoSpatial.R')
 source('~/Projects/procVisData/colorProc.R')
 
-source('traitPreModel.R')
 source('traitFunctions.R')
 source('figures/traitColorSet.R')
 
 #####################################
-CWT <- getCWT.Mass.Area(speciesByTraits, plotByW)
+CWT <- getCWT.Mass.Area(output, speciesByTraits, plotByW)
+
 plotNP <- CWT$perMass[,'N']/CWT$perMass[,'P']
 g <- data.frame(lat=plotByX$plotLat, lon =plotByX$plotLon, NP=plotNP, elev =plotByX$elev)
 

@@ -1,5 +1,12 @@
+library(raster)
 
-CWT <- getCWT.Mass.Area(speciesByTraits, plotByW)
+source('~/Projects/procVisData/geoSpatial.R')
+source('~/Projects/procVisData/colorProc.R')
+
+source('traitFunctions.R')
+source('figures/traitColorSet.R')
+
+CWT <- getCWT.Mass.Area(output, speciesByTraits, plotByW)
 
 png('figures/traitFig.N-P.Area.png', units='in',res=300, height  = 5, width=10)
 par(mfrow=c(1,2))
