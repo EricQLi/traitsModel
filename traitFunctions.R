@@ -16,8 +16,7 @@ getSensitivity <- function(param, output, interactionsList, traitNames, traitDat
                                  normalized = F, 
                                  includeInteractions = T, 
                                  includeMainEffects = T)
-    
-    
+
     sensVectors <- cbind(1, output$x[,interactionsList])
     
     paramSens <- sensVectors%*%t(postParam$chains)/traitSd[j]

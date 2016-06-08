@@ -48,10 +48,11 @@ plotAspectEffect <- function( betaSlope,slopeRange=c(.1,.3),
   
   tmp    <- predictSlopeAspect(betaSlope,slopeRange[2],aspect=aspect)
   ub     <- tmp$ubeta
+  nu     <- ncol(ub)
   aspect <- tmp$aspect
   maxAsp <- apply(ub,2,which.max) 
-  maxEff <- ub[ cbind(1:nn,maxAsp) ]
-  maxAsp <- aspect[ maxAsp ]
+  maxEff <- ub[ cbind(maxAsp,1:nu) ]
+ # maxAsp <- aspect[ maxAsp ]
   
   tmp    <- predictSlopeAspect(betaSlope,slopeRange[1],aspect=aspect)
   uc     <- tmp$ubeta
