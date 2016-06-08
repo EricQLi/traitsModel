@@ -1,16 +1,22 @@
+library(raster)
+
+source('~/Projects/procVisData/geoSpatial.R')
+source('~/Projects/procVisData/colorProc.R')
+
+source('traitPreModel.R')
+source('traitFunctions.R')
+source('figures/traitColorSet.R')
+
 source('figures/traitPostAux.R')
-postMoist <- postGibbsChains(betachains = output$chains$agibbs, 
-                        burnin = output$burnin,
-                        traitsToPlot = c('N') ,
-                        predictorsToPlot = c('moisture'), 
-                        onlySignificant = F, 
-                        normalized = F, 
-                        includeInteractions = T, 
-                        includeMainEffects = T)
 
-colnames(postMoist$chains)
+txtTitle <- 'Sensitivity to moisture (dimensionless)'
+interactionsList = c("deficit","soilAlfInc","soilEntVert","soilMol","soilSpodHist","soilUltKan")
+pngName <- 'figures/traitFig.SensMoisture.png'
+# pngNameSign <- 'figures/traitFig.SensMoisture.Signif.png'
+param <- 'moisture'
 
-
-
-
+traitNames <- colnames(traitList$plotByTrait)
+paramSensList <- getSensitivity(param, output, interactionsList, traitNames, traitData)
+plotSensitivity(pngName, txtTitle, paramSensList, traitNames)
+# plotSensitivitySign(pngNameSign, txtTitle, paramSensList, traitNames)
 

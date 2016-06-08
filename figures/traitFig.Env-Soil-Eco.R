@@ -1,7 +1,9 @@
+library(raster)
+
+source('traitFunctions.R')
 source('figures/traitColorSet.R')
 source('~/Projects/procVisData/geoSpatial.R')
 source('~/Projects/procVisData/colorProc.R')
-library(raster)
 
 png('figures/traitFig.Env-Soil-Eco.png', units='in',res=300, width = 10, height=15)
 par(mfrow=c(3,2), yaxt='n',ann=F, xaxt='n', mar=c(0,0,4,0), oma=c(2,0.5,0,0.5))
