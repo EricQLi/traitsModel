@@ -12,12 +12,12 @@ source('figures/traitPostAux.R')
 txtTitle <- 'Sensitivity to temperature (dimensionless)'
 interactionsList = c("soilAlfInc","soilEntVert","soilMol","soilSpodHist","soilUltKan","deficit")
 pngName <- 'figures/traitFig.SensTemp.png'
-pngNameSign <- 'figures/traitFig.SensTemp.Signif.png'
+# pngNameSign <- 'figures/traitFig.SensTemp.Signif.png'
 
 param <- 'temp'
 
 traitNames <- colnames(traitList$plotByTrait)
 paramSensList <- getSensitivity(param, output, interactionsList, traitNames, traitData)
 plotSensitivity(pngName, txtTitle, paramSensList, traitNames)
-plotSensitivitySign(pngNameSign, txtTitle, paramSensList, traitNames)
+# plotSensitivitySign(pngNameSign, txtTitle, paramSensList, traitNames)
 
