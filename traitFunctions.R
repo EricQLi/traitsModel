@@ -1,7 +1,7 @@
 library(data.table)
 source('~/Projects/procVisData/bayesianFunctions.R')
 
-getSensitivity <- function(param, output, interactionsList, traitNames, traitData, normalized = T) {
+getSensitivity <- function(param, output, traitNames, traitData, normalized = T) {
   
   traitSd <- apply(traitData$plotByCWM, 2, sd)
   
@@ -22,8 +22,15 @@ getSensitivity <- function(param, output, interactionsList, traitNames, traitDat
                                  normalized = F, 
                                  includeInteractions = T, 
                                  includeMainEffects = T)
-
-    sensVectors <- cbind(1, output$x[,interactionsList])
+    
+    tmp <- as.data.table(postParam$nameMatrix)[, .(interaction,pred1, pred2)]
+    tmp[,inter:=pred1]
+    tmp[inter==param,inter:=pred2]
+    tmp[interaction==F, inter:=param]   
+    
+    sensVectors <- output$x[,tmp$inter]
+    sensVectors[,!tmp$interaction] <- 1
+    # sensVectors <- cbind(1, output$x[,interactionsList])
     
     paramSens <- sensVectors%*%t(postParam$chains)/traitSd[j]*sdParam
     
