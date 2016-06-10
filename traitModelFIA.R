@@ -38,18 +38,7 @@ load('output-mainModel-10-6-2016.06.02.20.27.03- (moist-deficit).RData')
 
 head(output$modelSummary$sigmaTraitMu)
 head(output$modelSummary$betaTraitMu)
-# 
-# plotPars  <- list(width=5, height=4, corLines=T, 
-#                   SMALLPLOTS=T, CLUSTERPLOTS=T)                  
-# 
-# fit       <- gjamPlot(output = output, plotPars)
 
-
-tnames    <- colnames(traitData$plotByCWM)
-M <- ncol(traitData$plotByCWM)
-boxBorder <- rep('black', M)                           # highlight types
-boxCol    <- rep('grey',M)
-wo <- which(tnames %in% c("N","P","SLA") )     # foliar traits
 wf <- grep("leaf",tnames)                              # leaf habit
 wc <- which(tnames %in% c("WD","MH","SM") ) # wood anatomy
 
