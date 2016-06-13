@@ -8,7 +8,6 @@ source('traitFunctions.R')
 source('figures/traitColorSet.R')
 
 fid <- open.nc('data/GLOBAL_PHOSPHORUS_DIST_MAP_1223/data/pforms_den.nc')
-print.nc(fid)
 
 dataPhos <-read.nc(fid)
 
@@ -23,7 +22,7 @@ wbox <- dataPhos$Lat>=min(plotByX$plotLat) &
   dataPhos$Lon>=min(plotByX$plotLon) &  
   dataPhos$Lon<=max(plotByX$plotLon) 
 
-png('figures/traitFig.Soil.P.png', units='in',res=300, height  = 10, width=15)
+png('figures/traitFig.Soil.P.Yang.png', units='in',res=300, height  = 10, width=15)
 par(mfrow=c(2,3))#,oma = c(3,7,5,5),mar = c(0,0,0,0))
 
 for(j in 1:6){
