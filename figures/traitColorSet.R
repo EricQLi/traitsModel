@@ -1,6 +1,9 @@
 glacialLine <- as.matrix( read.table('data/maps/glacialLimit.txt',header=T) )
 
-glacial <- point.in.polygon(plotByX$plotLon, plotByX$plotLat, glacialLine[,1], glacialLine[,2])
+glacial <- point.in.polygon(plotByX$plotLon, 
+                            plotByX$plotLat, 
+                            glacialLine[,1], 
+                            glacialLine[,2])
 wglacial <- which(glacial == 1)
 
 glacialLine <- glacialLine[1:51,]
