@@ -39,17 +39,17 @@ load('output-mainModel-10-6-2016.06.02.20.27.03- (moist-deficit).RData')
 head(output$modelSummary$sigmaTraitMu)
 head(output$modelSummary$betaTraitMu)
 
-wf <- grep("leaf",tnames)                              # leaf habit
-wc <- which(tnames %in% c("WD","MH","SM") ) # wood anatomy
+# wf <- grep("leaf",tnames)                              # leaf habit
+# wc <- which(tnames %in% c("WD","MH","SM") ) # wood anatomy
+# 
+# boxBorder[wc] <- 'brown';     boxCol[wc] <- 'tan'
+# boxBorder[wf] <- 'darkblue';  boxCol[wf] <- 'lightblue'
+# boxBorder[wo] <- 'darkgreen'; boxCol[wo] <- 'lightgreen'
+# 
+# pl  <- list(width = 3, height = 3, GRIDPLOTS = TRUE, plotAllY = T,
+#             boxBorder = boxBorder, boxCol = boxCol, 
+#             SMALLPLOTS = F, SAVEPLOTS=T, sigOnly=F, 
+#             sdScaleX = T, sdScaleY = T)
 
-boxBorder[wc] <- 'brown';     boxCol[wc] <- 'tan'
-boxBorder[wf] <- 'darkblue';  boxCol[wf] <- 'lightblue'
-boxBorder[wo] <- 'darkgreen'; boxCol[wo] <- 'lightgreen'
-
-pl  <- list(width = 3, height = 3, GRIDPLOTS = TRUE, plotAllY = T,
-            boxBorder = boxBorder, boxCol = boxCol, 
-            SMALLPLOTS = F, SAVEPLOTS=T, sigOnly=F, 
-            sdScaleX = T, sdScaleY = T)
-
-fit <- gjamPlot(output = output, plotPars = pl)
+# fit <- gjamPlot(output = output, plotPars = pl)
 
