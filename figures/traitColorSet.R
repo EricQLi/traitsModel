@@ -32,7 +32,7 @@ colList.SereneAndSpaLike <- c('#ED5752','#E2DFA2','#92AAC7')
 colList.FunAndTropical <- c('#FA6E59','#F8A055','#FFDB5C','#92AAC7','#4897D8')
 colList.WarmAndRustic <- c('#805A3B','#C60000','#FD974F','#FEF2E4')
 colList.DistinctiveAndUnexpected <- c('#52908B','#E5E2CA','#E7472E')
-
+colList.GiantGoldFish <- c('#6ed3e7','#a9dcdb','#e1e5ce','#e1e5ce','#f86a20')
 
 
 # colListSoil <- c('#66c2a5','#fc8d62','#8da0cb','#e78ac3','#a6d854','#ffd92f')

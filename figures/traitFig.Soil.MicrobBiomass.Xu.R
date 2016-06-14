@@ -35,7 +35,7 @@ for(j in 1:6){
                  dataMicrobBio$CN100cm)
   
   par(xaxt='n', yaxt='n')
-  valRange <- quantile(ssj[wbox&wPl], probs=seq(.025,.975, length.out = 10), na.rm=T)
+  valRange <- quantile(ssj[wbox&wPl], probs=seq(.025,.975, length.out = 100), na.rm=T)
   
   mapColorData(x=dataMicrobBio$Lon[wbox&wPl],y =  dataMicrobBio$Lat[wbox&wPl],  data = ssj[wbox&wPl], 
                symSize = 1.5,
@@ -43,7 +43,7 @@ for(j in 1:6){
                ylim = range(plotByX$plotLat),
                valRange = valRange,
                #legend.txt = paste0(signif(range(valRange),2), ' (g/m^2)'),
-               colList =rev(colList.SurfAndTurf),
+               colList =colList.GiantGoldFish,
                ADD=F, cex.all = 2, #legendShow = F 
   )
   
