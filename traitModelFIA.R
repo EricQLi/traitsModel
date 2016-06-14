@@ -12,10 +12,10 @@ traitList <- list(plotByTrait = traitData$plotByCWM,
                   traitTypes = traitData$traitTypes, 
                   specByTrait = traitData$specByTrait)
 
-reductList <- list(r = 3, N = 30)
+reductList <- list(r = 3, N = 20)
 
-modelList <- list(ng=10000, 
-                  burnin=6000,
+modelList <- list(ng=8000, 
+                  burnin=4000,
                   typeNames = 'FC', 
                   holdoutN = 20,
                   reductList = reductList,
@@ -24,17 +24,19 @@ modelList <- list(ng=10000,
 set.seed(2016)
 
 
-# output  <- gjamGibbs(~ temp + moisture + deficit + surplus + soil +u1 + u2 + u3 +
-#                        moisture*deficit + moisture*soil + temp*soil + deficit*soil + deficit*temp,   
-#                      xdata = plotByX, 
-#                      ydata = plotByW, 
-#                      modelList = modelList)
-# save.image(paste('output-mainModel', 
-#                  modelList$ng/1000, modelList$burnin/1000,
-#                  substring(make.names(Sys.time()),2), 
-#                  '.RData', sep = '-'))
+output  <- gjamGibbs(~ temp + moisture + deficit + soil +u1 + u2 + u3 +
+                       moisture*deficit + moisture*soil + temp*soil + 
+                       deficit*soil + deficit*temp,
+                     
+                     xdata = plotByX,
+                     ydata = plotByW,
+                     modelList = modelList)
 
-load('output-mainModel-10-6-2016.06.02.20.27.03- (moist-deficit).RData')
+save.image(paste('output-mainModel',
+                 modelList$ng/1000, modelList$burnin/1000,
+                 substring(make.names(Sys.time()),2),
+                 '.RData', sep = '-'))
+
 
 head(output$modelSummary$sigmaTraitMu)
 head(output$modelSummary$betaTraitMu)
