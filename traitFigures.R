@@ -26,4 +26,5 @@ source('figures/traitFig.SoilCNP.Xu.R')
 source('figures/traitFig.Soil.P.Yang.R')
 source('figures/traitFig.Soil.MicrobBiomass.Xu.R')
 
+source('figures/traitFig.MapSpecies.High.Low.NPSLA.R')
 

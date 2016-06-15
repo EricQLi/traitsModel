@@ -1,3 +1,5 @@
+source('~/Projects/procVisData/geoSpatial.R')
+
 require(data.table)
 
 # betachains <- output$chains$agibbs
@@ -129,4 +131,42 @@ postGibbsChains <- function(betachains,
            fullchain =chains,
            fullMatrix = fullMatrix
   )
+}
+
+
+
+mapMultiSpecies <- function(group, nameFile, txtTitle, plotByW, plotByX){
+  png(nameFile, units='in',res=300, height  = 10, width=10)
+  
+  layout(matrix(c(1,1,2,1,1,3,4,5,6), 3,3))
+  par(oma=c(1,1,2,0), mar=c(2,2,2,2))
+  
+  bmTot <- rowSums(plotByW[,group])
+  
+  par(xaxt='n', yaxt='n')
+  w <- rowSums(plotByW[,group])>.25
+  mapColorData(plotByX$plotLon[w], plotByX$plotLat[w], bmTot[w],
+               symSize = 1, colList = c('#111111','black'), 
+               legendShow = F,
+               xlim = range(plotByX$plotLon), 
+               ylim = range(plotByX$plotLat))
+  
+  mtext(text = txtTitle, font=2,side = 3, cex=2, line = 1)
+  
+  axis(1, xaxt='s', cex.axis=2)
+  axis(2, yaxt='s', cex.axis=2)
+  
+  for(sp in group){
+    abund <- plotByY[,sp]
+    w <- abund>0
+    mapColorData(plotByX$plotLon[w], plotByX$plotLat[w], 
+                 abund[w], symSize = .7, 
+                 valRange = quantile(abund[w], probs=seq(0.025,.975, length.out = 10)),
+                 colList = colList.brownGreen, 
+                 xlim = range(plotByX$plotLon), 
+                 ylim = range(plotByX$plotLat))
+    mtext(text = sp, side = 3, cex=1.5)
+  }
+  
+  dev.off()
 }
