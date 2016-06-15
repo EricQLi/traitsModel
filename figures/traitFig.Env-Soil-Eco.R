@@ -20,7 +20,11 @@ for(fig in 1:6){
   colS <- switch(fig, NULL, NULL, NULL, NULL, colListSoil[wSoil])
   valRange <- c(-1.2, 1.2)
   if(fig!=6){
-    mapColorData( symSize = symSize, x = plotByX$plotLon, y = plotByX$plotLat, data = zz, legend.txt = legend.txt, legend.col = colListSoil,  colList = colList ,cex.all = 2, col=colS)
+    mapColorData( symSize = symSize, x = plotByX$plotLon, y = plotByX$plotLat, data = zz, 
+                  legend.txt = legend.txt, legend.col = colListSoil, 
+                  xlim = range(plotByX$plotLon), 
+                  ylim = range(plotByX$plotLat), 
+                  colList = colList ,cex.all = 2, col=colS)
     mapOutlines(glacialLine, ecoRegion)
   }
   if(fig==6){

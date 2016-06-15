@@ -15,6 +15,8 @@ for(j in 4:6){
   par(xaxt='n', yaxt='n')
   mapColorData(x = plotByX$plotLon, y = plotByX$plotLat, data = ssj,
                valRange = quantile(ssj, probs = seq(0.05,.95, by = .1), na.rm = T), 
+               xlim = range(plotByX$plotLon), 
+               ylim = range(plotByX$plotLat), 
                cex.all = 2, colList = rev(colList.SurfAndTurf), symSize=1 )
 
   mtext(text =  switch(j-3, 

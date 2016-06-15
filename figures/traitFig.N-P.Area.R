@@ -16,6 +16,8 @@ for(j in 4:5){
   par(xaxt='n', yaxt='n')
   mapColorData(x = plotByX$plotLon, y = plotByX$plotLat, data = ssj,
                valRange = quantile(ssj, probs = seq(0.05,.95, by = .1), na.rm = T), 
+               xlim = range(plotByX$plotLon), 
+               ylim = range(plotByX$plotLat), 
                cex.all = 1, colList = rev(colList.SurfAndTurf), symSize=.45 )
   
   # mapSiteData(scaleSym = scaleSym, lonLatAll[,1], lonLatAll[,2], ssj,cex.all = 1,

@@ -24,7 +24,8 @@ for(i in 1:3){
                  valRange = quantile(switch(i, c(ssj.pred,ssj.dec) ,c(ssj.pred,ssj.dec) , ssj.ever), probs=seq(0.1,.9, length.out = 100 )),
                  # valRange = quantile( c(ssj.pred,ssj.dec, ssj.ever), probs=seq(0.05,.95, length.out = 100 )),
                  # valRange = quantile( ssj, probs=seq(0.05,.95, length.out = 100 )),
-                 xlim = range(plotByX$plotLon), ylim = range(plotByX$plotLat),
+                 xlim = range(plotByX$plotLon), 
+                 ylim = range(plotByX$plotLat),
                  colList = paste0(colList.Contad[1:4], '10'), symSize =1 , symPch = 16,
                  cex.all = 3)
     map('usa',add = T, col = 'black')

@@ -21,6 +21,8 @@ par(mar=c(0,0,0,0), oma=c(6,6,5,5), cex.axis=1.7)
 
 mapColorData(valRange = quantile(plotNP, probs=c(.1,.9)), 
              x = plotByX$plotLon, y = plotByX$plotLat, data = plotNP,
+             xlim = range(plotByX$plotLon), 
+             ylim = range(plotByX$plotLat), 
              colList = colList.purpleOrange, cex.all = 2)
 mapOutlines(glacialLine, ecoRegion, lwd2 = 10)
 

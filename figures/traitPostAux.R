@@ -20,7 +20,11 @@ plotSensitivity <- function(pngName, txtTitle, paramSensList, traitNames, colLis
     ww <- paramSensList[[j-3]]$sign!=0
     
     par(xaxt='n', yaxt='n')
-    mapColorData(x = plotByX$plotLon[ww], y = plotByX$plotLat[ww], data = ssj[ww],
+    mapColorData(x = plotByX$plotLon[ww], 
+                 y = plotByX$plotLat[ww],
+                 data = ssj[ww],
+                 xlim = range(plotByX$plotLon), 
+                 ylim = range(plotByX$plotLat), 
                  valRange = quantile(ssj, probs = seq(0.05,.95, by = .1), na.rm = T), 
                  cex.all = 2, colList = colList, symSize=.7 )
     
@@ -149,7 +153,8 @@ mapMultiSpecies <- function(group, nameFile, txtTitle, plotByW, plotByX){
                symSize = 1.5, colList = c('#999999','black'), 
                legendShow = T,valRange = c(.05,.95),cex.all = 2,
                xlim = range(plotByX$plotLon), 
-               ylim = range(plotByX$plotLat), alpha = .5)
+               ylim = range(plotByX$plotLat), 
+               alpha = .5)
   
   mtext(text = txtTitle, font=2,side = 3, cex=2, line = 1)
   
