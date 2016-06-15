@@ -17,30 +17,30 @@ lowSLA <- speciesByTraitsDT[order(SLA, decreasing = F),.(P,species)][1:5, specie
 
 mapMultiSpecies(group = highP, 
                 nameFile = 'figures/traitFig.MapSpecies.HighP.png',
-                txtTitle = 'Total fraction of biomass for high phosphorous species',
+                txtTitle = 'Relative abundance of high phosphorous species',
                 plotByW, plotByX)
 
 mapMultiSpecies(group = highN, 
                 nameFile = 'figures/traitFig.MapSpecies.HighN.png',
-                txtTitle = 'Total fraction of biomass for high nitrogen species',
+                txtTitle = 'Relative abundance of high nitrogen species',
                 plotByW, plotByX)
 
 mapMultiSpecies(group = highSLA, 
                 nameFile = 'figures/traitFig.MapSpecies.HighSLA.png',
-                txtTitle = 'Total fraction of biomass for high SLA species',
+                txtTitle = 'Relative abundance of high SLA species',
                 plotByW, plotByX)
 
 mapMultiSpecies(group = lowP, 
                 nameFile = 'figures/traitFig.MapSpecies.LowP.png',
-                txtTitle = 'Total fraction of biomass for low phosphorous species',
+                txtTitle = 'Relative abundance of low phosphorous species',
                 plotByW, plotByX)
 
 mapMultiSpecies(group = lowN, 
                 nameFile = 'figures/traitFig.MapSpecies.LowN.png',
-                txtTitle = 'Total fraction of biomass for low nitrogen species',
+                txtTitle = 'Relative abundance of low nitrogen species',
                 plotByW, plotByX)
 
 mapMultiSpecies(group = lowSLA, 
                 nameFile = 'figures/traitFig.MapSpecies.Low.SLA.png',
-                txtTitle = 'Total fraction of biomass for low SLA species',
+                txtTitle = 'Relative abundance of low SLA species',
                 plotByW, plotByX)
