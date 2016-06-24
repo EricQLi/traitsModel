@@ -54,8 +54,7 @@ for(j in 1:6){
   
   mtext(text = switch (j,  'Total P', 
                        'Labile Inorganic P',
-                       'organic P',
-                       'Labile Inorganic P',
+                       'Organic P',
                        'Occluded P',
                        'Seconday Mineral  P',
                        'Apatite P'
