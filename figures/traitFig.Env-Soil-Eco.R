@@ -23,11 +23,11 @@ for(fig in 1:6){
     if(fig<5)valRange <- quantile(zz, probs=seq(.1,.9, length.out = 100))
     mapColorData( symSize = symSize, x = plotByX$plotLon, y = plotByX$plotLat, data = zz, 
                   legend.txt = legend.txt, legend.col = colListSoil, 
-                  valRange = valRange,
+                  valRange = valRange,statesborder = F, 
                   xlim = range(plotByX$plotLon), 
                   ylim = range(plotByX$plotLat), 
                   colList = colList ,cex.all = 2, col=colS)
-    mapOutlines(glacialLine, ecoRegion)
+    mapOutlines(glacialLine, mapRegion)
   }
   if(fig==6){
     par(pty="s")
@@ -40,3 +40,4 @@ for(fig in 1:6){
 }
 
 dev.off()
+

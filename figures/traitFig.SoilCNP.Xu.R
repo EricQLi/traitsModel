@@ -65,14 +65,15 @@ for(j in 1:6){
   valRange <- quantile(ssj[wbox&wPl], probs=seq(.025,.975, length.out = 10), na.rm=T)
   
   mapColorData(x=xuCNP$Lon[wbox&wPl],y =  xuCNP$Lat[wbox&wPl],  data = ssj[wbox&wPl], 
-               symSize = 8,
+               symSize = 5, alpha = .5,
                xlim = range(plotByX$plotLon), equiLatLon = T, 
                ylim = range(plotByX$plotLat),
-               valRange = valRange,
+               valRange = valRange, statesborder = F,
                #legend.txt = paste0(signif(range(valRange),2), ' (g/m^2)'),
                colList =rev(colList.SurfAndTurf),
-               ADD=F, cex.all = 5, #legendShow = F 
+               ADD=F, cex.all = 3, #legendShow = F 
   )
+  plot(mapRegion, add = T)
   
   # lines(glacialLine[-nrow(glacialLine),1],glacialLine[-nrow(glacialLine),2],lwd=6,col='white')
   # lines(glacialLine[-nrow(glacialLine),1],glacialLine[-nrow(glacialLine),2],lwd=2,col='darkgrey')

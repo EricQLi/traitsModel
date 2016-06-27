@@ -22,9 +22,10 @@ wbox <- dataPhos$Lat>=min(plotByX$plotLat) &
   dataPhos$Lon>=min(plotByX$plotLon) &  
   dataPhos$Lon<=max(plotByX$plotLon) 
 
-png('figures/traitFig.Soil.P.Yang.Sub.png', units='in',res=300, height  = 5, width=10)
+png('figures/traitFig.Soil.P.Yang.Sub.png', units='in',res=300, height  = 5, width=8.5)
 #par(mfrow=c(2,3))#,oma = c(3,7,5,5),mar = c(0,0,0,0))
-par(mfrow=c(1,2),oma = c(3,2,3,1),mar = c(0,0,0,0))
+#par(mfrow=c(1,2),oma = c(3,2,3,1),mar = c(0,0,0,0))
+par(mfrow=c(1,2), oma=c(0.0,0,1,0), mar=c(2,3,1,1))
 
 for(j in c(1,3)){
   ssj <- switch (j,   
@@ -40,15 +41,15 @@ for(j in c(1,3)){
   valRange <- quantile(ssj[wbox&wPl], probs=seq(.025,.975, length.out = 100), na.rm=T)
   
   mapColorData(x=dataPhos$Lon[wbox&wPl],y =  dataPhos$Lat[wbox&wPl],  data = ssj[wbox&wPl], 
-               symSize = 1.45,symPch = 18,alpha = .99,
+               symSize = 1.45,symPch = 18,alpha = .8,
                xlim = range(plotByX$plotLon), equiLatLon = T, 
                ylim = range(plotByX$plotLat),
-               valRange = valRange,
+               valRange = valRange, statesborder = F,
                legend.txt = paste0(signif(range(valRange),2), ' (g/m^2)'),
                colList =rev(colList.DistinctiveAndUnexpected),
                ADD=F, cex.all = 1, #legendShow = F 
   )
-  
+  plot(mapRegion, add = T)
   # lines(glacialLine[-nrow(glacialLine),1],glacialLine[-nrow(glacialLine),2],lwd=6,col='white')
   # lines(glacialLine[-nrow(glacialLine),1],glacialLine[-nrow(glacialLine),2],lwd=2,col='darkgrey')
   par(xaxt='s', yaxt='s')
@@ -60,7 +61,7 @@ for(j in c(1,3)){
                        'Seconday Mineral  P',
                        'Apatite P'
                        ),
-        side = 3, cex = 2
+        side = 3, cex = 2, line=1
         )
   
   axis(1, cex.axis=1)

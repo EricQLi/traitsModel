@@ -22,11 +22,12 @@ for(i in 1:2){
     if(all(is.na(ssj))) ssj[1]=0
     par(xaxt='n', yaxt='n')
     mapColorData(plotByX$plotLon, plotByX$plotLat, ssj, symSize = .7,
-                 xlim = range(plotByX$plotLon), 
+                 xlim = range(plotByX$plotLon), statesborder = F,
                  ylim = range(plotByX$plotLat),
                  valRange = c(0,1),colList = c('white','#1A9850A0'),
                  ADD=F, cex.all = 2, legendShow = F )
     # mapOutlines(glacialLine, ecoRegion, lwd2 = 8)
+    plot(mapRegion, add = T)
     
     if(i==1)mtext(text =  switch(j, 'Deciduous','BL Evergreen','NL Evergreen'), side = 3, line = 2, cex=2, font=2)
     if(i==1)mtext(text =  switch(j, '(a)','(b)','(c)'), side = 1, line = -2,at = -68, cex=2, font=2)

@@ -35,7 +35,7 @@ plotPredictAspect <- function(obsSA,predSA,slopePlot=T,
 
 }
 
-plotAspectEffect <- function( betaSlope,slopeRange=c(.1,.3),
+plotAspectEffect <- function( betaSlope,slopeRange=c(.35,.50),
                               aspect=seq(-pi,pi,length=100),minEffect=0,
                               maxNumber=20,
                               ylim=NULL,textSize=1,xlab='Aspect',ylab='Effect'){

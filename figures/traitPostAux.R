@@ -11,8 +11,9 @@ require(data.table)
 
 plotSensitivity <- function(pngName, txtTitle, paramSensList, traitNames, colList=rev(colList.SurfAndTurf)){
   
-  png(pngName, units='in',res=300, height  = 5, width=15)
-  par(mfrow=c(1,3), oma=c(0.0,0,2,0))
+  png(pngName, units='in',res=300, height  = 5, width=13)
+  par(mfrow=c(1,3), oma=c(1,0,7,0), mar=c(2,3,1,1))
+#  par(mfrow=c(1,3), oma=c(0.0,0,5,0), mar=c(3,3,3,0))
   for(j in 4:6){
     
     ssj <- paramSensList[[j-3]]$mean
@@ -23,19 +24,20 @@ plotSensitivity <- function(pngName, txtTitle, paramSensList, traitNames, colLis
     mapColorData(x = plotByX$plotLon[ww], 
                  y = plotByX$plotLat[ww],
                  data = ssj[ww],
+                 statesborder = F,
                  xlim = range(plotByX$plotLon), 
                  ylim = range(plotByX$plotLat), 
-                 valRange = quantile(ssj, probs = seq(0.05,.95, by = .1), na.rm = T), 
-                 cex.all = 2, colList = colList, symSize=.7 )
+                 valRange = quantile(ssj[ww], probs = seq(0.05,.95, by = .1), na.rm = T), 
+                 cex.all = 2, colList = colList, symSize=1.2, alpha = .5)
     
     mtext(text = traitNames[j], side = 3, line = .7, cex=2)
     mtext(text =  switch(j-3, '(a)','(b)','(c)'), side = 3, line = 1.5,at = -100, cex=2)
-    
+    plot(mapRegion, add=T)
     par(xaxt='s', yaxt='s')
     axis(1, cex.axis=1.7)
     axis(2, cex.axis=1.7)
   }
-  mtext(outer = T, side = 3, text = txtTitle, cex = 1.6)
+  mtext(outer = T, side = 3, text = txtTitle, cex = 1.6, line = 4)
   dev.off()
   
 }

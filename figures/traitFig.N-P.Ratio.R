@@ -22,9 +22,9 @@ par(mar=c(0,0,0,0), oma=c(6,6,5,5), cex.axis=1.7)
 mapColorData(valRange = quantile(plotNP, probs=c(.1,.9)), 
              x = plotByX$plotLon, y = plotByX$plotLat, data = plotNP,
              xlim = range(plotByX$plotLon), 
-             ylim = range(plotByX$plotLat), 
+             ylim = range(plotByX$plotLat), statesborder = F,
              colList = colList.purpleOrange, cex.all = 2)
-mapOutlines(glacialLine, ecoRegion, lwd2 = 10)
+mapOutlines(glacialLine, mapRegion, lwd2 = 10)
 
 mtext(text = 'Leaf N:P', side = 3, line = -2.5, cex=1.5)
 mtext(text = expression(Longitude~(degree)), side = 1, line = 4, cex=1.5)

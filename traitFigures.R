@@ -21,9 +21,10 @@ source('figures/traitFig.SensTemp.R')
 
 source('figures/traitFig.AspectEffect.R')
 
-source('figures/traitFig.Soil.CN.Zinke.R')
-source('figures/traitFig.SoilCNP.Xu.R')
-source('figures/traitFig.Soil.P.Yang.R')
+# source('figures/traitFig.Soil.CN.Zinke.R')
+# source('figures/traitFig.SoilCNP.Xu.R')
+# source('figures/traitFig.Soil.P.Yang.R')
+source('figures/traitFig.Soil.P.Yang.Sub.R')
 source('figures/traitFig.Soil.MicrobBiomass.Xu.R')
 
 source('figures/traitFig.MapSpecies.High.Low.NPSLA.R')

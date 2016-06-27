@@ -26,9 +26,11 @@ for(i in 1:3){
                  # valRange = quantile( ssj, probs=seq(0.05,.95, length.out = 100 )),
                  xlim = range(plotByX$plotLon), 
                  ylim = range(plotByX$plotLat),
+                 statesborder = F,
                  colList = paste0(colList.Contad[1:4], '10'), symSize =1 , symPch = 16,
                  cex.all = 3)
-    map('usa',add = T, col = 'black')
+    # map('usa',add = T, col = 'black')
+    plot(mapRegion, add = T)
     #mapOutlines(glacialLine, mapRegion)
     title.txt <-  switch(j-3, 
                          bquote(.(tNames[j-3])~ (mg/g)),

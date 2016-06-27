@@ -22,8 +22,8 @@ wbox <- dataPhos$Lat>=min(plotByX$plotLat) &
   dataPhos$Lon>=min(plotByX$plotLon) &  
   dataPhos$Lon<=max(plotByX$plotLon) 
 
-png('figures/traitFig.Soil.P.Yang.png', units='in',res=300, height  = 10, width=15)
-par(mfrow=c(2,3))#,oma = c(3,7,5,5),mar = c(0,0,0,0))
+png('figures/traitFig.Soil.P.Yang.png', units='in',res=300, height  = 10, width=13)
+par(mfrow=c(2,3),oma=c(0.0,0,1,0), mar=c(2,3,1,1))
 
 for(j in 1:6){
   ssj <- switch (j,   
@@ -42,11 +42,12 @@ for(j in 1:6){
                symSize = 1.5,
                xlim = range(plotByX$plotLon), equiLatLon = T, 
                ylim = range(plotByX$plotLat),
-               valRange = valRange,
+               valRange = valRange,statesborder = F,
                legend.txt = paste0(signif(range(valRange),2), ' (g/m^2)'),
-               colList =rev(colList.SurfAndTurf),
-               ADD=F, cex.all = 1.5, #legendShow = F 
+               colList =rev(colList.SurfAndTurf),legend.col = 'black',
+               ADD=F, cex.all = 1.8, #legendShow = F 
   )
+  plot(mapRegion, add = T)
   
   # lines(glacialLine[-nrow(glacialLine),1],glacialLine[-nrow(glacialLine),2],lwd=6,col='white')
   # lines(glacialLine[-nrow(glacialLine),1],glacialLine[-nrow(glacialLine),2],lwd=2,col='darkgrey')

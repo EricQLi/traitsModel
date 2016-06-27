@@ -23,7 +23,8 @@ wbox <- dataMicrobBio$Lat>=min(plotByX$plotLat) &
   dataMicrobBio$Lon<=max(plotByX$plotLon) 
 
 png('figures/traitFig.Soil.MicrobBiomass.Xu.png', units='in',res=300, height  = 10, width=15)
-par(mfrow=c(2,3),oma = c(3,7,5,5),mar = c(0,0,0,0))
+par(mfrow=c(2,3),oma = c(3,5,5,5),mar = c(2,0,0,0))
+# par(mfrow=c(2,3),oma=c(0.0,0,1,0), mar=c(2,3,1,1))
 
 for(j in 1:6){
   ssj <- switch (j,   
@@ -41,23 +42,23 @@ for(j in 1:6){
                symSize = 1.5,
                xlim = range(plotByX$plotLon), equiLatLon = T, 
                ylim = range(plotByX$plotLat),
-               valRange = valRange,
+               valRange = valRange,statesborder = F, 
                #legend.txt = paste0(signif(range(valRange),2), ' (g/m^2)'),
-               colList =colList.GiantGoldFish,
-               ADD=F, cex.all = 2, #legendShow = F 
+               colList =colList.GiantGoldFish,legend.col = 'black',
+               ADD=F, cex.all = 3, #legendShow = F 
   )
   
   # lines(glacialLine[-nrow(glacialLine),1],glacialLine[-nrow(glacialLine),2],lwd=6,col='white')
   # lines(glacialLine[-nrow(glacialLine),1],glacialLine[-nrow(glacialLine),2],lwd=2,col='darkgrey')
   #par(xaxt='s', yaxt='s')
-  
+  plot(mapRegion, add=T)
   mtext(text = switch (as.character(j),  
                        '1'='Carbon',
                        '2'='Nitrogen',
-                       '3'='C:N',''), side = 3, cex = 2, line = 2  )
+                       '3'='C:N',''), side = 3, cex = 3, line = 1.5  )
   mtext(text = switch (as.character(j),  
                        '1'='30 cm',
-                       '4'='100 cm'), side = 2, cex = 2, line = 2  )
+                       '4'='100 cm'), side = 2, cex = 3, line = 2  )
   axis(1, cex.axis=1.7)
   axis(2, cex.axis=1.7)
   

@@ -17,12 +17,12 @@ lowSLA <- speciesByTraitsDT[order(SLA, decreasing = F),.(P,species)][1:5, specie
 
 mapMultiSpecies(group = highP, 
                 nameFile = 'figures/traitFig.MapSpecies.HighP.png',
-                txtTitle = 'Relative abundance of high phosphorous species',
+                txtTitle = 'Relative abundance of high P species',
                 plotByW, plotByX)
 
 mapMultiSpecies(group = highN, 
                 nameFile = 'figures/traitFig.MapSpecies.HighN.png',
-                txtTitle = 'Relative abundance of high nitrogen species',
+                txtTitle = 'Relative abundance of high N species',
                 plotByW, plotByX)
 
 mapMultiSpecies(group = highSLA, 
@@ -32,12 +32,12 @@ mapMultiSpecies(group = highSLA,
 
 mapMultiSpecies(group = lowP, 
                 nameFile = 'figures/traitFig.MapSpecies.LowP.png',
-                txtTitle = 'Relative abundance of low phosphorous species',
+                txtTitle = 'Relative abundance of low P species',
                 plotByW, plotByX)
 
 mapMultiSpecies(group = lowN, 
                 nameFile = 'figures/traitFig.MapSpecies.LowN.png',
-                txtTitle = 'Relative abundance of low nitrogen species',
+                txtTitle = 'Relative abundance of low N species',
                 plotByW, plotByX)
 
 mapMultiSpecies(group = lowSLA, 
