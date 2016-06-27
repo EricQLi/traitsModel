@@ -18,10 +18,12 @@ for(fig in 1:6){
   wSoil <- match(plotByX$soil, soilColTable[,1])
   wSoil[is.na(wSoil)] <- 3
   colS <- switch(fig, NULL, NULL, NULL, NULL, colListSoil[wSoil])
-  valRange <- c(-1.2, 1.2)
   if(fig!=6){
+    valRange <- range(zz)
+    if(fig<5)valRange <- quantile(zz, probs=seq(.1,.9, length.out = 100))
     mapColorData( symSize = symSize, x = plotByX$plotLon, y = plotByX$plotLat, data = zz, 
                   legend.txt = legend.txt, legend.col = colListSoil, 
+                  valRange = valRange,
                   xlim = range(plotByX$plotLon), 
                   ylim = range(plotByX$plotLat), 
                   colList = colList ,cex.all = 2, col=colS)
