@@ -36,6 +36,9 @@ colList.GiantGoldFish <- c('#6ed3e7','#a9dcdb','#e1e5ce','#e1e5ce','#f86a20')
 colList.El.Designo <- c('#2b2303','#e3d897','#a79e68','#76afb6','#619ea1')
 colList.Contad <- c('#ccc533','#ffe633','#ee5c33','#b80f6e','#390855')
 
+colList.Ideas4Homes <- c('#6ed3e7','#a9dcdb','#e1e5ce','#f2863c','#f86a20')
+
+
 # colListSoil <- c('#66c2a5','#fc8d62','#8da0cb','#e78ac3','#a6d854','#ffd92f')
 colListSoil<- c('#8dd3c7','#7f7f7f','#bebada','#fb8072','#80b1d3','#fdb462')
 soilType <- c("UltKan","AlfInc","Ult","SpodHist","Mol","EntVert")
