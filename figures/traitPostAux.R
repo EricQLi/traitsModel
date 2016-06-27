@@ -150,16 +150,16 @@ mapMultiSpecies <- function(group, nameFile, txtTitle, plotByW, plotByX){
   bmTot <- rowSums(plotByW[,group])
   
   par(xaxt='n', yaxt='n')
-  w <- rowSums(plotByW[,group])>.05
+  w <- rowSums(plotByW[,group])>=.05
   mapColorData(plotByX$plotLon[w], plotByX$plotLat[w], bmTot[w],
                symSize = 1.5, colList = c('#999999','black'), 
                legendShow = T,valRange = c(.05,.95),cex.all = 2,
-               xlim = range(plotByX$plotLon), 
+               xlim = range(plotByX$plotLon), statesborder = F,
                ylim = range(plotByX$plotLat), 
-               alpha = .5)
+               alpha = .7)
   
   mtext(text = txtTitle, font=2,side = 3, cex=2, line = 1)
-  
+  plot(mapRegion, add = T)
   axis(1, xaxt='s', cex.axis=2)
   axis(2, yaxt='s', cex.axis=2)
   
@@ -171,8 +171,12 @@ mapMultiSpecies <- function(group, nameFile, txtTitle, plotByW, plotByX){
                  valRange = quantile(abund[w], probs=seq(0.025,.975, length.out = 10)),
                  colList = colList.brownGreen, 
                  xlim = range(plotByX$plotLon), 
-                 ylim = range(plotByX$plotLat), alpha = .5)
+                 ylim = range(plotByX$plotLat),
+                 legendShow = F, 
+                 statesborder = F,
+                 alpha = .5)
     mtext(text = sp, side = 3, cex=1.5)
+    plot(mapRegion, add = T)
   }
   
   dev.off()
