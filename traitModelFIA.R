@@ -25,7 +25,10 @@ set.seed(2016)
 
 
 output  <- gjamGibbs(~ temp + moisture + deficit + soil +u1 + u2 + u3 +
-                       moisture*deficit + moisture*soil + temp*soil + deficit*soil,
+                       moisture*deficit + 
+                       moisture*soil + 
+                       temp*soil + 
+                       deficit*soil,
                      
                      xdata = plotByX,
                      ydata = plotByW,
