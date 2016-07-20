@@ -1,5 +1,7 @@
 
 plotByX <- as.data.frame(read.csv('data/post/plotByX.csv'))
+soilGrids <- as.data.frame(read.csv('data/post/soilGrids.ext.csv'))
+plotByX <- cbind(plotByX, soilGrids)
 
 attr(plotByX$soil,'reference') <- 'Others'   # reference class
 attr(plotByX$soil,'intType')   <- 'ref'
