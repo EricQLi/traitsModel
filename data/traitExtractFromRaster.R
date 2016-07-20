@@ -26,23 +26,28 @@ exOrgCct <- extract(orgCct, spCoords)
 exOrgCst <- extract(orgCst, spCoords)
 
 soilGrids <- data.table(tax= exTaxUSDA, 
-           sand= exSand,
-           silt=exSilt,
-           clay=exClay,
-           ph= exPh,
-           orgCst=exOrgCst,
-           orgCct= exOrgCct)
+                        sand= exSand,
+                        silt=exSilt,
+                        clay=exClay,
+                        ph= exPh,
+                        orgCst=exOrgCst,
+                        orgCct= exOrgCct)
 
-rownames(soilGrids) <- rownames(spCoords)
+# rownames(soilGrids) <- rownames(spCoords)
+# soilGrids[,ID:= tax]
+
+ 
+# taxCode <- read.csv('data/post/soilTaxUSDA.csv')
+# taxCode <- as.data.table(taxCode)
+# 
+# soilGrids.ext <- merge(soilGrids, taxCode, by='ID', all.x=T)
+# soilGrids.ext
+# soilGrids.ext$ID <- NULL
+# soilGrids.ext$Color <- NULL
 
 
-taxCode <- read.csv('data/post/soilTaxUSDA.csv')
-taxCode <- as.data.table(taxCode)
+write.csv(soilGrids, 'data/post/soilGrids.csv')
 
-soilGrids[,ID:= tax]
-
-soilGrids <- merge(soilGrids, taxCode, by='ID')
-soilGrids$ID <- NULL
-soilGrids$Color <- NULL
-
-write.csv(soilGrids, 'data/post/soilGrids.ext.csv')
+soilGrids.ext <- soilGrids[ww,]
+soilGrids.ext$tax <- NULL
+write.csv(soilGrids.ext, 'data/post/soilGrids.ext.csv', row.names = F)
