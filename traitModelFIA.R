@@ -41,8 +41,8 @@ save.image(paste('output-mainModel',
                  '.RData', sep = '-'))
 
 
-head(output$modelSummary$sigmaTraitMu)
-head(output$modelSummary$betaTraitMu)
+View(output$modelSummary$sigmaTraitMu)
+View(output$modelSummary$betaTraitMu)
 
 # wf <- grep("leaf",tnames)                              # leaf habit
 # wc <- which(tnames %in% c("WD","MH","SM") ) # wood anatomy
