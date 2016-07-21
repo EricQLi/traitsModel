@@ -24,11 +24,13 @@ modelList <- list(ng=6000,
 set.seed(2016)
 
 
-output  <- gjamGibbs(~ temp + moisture + deficit + soil +u1 + u2 + u3 +
+output  <- gjamGibbs(~ temp + moisture + deficit + soil +u1 + u2 + u3 + clay +sand + ph+
                        moisture*deficit + 
                        moisture*soil + 
                        temp*soil + 
-                       deficit*soil,
+                       deficit*soil+
+                       ph*deficit + ph*moisture + sand*deficit
+                     ,
                      
                      xdata = plotByX,
                      ydata = plotByW,
