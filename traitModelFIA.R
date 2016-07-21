@@ -14,8 +14,8 @@ traitList <- list(plotByTrait = traitData$plotByCWM,
 
 reductList <- list(r = 3, N = 20)
 
-modelList <- list(ng=6000, 
-                  burnin=3000,
+modelList <- list(ng=2000, 
+                  burnin=1000,
                   typeNames = 'FC', 
                   holdoutN = 20,
                   reductList = reductList,
@@ -24,13 +24,12 @@ modelList <- list(ng=6000,
 set.seed(2016)
 
 
-output  <- gjamGibbs(~ temp + moisture + deficit + soil +u1 + u2 + u3 + clay +sand + ph+
+output  <- gjamGibbs(~ temp + moisture + deficit + soil +u1 + u2 + u3 + 
+                       deficit*deficit + temp*temp +
                        moisture*deficit + 
                        moisture*soil + 
                        temp*soil + 
-                       deficit*soil+
-                       ph*deficit + ph*moisture + sand*deficit
-                     ,
+                       deficit*soil,
                      
                      xdata = plotByX,
                      ydata = plotByW,
