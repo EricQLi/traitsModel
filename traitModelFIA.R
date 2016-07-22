@@ -14,8 +14,8 @@ traitList <- list(plotByTrait = traitData$plotByCWM,
 
 reductList <- list(r = 3, N = 20)
 
-modelList <- list(ng=2000, 
-                  burnin=1000,
+modelList <- list(ng=6000, 
+                  burnin=3000,
                   typeNames = 'FC', 
                   holdoutN = 20,
                   reductList = reductList,
