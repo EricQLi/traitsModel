@@ -25,7 +25,6 @@ set.seed(2016)
 
 
 output  <- gjamGibbs(~ temp + moisture + deficit + soil +u1 + u2 + u3 + 
-                      #I(moisture^2) + 
                        moisture*deficit + 
                        moisture*soil + 
                        temp*soil + 
