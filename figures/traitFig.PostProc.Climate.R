@@ -12,4 +12,4 @@ post <- postGibbsChains(betachains = output$chains$agibbs,
                         includeInteractions = F,
                         includeMainEffects = T)
 
-posteriorPlots('figures/traitFig.PostProc.Climate.Quadratic')
+posteriorPlots('figures/traitFig.PostProc.Climate')
