@@ -9,7 +9,7 @@ source('figures/traitFig.N-P.Ratio.R')
 # source('figures/traitFig.Soil.P.Yang.R')
 source('figures/traitFig.Soil.P.Yang.Sub.R')
 source('figures/traitFig.Soil.MicrobBiomass.Xu.R')
-source('figures/traitFig.MapSpecies.High.Low.NPSLA.R')
+# source('figures/traitFig.MapSpecies.High.Low.NPSLA.R')
 
 
 source('figures/traitFig.Decid-Ever.R')
@@ -17,7 +17,6 @@ source('figures/traitFig.CondOnLeaf.R')
 #source('figures/traitFig.FilterOnLeaf.R')
 
 source('figures/traitFig.PostProc.Climate.R')
-source('figures/traitFig.PostProc.Climate.Quadratic.R')
 source('figures/traitFig.PostProc.Soil.R')
 source('figures/traitFig.PostProc.Interactions.Moisture.R')
 source('figures/traitFig.PostProc.Interactions.Deficit.R')
