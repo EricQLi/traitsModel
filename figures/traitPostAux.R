@@ -181,3 +181,27 @@ mapMultiSpecies <- function(group, nameFile, txtTitle, plotByW, plotByX){
   
   dev.off()
 }
+
+posteriorPlots <- function(pngName){
+  
+  png(paste0(pngName, '-1', '.png'), width = 4, height = 6, res =150, units='in')
+  par(mfrow=c(3,1), bty='n', xaxt='s', yaxt='n', mar=c(1,1,1,1), oma=c(1,1,1,1))
+  for(t in c('N','P','SLA')){
+    chains <- post$chains[,which(post$nameMatrix[,trait]==t)]
+    plotGibbsBoxplots(chains, textAdj = 0, labels = post$nameMatrix$predictor, sigPlot = F, sort = F)
+    # plotGibbsChains(chains, labels = post$nameMatrix$predictor)
+    mtext(text = t, side = 2, line = 0, cex=2, font=2)
+  }
+  dev.off()
+  
+  png(paste0(pngName, '-2', '.png'), width = 4, height = 6, res =150, units='in')
+  par(mfrow=c(3,1), bty='n', xaxt='s', yaxt='n', mar=c(1,1,1,1), oma=c(1,1,1,1))
+  for(t in c('N','P','SLA')){
+    chains <- post$chains[,which(post$nameMatrix[,trait]==t)]
+    plotGibbsDensity(chains, labels = post$nameMatrix$predictor, txtAdj = 0, title.text = '', xlab = '', ylab = '')
+    mtext(text = t, side = 2, line = 0, cex=2, font=2)
+  }
+  dev.off()
+  
+}
+
