@@ -34,3 +34,9 @@ traitTypes <- c(rep('CON',6), rep('CAT', 1))
 
 rareSpecies <- which(colSums(plotByY>0)/nrow(plotByY)<.02)
 rareSpecies
+
+
+sdTraits <- apply(plotByW%*%as.matrix(speciesByTraits[,1:6]), 2, sd)
+sdTraits <- c(sdTraits, rep(1,3))
+names(sdTraits)[7:9] <- c('leafother', 'leafDeciduous', 'leafNLEver')
+sdTraits
