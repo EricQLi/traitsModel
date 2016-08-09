@@ -8,9 +8,11 @@ post <- postGibbsChains(betachains = output$chains$agibbs,
                         predictorsToPlot = c('soilAlfInc', 'soilEntVert','soilMol', 'soilSpodHist','soilUltKan'), 
                         onlySignificant = F, 
                         normalized = T, 
+                        standardizedT = T,
+                        sdTraits = sdTraits,
                         excludeIntercept  =F,
                         includeInteractions = F,
                         includeMainEffects = T)
 
-posteriorPlots('figures/traitFig.PostProc.Soil')
+posteriorPlots(post, 'figures/traitFig.PostProc.Soil')
 

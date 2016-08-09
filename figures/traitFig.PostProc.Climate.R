@@ -8,8 +8,10 @@ post <- postGibbsChains(betachains = output$chains$agibbs,
                         predictorsToPlot = c('temp', 'moisture','deficit','I(temp^2)', 'I(deficit^2)', 'I(moisture^2)'), 
                         onlySignificant = F, 
                         normalized = T, 
+                        standardizedT = T,
+                        sdTraits = sdTraits,
                         excludeIntercept  =F,
                         includeInteractions = F,
                         includeMainEffects = T)
 
-posteriorPlots('figures/traitFig.PostProc.Climate')
+posteriorPlots(post, 'figures/traitFig.PostProc.Climate')

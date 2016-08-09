@@ -13,7 +13,7 @@ plotSensitivity <- function(pngName, txtTitle, paramSensList, traitNames, colLis
   
   png(pngName, units='in',res=300, height  = 5, width=13)
   par(mfrow=c(1,3), oma=c(1,0,7,0), mar=c(2,3,1,1))
-#  par(mfrow=c(1,3), oma=c(0.0,0,5,0), mar=c(3,3,3,0))
+  #  par(mfrow=c(1,3), oma=c(0.0,0,5,0), mar=c(3,3,3,0))
   for(j in 4:6){
     
     ssj <- paramSensList[[j-3]]$mean
@@ -71,10 +71,12 @@ postGibbsChains <- function(betachains,
                             traitsToPlot=NULL,
                             predictorsToPlot=NULL, 
                             normalized = T,
+                            standardizedT = F, 
                             includeInteractions=T,
                             includeMainEffects =T,
                             excludeIntercept = T,
-                            onlySignificant=T){
+                            onlySignificant=T, 
+                            sdTraits=NULL){
   
   wFactors <- which(apply(output$x, 2, function(x)all(x%in%c(0,1))))
   sdCols <- apply(output$x, 2, sd)
@@ -107,7 +109,10 @@ postGibbsChains <- function(betachains,
   
   
   sdCols <- sdCols[match(fullMatrix$predictor, names(sdCols))]
+  sdTraits <- sdTraits[match(fullMatrix$trait, names(sdTraits))]
+  
   if(normalized) chains <- t(t(chains)*sdCols)
+  if(standardizedT) chains <- t(t(chains)/sdTraits)
   
   summChains <- t(apply(chains, 2, quantile, probs=c(.5,.025,.975)))
   colnames(summChains) <- c('median','low','high')
@@ -117,10 +122,10 @@ postGibbsChains <- function(betachains,
   if(is.null(traitsToPlot)) traitsToPlot <- unique(fullMatrix$trait)
   if(is.null(predictorsToPlot)) predictorsToPlot <- unique(fullMatrix$predictor)
   
-   predictorFilter = 1:nrow(fullMatrix)%in%unique(unlist(apply(as.matrix(predictorsToPlot), 1, grep, fullMatrix$predictor)))
-   interactionFilter<- c(includeInteractions, !includeMainEffects)
-   if(!(includeInteractions|includeMainEffects)) interactionFilter <- c()
-   
+  predictorFilter = 1:nrow(fullMatrix)%in%unique(unlist(apply(as.matrix(predictorsToPlot), 1, grep, fullMatrix$predictor)))
+  interactionFilter<- c(includeInteractions, !includeMainEffects)
+  if(!(includeInteractions|includeMainEffects)) interactionFilter <- c()
+  
   nameMatrix <- fullMatrix[
     trait%in%traitsToPlot&
       (predictor%in%predictorsToPlot|
@@ -182,7 +187,7 @@ mapMultiSpecies <- function(group, nameFile, txtTitle, plotByW, plotByX){
   dev.off()
 }
 
-posteriorPlots <- function(pngName){
+posteriorPlots <- function(post, pngName){
   
   png(paste0(pngName, '-1', '.png'), width = 4, height = 6, res =150, units='in')
   par(mfrow=c(3,1), bty='n', xaxt='s', yaxt='n', mar=c(1,1,1,1), oma=c(1,1,1,1))

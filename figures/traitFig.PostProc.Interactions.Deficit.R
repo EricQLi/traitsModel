@@ -8,9 +8,11 @@ post <- postGibbsChains(betachains = output$chains$agibbs,
                         predictorsToPlot = c('deficit'), 
                         onlySignificant = F, 
                         normalized = T, 
+                        standardizedT = T,
+                        sdTraits = sdTraits,
                         excludeIntercept  =F,
                         includeInteractions = T,
                         includeMainEffects = F)
 
-posteriorPlots('figures/traitFig.PostProc.Interactions.Deficit')
+posteriorPlots(post, 'figures/traitFig.PostProc.Interactions.Deficit')
 
