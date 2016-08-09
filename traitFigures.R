@@ -1,6 +1,7 @@
 source('figures/traitFig.Env-Soil-Eco.R')
 
 source('figures/traitFig.N-P-SLA.Mass.R')
+source('figures/traitFig.N-P-SLA.Mass.Pred.R')
 source('figures/traitFig.N-P.Area.R')
 source('figures/traitFig.N-P.Ratio.R')
 
