@@ -41,18 +41,26 @@ save.image(paste('output-mainModel',
                  '.RData', sep = '-'))
 
 output$modelSummary$betaTraitMu
+out <- output
 
-# wf <- grep("leaf",tnames)                              # leaf habit
-# wc <- which(tnames %in% c("WD","MH","SM") ) # wood anatomy
-# 
-# boxBorder[wc] <- 'brown';     boxCol[wc] <- 'tan'
-# boxBorder[wf] <- 'darkblue';  boxCol[wf] <- 'lightblue'
-# boxBorder[wo] <- 'darkgreen'; boxCol[wo] <- 'lightgreen'
-# 
-# pl  <- list(width = 3, height = 3, GRIDPLOTS = TRUE, plotAllY = T,
-#             boxBorder = boxBorder, boxCol = boxCol, 
-#             SMALLPLOTS = F, SAVEPLOTS=T, sigOnly=F, 
-#             sdScaleX = T, sdScaleY = T)
+specByTrait <- traitList$specByTrait
 
-# fit <- gjamPlot(output = output, plotPars = pl)
 
+S <- nrow(specByTrait)
+boxBorder <- rep('black',S)
+boxCol    <- rep('white',S)
+
+wr <- which(specByTrait[,'N'] == 1)                  # leaf N
+ws <- which(specByTrait[,'P'] == 1)                  # leaf P
+wb <- which(specByTrait[,'SLA'] == 1)                  # SLA
+
+boxBorder[wr] <- 'brown'; boxCol[wr] <- 'tan'
+boxBorder[ws] <- 'black'; boxCol[ws] <- 'grey'
+boxBorder[wb] <- 'darkgreen'; boxCol[wb] <- 'lightgreen'
+
+par(family = '')
+pl  <- list(width=4, height=4, corLines=F, 
+            SMALLPLOTS=F,GRIDPLOTS=T, SAVEPLOTS=T,
+            boxBorder = boxBorder, boxCol = boxCol)       
+
+gjamPlot(output = out, pl)
