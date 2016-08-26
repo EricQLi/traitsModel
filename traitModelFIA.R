@@ -64,3 +64,9 @@ pl  <- list(width=4, height=4, corLines=F,
             boxBorder = boxBorder, boxCol = boxCol)       
 
 gjamPlot(output = out, pl)
+
+
+wFactors <- which(apply(output$x, 2, function(x)all(x%in%c(0,1))))
+sdCols <- apply(output$x, 2, sd)
+sdCols[wFactors] <- 1
+
