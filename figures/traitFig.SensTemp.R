@@ -18,6 +18,6 @@ pngName <- 'figures/traitFig.SensTemp.png'
 
 traitNames <- colnames(traitList$plotByTrait)
 paramSensList <- getSensitivity(param, output, traitNames, traitData)
-plotSensitivity(pngName, txtTitle, paramSensList, traitNames)
+plotSensitivity(pngName, txtTitle, paramSensList, traitNames, subFigIndex = c('(a)', '(b)', '(c)') )
 # plotSensitivitySign(pngNameSign, txtTitle, paramSensList, traitNames)
 

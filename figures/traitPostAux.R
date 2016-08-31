@@ -9,7 +9,9 @@ require(data.table)
 # predictorsToPlot <- NULL
 # onlySignificant <- T
 
-plotSensitivity <- function(pngName, txtTitle, paramSensList, traitNames, colList=rev(colList.SurfAndTurf)){
+plotSensitivity <- function(pngName, txtTitle, paramSensList, traitNames, 
+                            colList=rev(colList.SurfAndTurf),
+                            subFigIndex = c('(a)','(b)','(c)') ){
   
   png(pngName, units='in',res=300, height  = 5, width=13)
   par(mfrow=c(1,3), oma=c(1,0,7,0), mar=c(2,3,1,1))
@@ -31,7 +33,7 @@ plotSensitivity <- function(pngName, txtTitle, paramSensList, traitNames, colLis
                  cex.all = 2, colList = colList, symSize=1.2, alpha = .5)
     
     mtext(text = traitNames[j], side = 3, line = .7, cex=2)
-    mtext(text =  switch(j-3, '(a)','(b)','(c)'), side = 3, line = 1.5,at = -100, cex=2)
+    mtext(text =  subFigIndex[j-3], side = 3, line = 1.5,at = -100, cex=2)
     plot(mapRegion, add=T)
     par(xaxt='s', yaxt='s')
     axis(1, cex.axis=1.7)
@@ -41,7 +43,9 @@ plotSensitivity <- function(pngName, txtTitle, paramSensList, traitNames, colLis
   dev.off()
   
 }
-plotSensitivitySign <- function(pngName, txtTitle, paramSensList, traitNames, colList=c( "#5e3c99", "#f7f7f7", "#e66101")){
+plotSensitivitySign <- function(pngName, txtTitle, paramSensList, traitNames, 
+                                colList=c( "#5e3c99", "#f7f7f7", "#e66101"),
+                                subFigIndex = c('(a)','(b)','(c)') ){
   
   png(pngName, units='in',res=300, height  = 5, width=15)
   par(mfrow=c(1,3), oma=c(0.0,0,2,0))
@@ -56,7 +60,7 @@ plotSensitivitySign <- function(pngName, txtTitle, paramSensList, traitNames, co
                  cex.all = 2, colList = colList, symSize=.7)
     
     mtext(text = traitNames[j], side = 3, line = .7, cex=2)
-    mtext(text =  switch(j-3, '(a)','(b)','(c)'), side = 3, line = 1.5,at = -100, cex=2)
+    mtext(text =  subFigIndex[j-3], side = 3, line = 1.5,at = -100, cex=2)
     
     par(xaxt='s', yaxt='s')
     axis(1, cex.axis=1.7)

@@ -17,6 +17,6 @@ pngName <- 'figures/traitFig.SensMoisture.png'
 
 traitNames <- colnames(traitList$plotByTrait)
 paramSensList <- getSensitivity(param, output, traitNames, traitData)
-plotSensitivity(pngName, txtTitle, paramSensList, traitNames)
+plotSensitivity(pngName, txtTitle, paramSensList, traitNames, subFigIndex = c('(g)', '(h)', '(i)') )
 # plotSensitivitySign(pngNameSign, txtTitle, paramSensList, traitNames)
 
