@@ -69,5 +69,10 @@ gjamPlot(output = out, pl)
 wFactors <- which(apply(output$x, 2, function(x)all(x%in%c(0,1))))
 sdCols <- apply(output$x, 2, sd)
 sdCols[wFactors] <- 1
-write.csv(output$modelSummary$betaTraitMu[,4:6]/sdCols, file = 'betaTraitMu.csv')
+
+muTable <- output$modelSummary$betaTraitMu[,4:6]*sdCols/matrix(sdTraits[4:6],nrow = ncol(output$x), 3, byrow = T)
+seTable <- output$modelSummary$betaTraitSe[,4:6]*sdCols/matrix(sdTraits[4:6],nrow = ncol(output$x), 3, byrow = T)
+
+write.csv(muTable, file = 'betaTraitMu.csv')
+write.csv(seTable, file = 'betaTraitSe.csv')
 
