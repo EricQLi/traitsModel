@@ -9,7 +9,7 @@ source('figures/traitColorSet.R')
 
 source('figures/traitPostAux.R')
 
-param <- 'moisture'
+param <- c('moisture', 'I(moisture^2)')
 txtTitle <- 'Sensitivity to moisture (dimensionless)'
 pngName <- 'figures/traitFig.SensMoisture.png'
 # interactionsList = c("deficit","soilAlfInc","soilEntVert","soilMol","soilSpodHist","soilUltKan")

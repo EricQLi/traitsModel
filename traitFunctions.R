@@ -25,10 +25,14 @@ getSensitivity <- function(param, output, traitNames, traitData, normalized = T)
     
     tmp <- as.data.table(postParam$nameMatrix)[, .(interaction,pred1, pred2)]
     tmp[,inter:=pred1]
-    tmp[inter==param,inter:=pred2]
-    tmp[interaction==F, inter:=param]   
+    tmp[,fact:=1]
+    tmp[inter==param[1],inter:=pred2]
+    tmp[interaction==F, inter:=param[1]]   
     
-    sensVectors <- output$x[,tmp$inter]
+    tmp[grep('\\^2',tmp$pred1),interaction:=T]
+    tmp[grep('\\^2',tmp$pred1),fact:=2]
+    
+    sensVectors <- output$x[,tmp$inter]*tmp$fact
     sensVectors[,!tmp$interaction] <- 1
     # sensVectors <- cbind(1, output$x[,interactionsList])
     
