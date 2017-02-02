@@ -7,6 +7,8 @@ source('~/Projects/procVisData/dataViz.R')
 source('traitFunctions.R')
 source('figures/traitColorSet.R')
 
+statsParam <- c(.05,.25,.5,.75,.95) 
+
 #####################################
 CWT <- getCWT.Mass.Area(output, speciesByTraits, plotByW)
 
@@ -32,22 +34,22 @@ mtext(text = expression(Latitude~(degree)), side = 2, line = 3.5, cex=1.5)
 mtext('(a)', 3, at = -68, line = -2.5, cex=2)
 
 par(xaxt='s', yaxt='n',bty='n')
-tmp = myBinPlot(g$lat, g$NP, xbreaks = seq(25,50, 3), noPlot = T)
-boxplot(tmp$bins, horizontal = T, varwidth = T, outline = F)
+tmp = xyBinPlot(g$lat, g$NP, xbreaks = seq(25,50, 3), noPlot = T)
+boxplot(tmp$bins, horizontal = T, varwidth = T, outline = F,  statsParam = statsParam)
 lines(tmp$q[,3], 1:nrow(tmp$q), lwd=10, col='#80808080')
 mtext(text = expression(bar('N:P')), side = 1, line = 3.5, cex=1.5)
 mtext('(b)', 3, at = 17.3, line = -2.5, cex=2)
 
 par(xaxt='n',yaxt='s')
-tmp = myBinPlot(g$lon, g$NP, xbreaks = seq(-100,-65, 5), noPlot = T)
-boxplot(tmp$bins, varwidth = T, outline = F)
+tmp = xyBinPlot(g$lon, g$NP, xbreaks = seq(-100,-65, 5), noPlot = T)
+boxplot(tmp$bins, varwidth = T, outline = F, statsParam = statsParam)
 lines(tmp$q[,3], lwd=10, col='#80808080')
 mtext(text = expression(bar('N:P')), side = 2, line = 3, cex=1.5)
 mtext('(c)', 3, cex=2 , at=7.3, line=2)
 
 par(yaxt='n')
-tmp = myBinPlot(g$elev, g$NP, xbreaks = seq(0,800, 100), noPlot = T)
-boxplot(tmp$bins, varwidth = T, outline = F)
+tmp = xyBinPlot(g$elev, g$NP, xbreaks = seq(0,800, 100), noPlot = T)
+boxplot(tmp$bins, varwidth = T, outline = F, statsParam=statsParam)
 par(xaxt='s',yaxt='s')
 axis(3, at = 1:8, labels = c(1:8)*100)
 lines(tmp$q[,3], lwd=10, col='#80808080')

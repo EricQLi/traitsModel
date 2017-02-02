@@ -27,6 +27,8 @@ for(j in 4:6){
         side = 3, line = .7, cex=2)
   mtext(text =  switch(j-3, '(a)','(b)','(c)'), side = 3, line = 1.5,at = -100, cex=2)
   
+  mapOutlines(glacialLine, mapRegion, lwd2 = 8)
+  
   par(xaxt='s', yaxt='s')
   
   axis(1, cex.axis=1.7)
