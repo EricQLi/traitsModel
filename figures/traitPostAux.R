@@ -80,7 +80,8 @@ postGibbsChains <- function(betachains,
                             includeMainEffects =T,
                             excludeIntercept = T,
                             onlySignificant=T, 
-                            sdTraits=NULL){
+                            sdTraits=NULL, 
+                            exactPredictors=F){
   
   wFactors <- which(apply(output$x, 2, function(x)all(x%in%c(0,1))))
   sdCols <- apply(output$x, 2, sd)
@@ -130,7 +131,8 @@ postGibbsChains <- function(betachains,
   interactionFilter<- c(includeInteractions, !includeMainEffects)
   if(!(includeInteractions|includeMainEffects)) interactionFilter <- c()
   
-  nameMatrix <- fullMatrix[
+  if(!exactPredictors){
+    nameMatrix <- fullMatrix[
     trait%in%traitsToPlot&
       (predictor%in%predictorsToPlot|
          pred1%in%predictorsToPlot|
@@ -140,6 +142,14 @@ postGibbsChains <- function(betachains,
       interaction%in%interactionFilter&
       ((predictor!='intercept')|!excludeIntercept)
     , ]
+  }else{
+    nameMatrix <- fullMatrix[
+      trait%in%traitsToPlot&
+        predictor%in%predictorsToPlot&
+        (signifcant|!onlySignificant)&
+        ((predictor!='intercept')|!excludeIntercept)
+      , ]
+  }
   
   list(    chains = chains[, nameMatrix$id],
            nameMatrix = nameMatrix,
@@ -191,13 +201,13 @@ mapMultiSpecies <- function(group, nameFile, txtTitle, plotByW, plotByX){
   dev.off()
 }
 
-posteriorPlots <- function(post, pngName){
+posteriorPlots <- function(post, pngName, statsParam=c(.025,.25,.50,.75,.975)){
   
   png(paste0(pngName, '-1', '.png'), width = 4, height = 6, res =150, units='in')
   par(mfrow=c(3,1), bty='n', xaxt='s', yaxt='n', mar=c(1,1,1,1), oma=c(1,1,1,1))
   for(t in c('N','P','SLA')){
     chains <- post$chains[,which(post$nameMatrix[,trait]==t)]
-    plotGibbsBoxplots(chains, textAdj = 0, labels = post$nameMatrix$predictor, sigPlot = F, sort = F)
+    plotGibbsBoxplots(chains, statsParam= statsParam, textAdj = 0, labels = post$nameMatrix$predictor, sigPlot = F, sort = F)
     # plotGibbsChains(chains, labels = post$nameMatrix$predictor)
     mtext(text = t, side = 2, line = 0, cex=2, font=2)
   }

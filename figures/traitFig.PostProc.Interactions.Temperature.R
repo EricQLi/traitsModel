@@ -14,5 +14,5 @@ post <- postGibbsChains(betachains = output$chains$agibbs,
                         includeInteractions = T,
                         includeMainEffects = F)
 
-posteriorPlots(post, 'figures/traitFig.PostProc.Interactions.Temperature')
+posteriorPlots(post, 'figures/traitFig.PostProc.Interactions.Temperature', statsParam=statsParam)
 

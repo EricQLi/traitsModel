@@ -17,6 +17,8 @@ source('figures/traitFig.Decid-Ever.R')
 source('figures/traitFig.CondOnLeaf.R')
 #source('figures/traitFig.FilterOnLeaf.R')
 
+
+statsParam=c(.15,.35,.50,.65,.85)
 source('figures/traitFig.PostProc.Climate.R')
 source('figures/traitFig.PostProc.Soil.R')
 source('figures/traitFig.PostProc.Interactions.Moisture.R')

@@ -1,0 +1,14 @@
+Predictors,DIC,-1.93E+34
+~ temp + moist + deficit + soil +u1 + u2 + u3 + moist:temp + moist:soil + temp:soil + deficit:soil + deficit:temp,-1.93E+34,0.00E+00
+~ temp + moist + deficit + soil +u1 + u2 + u3 + moist:deficit + moist:temp + moist:soil + temp:soil +deficit:soil + deficit:temp,-1.90E+34,3.36E+32
+~ temp + moist + deficit + soil +u1 + u2 + u3 + moist:deficit + moist:soil + temp:soil + deficit:soil + deficit:temp,-1.89E+34,4.49E+32
+~ temp + moist + deficit + soil +u1 + u2 + u3 + moist:soil + temp:soil + deficit:soil + deficit:temp,-1.82E+34,1.07E+33
+~ temp + moist + deficit + soil +u1 + u2 + u3 + moist:deficit + moist:temp + temp:soil + deficit:soil + deficit:temp,-1.79E+34,1.43E+33
+~ temp + moist + deficit + soil +u1 + u2 + u3 + moist:temp + moist:soil + temp:soil + deficit:temp,-1.77E+34,1.58E+33
+~ temp + moist + deficit + soil +u1 + u2 + u3 + moist:soil + temp:soil + deficit:temp,-1.74E+34,1.93E+33
+~ temp + moist + deficit + soil +u1 + u2 + u3 + moist:deficit + moist:temp + moist:soil + temp:soil + deficit:temp,-1.73E+34,1.97E+33
+~ temp + moist + deficit + soil +u1 + u2 + u3 + moist:deficit + moist:temp + temp:soil + deficit:temp,-1.71E+34,2.23E+33
+~ temp + moist + deficit + soil +u1 + u2 + u3 + moist:deficit + moist:soil + temp:soil + deficit:temp,-1.68E+34,2.54E+33
+~ temp + moist + deficit + soil +u1 + u2 + u3 + moist:deficit + moist:soil + deficit:soil + deficit:temp,-1.66E+34,2.74E+33
+~ temp + moist + deficit + soil +u1 + u2 + u3 + moist:deficit + moist:temp + moist:soil + deficit:soil + deficit:temp,-1.65E+34,2.79E+33
+,,

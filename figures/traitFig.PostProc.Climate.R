@@ -5,13 +5,14 @@ source('~/Projects/procVisData/dataViz.R')
 post <- postGibbsChains(betachains = output$chains$agibbs, 
                         burnin = output$burnin,
                         traitsToPlot = c('N','P','SLA') ,
-                        predictorsToPlot = c('temp', 'moisture','deficit','I(temp^2)', 'I(deficit^2)', 'I(moisture^2)'), 
+                        predictorsToPlot = c('temp', 'moisture','deficit','I(moisture^2)', 'moisture:deficit'), 
                         onlySignificant = F, 
                         normalized = T, 
                         standardizedT = T,
                         sdTraits = sdTraits,
                         excludeIntercept  =F,
                         includeInteractions = F,
-                        includeMainEffects = T)
+                        includeMainEffects = T,
+                        exactPredictors = T)
 
-posteriorPlots(post, 'figures/traitFig.PostProc.Climate')
+posteriorPlots(post, 'figures/traitFig.PostProc.Climate', statsParam=statsParam)

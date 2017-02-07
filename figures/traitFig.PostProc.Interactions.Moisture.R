@@ -14,6 +14,6 @@ post <- postGibbsChains(betachains = output$chains$agibbs,
                         includeInteractions = T,
                         includeMainEffects = F)
 
-posteriorPlots(post, 'figures/traitFig.PostProc.Interactions.Moisture')
+posteriorPlots(post, 'figures/traitFig.PostProc.Interactions.Moisture', statsParam=statsParam)
 
 

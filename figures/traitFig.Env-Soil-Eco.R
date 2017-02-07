@@ -18,15 +18,19 @@ for(fig in 1:6){
   wSoil <- match(plotByX$soil, soilColTable[,1])
   wSoil[is.na(wSoil)] <- 3
   colS <- switch(fig, NULL, NULL, NULL, NULL, colListSoil[wSoil])
+  cex.all <- switch(fig, 5,5,5,5 ,2)
+  legend.col <- switch(fig, 'black', 'black', 'black', 'black', colListSoil)
   if(fig!=6){
     valRange <- range(zz)
     if(fig<5)valRange <- quantile(zz, probs=seq(.1,.9, length.out = 100))
-    mapColorData( symSize = symSize, x = plotByX$plotLon, y = plotByX$plotLat, data = zz, 
-                  legend.txt = legend.txt, legend.col = colListSoil, 
+    if(fig<5)legend.txt <- signif(range(valRange),1)
+    mapColorData( symSize = symSize, x = plotByX$plotLon, y = plotByX$plotLat,
+                  data = zz,
+                  legend.txt = legend.txt, legend.col = legend.col, 
                   valRange = valRange,statesborder = F, 
                   xlim = range(plotByX$plotLon), 
                   ylim = range(plotByX$plotLat), 
-                  colList = colList ,cex.all = 2, col=colS)
+                  colList = colList ,cex.all = cex.all, col=colS)
     mapOutlines(glacialLine, mapRegion)
   }
   if(fig==6){

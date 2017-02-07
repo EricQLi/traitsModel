@@ -14,5 +14,5 @@ post <- postGibbsChains(betachains = output$chains$agibbs,
                         includeInteractions = F,
                         includeMainEffects = T)
 
-posteriorPlots(post, 'figures/traitFig.PostProc.Soil')
+posteriorPlots(post, 'figures/traitFig.PostProc.Soil', statsParam=statsParam)
 
